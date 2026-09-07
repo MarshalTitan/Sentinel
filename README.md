@@ -5,7 +5,7 @@ This repository is the public catalog for independently versioned Dalamud plugin
 Add this URL under **Dalamud Settings → Experimental → Custom Plugin Repositories**:
 
 ```text
-https://raw.githubusercontent.com/MarshalTitan/DalamudPlugins/main/repo.json
+https://raw.githubusercontent.com/MarshalTitan/Sentinel/main/repo.json
 ```
 
 Then open `/xlplugins`, search for the plugin, and choose **Install**.

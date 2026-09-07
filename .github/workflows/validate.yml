@@ -1,0 +1,21 @@
+name: Validate Catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - name: Check out catalog
+        uses: actions/checkout@v4
+
+      - name: Validate metadata and simulate fresh installs
+        shell: pwsh
+        run: ./.github/scripts/Test-Catalog.ps1 -CatalogPath 'repo.json' -VerifyRemoteAssets

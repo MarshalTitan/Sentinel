@@ -1,0 +1,86 @@
+name: Update Plugin Entry
+
+on:
+  workflow_dispatch:
+    inputs:
+      internal_name:
+        description: Existing catalog InternalName to update
+        required: true
+        type: string
+      version:
+        description: Published four-part plugin version
+        required: true
+        type: string
+      release_asset_url:
+        description: Optional permanent GitHub Release ZIP URL; leave empty to derive it from the current entry
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-plugin-catalog
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: windows-latest
+    steps:
+      - name: Check out catalog
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Update exactly one catalog entry
+        shell: pwsh
+        run: >-
+          ./.github/scripts/Update-PluginEntry.ps1
+          -ManifestPath 'repo.json'
+          -InternalName '${{ inputs.internal_name }}'
+          -Version '${{ inputs.version }}'
+          -ReleaseAssetUrl '${{ inputs.release_asset_url }}'
+
+      - name: Validate metadata and simulate fresh installs before publishing
+        shell: pwsh
+        run: >-
+          ./.github/scripts/Test-Catalog.ps1
+          -CatalogPath 'repo.json'
+          -VerifyRemoteAssets
+          -ExpectedInternalName '${{ inputs.internal_name }}'
+          -ExpectedVersion '${{ inputs.version }}'
+
+      - name: Commit catalog update
+        shell: pwsh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- repo.json
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "Update ${{ inputs.internal_name }} to ${{ inputs.version }}"
+            git push origin HEAD:main
+          }
+
+      - name: Verify the public catalog after publishing
+        shell: pwsh
+        run: |
+          $expectedVersion = '${{ inputs.version }}'
+          $expectedInternalName = '${{ inputs.internal_name }}'
+          $publicPath = Join-Path $env:RUNNER_TEMP 'public-repo.json'
+          $published = $false
+          for ($attempt = 1; $attempt -le 12; $attempt++) {
+            $cacheBuster = [Uri]::EscapeDataString("${{ github.run_id }}-$attempt-$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())")
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MarshalTitan/DalamudPlugins/main/repo.json?catalog=$cacheBuster" -OutFile $publicPath
+            $entries = @(Get-Content -LiteralPath $publicPath -Raw | ConvertFrom-Json)
+            $entry = $entries | Where-Object { $_.InternalName -eq $expectedInternalName } | Select-Object -First 1
+            if ($null -ne $entry -and $entry.AssemblyVersion -eq $expectedVersion) {
+              $published = $true
+              break
+            }
+            Start-Sleep -Seconds 5
+          }
+          if (-not $published) {
+            throw "The public catalog did not publish $expectedInternalName $expectedVersion before the retry limit."
+          }
+          ./.github/scripts/Test-Catalog.ps1 -CatalogPath $publicPath -VerifyRemoteAssets -ExpectedInternalName $expectedInternalName -ExpectedVersion $expectedVersion

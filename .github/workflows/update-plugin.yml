@@ -71,7 +71,7 @@ jobs:
           $published = $false
           for ($attempt = 1; $attempt -le 12; $attempt++) {
             $cacheBuster = [Uri]::EscapeDataString("${{ github.run_id }}-$attempt-$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())")
-            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MarshalTitan/DalamudPlugins/main/repo.json?catalog=$cacheBuster" -OutFile $publicPath
+            Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MarshalTitan/Sentinel/main/repo.json?catalog=$cacheBuster" -OutFile $publicPath
             $entries = @(Get-Content -LiteralPath $publicPath -Raw | ConvertFrom-Json)
             $entry = $entries | Where-Object { $_.InternalName -eq $expectedInternalName } | Select-Object -First 1
             if ($null -ne $entry -and $entry.AssemblyVersion -eq $expectedVersion) {

@@ -16,7 +16,7 @@ if ($entries.Count -eq 0) {
     throw 'repo.json must contain at least one plugin entry.'
 }
 
-$requiredText = @('Author', 'Name', 'Punchline', 'Description', 'InternalName', 'AssemblyVersion', 'RepoUrl', 'IconUrl', 'DownloadLinkInstall', 'DownloadLinkUpdate')
+$requiredText = @('Author', 'Name', 'Punchline', 'Description', 'InternalName', 'AssemblyVersion', 'RepoUrl', 'DownloadLinkInstall', 'DownloadLinkUpdate')
 $seenInternalNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
 $seenNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
 $temporaryBase = if ([string]::IsNullOrWhiteSpace($env:RUNNER_TEMP)) {
@@ -55,10 +55,13 @@ try {
             throw "Invalid Dalamud API metadata for $($entry.InternalName)."
         }
 
-        foreach ($property in @('RepoUrl', 'IconUrl', 'DownloadLinkInstall', 'DownloadLinkUpdate', 'DownloadLinkTesting')) {
+        foreach ($property in @('RepoUrl', 'DownloadLinkInstall', 'DownloadLinkUpdate', 'DownloadLinkTesting')) {
             if ([string]$entry.$property -notmatch '^https://') {
                 throw "$property must use HTTPS for $($entry.InternalName)."
             }
+        }
+        if (-not [string]::IsNullOrWhiteSpace([string]$entry.IconUrl) -and [string]$entry.IconUrl -notmatch '^https://') {
+            throw "IconUrl must use HTTPS for $($entry.InternalName)."
         }
 
         if ([string]$entry.DownloadLinkInstall -notmatch '^https://github\.com/[^/]+/[^/]+/releases/download/v[^/]+/[^/]+\.zip$') {
@@ -72,11 +75,13 @@ try {
             $entryRoot = Join-Path $testRoot ([string]$entry.InternalName)
             New-Item -ItemType Directory -Path $entryRoot | Out-Null
 
-            $iconPath = Join-Path $entryRoot 'icon.png'
-            Invoke-WebRequest -Uri $entry.IconUrl -OutFile $iconPath -MaximumRedirection 10
-            $iconBytes = [System.IO.File]::ReadAllBytes($iconPath)
-            if ($iconBytes.Length -lt 24 -or $iconBytes[0] -ne 0x89 -or $iconBytes[1] -ne 0x50 -or $iconBytes[2] -ne 0x4E -or $iconBytes[3] -ne 0x47) {
-                throw "IconUrl is not a valid PNG for $($entry.InternalName)."
+            if (-not [string]::IsNullOrWhiteSpace([string]$entry.IconUrl)) {
+                $iconPath = Join-Path $entryRoot 'icon.png'
+                Invoke-WebRequest -Uri $entry.IconUrl -OutFile $iconPath -MaximumRedirection 10
+                $iconBytes = [System.IO.File]::ReadAllBytes($iconPath)
+                if ($iconBytes.Length -lt 24 -or $iconBytes[0] -ne 0x89 -or $iconBytes[1] -ne 0x50 -or $iconBytes[2] -ne 0x4E -or $iconBytes[3] -ne 0x47) {
+                    throw "IconUrl is not a valid PNG for $($entry.InternalName)."
+                }
             }
 
             $packagePath = Join-Path $entryRoot 'plugin.zip'

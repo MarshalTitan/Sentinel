@@ -55,7 +55,7 @@
     ]
   },
   {
-    "Author": "MTitan",
+    "Author": "MarshalTitan",
     "Name": "PvP Sentinel",
     "Punchline": "Testing build for explainable Frontline group-following and MCH decisions.",
     "Description": "Testing-exclusive Frontline development plugin with fail-closed player classification, friendly-force clustering, stable target and group commitment, vnavmesh navigation integration, an opt-in MCH combat controller, and detailed diagnostics.",
@@ -63,6 +63,7 @@
     "AssemblyVersion": "0.1.2.0",
     "TestingAssemblyVersion": "0.1.2.0",
     "RepoUrl": "https://github.com/MarshalTitan/PvPSentinel",
+    "IconUrl": "https://raw.githubusercontent.com/MarshalTitan/PvPSentinel/main/assets/icon.png",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 15,
     "TestingDalamudApiLevel": 15,

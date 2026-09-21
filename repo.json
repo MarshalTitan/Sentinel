@@ -141,5 +141,34 @@
       "utility",
       "sentinel"
     ]
+  },
+  {
+    "Author": "MTitan",
+    "Name": "Sentinel Relay",
+    "Punchline": "Testing beta: private FFXIV-to-Discord relay with no hosted backend.",
+    "Description": "Testing beta for Wrothy and Elektra. Sends explicitly selected FFXIV chat channels directly to a per-character Discord webhook. All filters default off; no bot, paid hosting, or Discord-to-FFXIV control is required.",
+    "InternalName": "SentinelRelay",
+    "AssemblyVersion": "0.1.0.0",
+    "TestingAssemblyVersion": "0.1.0.0",
+    "RepoUrl": "https://github.com/MarshalTitan/SentinelRelay",
+    "IconUrl": "https://raw.githubusercontent.com/MarshalTitan/SentinelRelay/main/assets/icon.png",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "TestingDalamudApiLevel": 15,
+    "IsHide": false,
+    "IsTestingExclusive": true,
+    "DownloadCount": 0,
+    "LastUpdate": 1789999690,
+    "LoadPriority": 0,
+    "DownloadLinkInstall": "https://github.com/MarshalTitan/SentinelRelay/releases/download/v0.1.0.0/SentinelRelay.zip",
+    "DownloadLinkUpdate": "https://github.com/MarshalTitan/SentinelRelay/releases/download/v0.1.0.0/SentinelRelay.zip",
+    "DownloadLinkTesting": "https://github.com/MarshalTitan/SentinelRelay/releases/download/v0.1.0.0/SentinelRelay.zip",
+    "Tags": [
+      "chat",
+      "discord",
+      "relay",
+      "utility",
+      "sentinel"
+    ]
   }
 ]

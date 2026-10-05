@@ -1,0 +1,12 @@
+{
+  "name": "sentinel-central-catalog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node generator/generate-catalog.mjs --verify-assets",
+    "test": "node --test generator/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -11,11 +11,26 @@ permissions:
 
 jobs:
   validate:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Check out catalog
         uses: actions/checkout@v4
 
-      - name: Validate metadata and simulate fresh installs
-        shell: pwsh
-        run: ./.github/scripts/Test-Catalog.ps1 -CatalogPath 'repo.json' -VerifyRemoteAssets
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run generator tests
+        run: npm test
+
+      - name: Generate from authoritative child manifests
+        run: |
+          node generator/generate-catalog.mjs \
+            --output "$RUNNER_TEMP/candidate-repo.json" \
+            --verify-assets
+          pwsh -File ./.github/scripts/Test-Catalog.ps1 \
+            -CatalogPath "$RUNNER_TEMP/candidate-repo.json"
+
+      - name: Require a reconciled checked-in catalog
+        run: diff -u repo.json "$RUNNER_TEMP/candidate-repo.json"

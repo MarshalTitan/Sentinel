@@ -1,6 +1,6 @@
-# MarshalTitan Dalamud Plugins
+# MarshalTitan Sentinel Dalamud Catalog
 
-This repository is the public catalog for independently versioned Dalamud plugins maintained by MTitan.
+This repository is the permanent public catalog for independently versioned Sentinel plugins.
 
 Add this URL under **Dalamud Settings → Experimental → Custom Plugin Repositories**:
 
@@ -8,37 +8,130 @@ Add this URL under **Dalamud Settings → Experimental → Custom Plugin Reposit
 https://raw.githubusercontent.com/MarshalTitan/Sentinel/main/repo.json
 ```
 
-Then open `/xlplugins`, search for the plugin, and choose **Install**.
+Then open `/xlplugins`, search for the plugin, and choose **Install**. The URL, plugin
+`InternalName` values, and existing plugin configurations do not change when the catalog is
+reconciled.
 
-## Architecture
+## Source-of-truth architecture
 
-`repo.json` is a normal JSON array with one object per plugin. Each plugin keeps its source, build workflow, releases, installable ZIP, icon, and independent version in its own GitHub repository. This catalog only advertises those permanent public assets.
+Each installable plugin repository owns its authoritative `repo.json`, release ZIP, icon, version,
+Dalamud API level, description, tags, and other plugin-specific metadata. A source repository may
+own more than one installable plugin; for example, `SRankSentinel` owns both `SRankSentinel` and
+`SentinelHunts` entries.
 
-The catalog currently contains S Rank Sentinel. Future plugins are added as new objects; they are not bundled with or versioned alongside S Rank Sentinel.
+This central repository owns:
 
-## Migration from the SRankSentinel-specific URL
+- the approved plugin list in [`generator/plugins.json`](generator/plugins.json);
+- deterministic aggregation in registry order;
+- metadata, version, icon, release-asset, ZIP, DLL, and embedded-manifest validation;
+- downgrade protection and last-known-good fallback;
+- the combined public `repo.json`.
 
-The old URL remains supported during migration:
+`SentinelCore` is a shared development-library repository and is intentionally not registered as an
+installable plugin.
+
+The initial child-manifest and release-package reconciliation is recorded in
+[`docs/MIGRATION_AUDIT.md`](docs/MIGRATION_AUDIT.md).
+
+## Automatic reconciliation
+
+The **Update Sentinel Catalog** workflow runs:
+
+- hourly at minute 17;
+- manually through `workflow_dispatch`;
+- optionally after a `plugin-released` `repository_dispatch` notification.
+
+The scheduled run is the authoritative safety net. A child notification only asks the central
+workflow to reconcile sooner; payload metadata is never trusted. The generator always fetches the
+actual child `repo.json` through the GitHub Contents API.
+
+The workflow uses this repository's own `GITHUB_TOKEN` with `contents: write`. Normal plugin
+releases no longer depend on a child repository successfully writing into this repository.
+
+Publication uses the Contents API with the current `repo.json` blob SHA. If the catalog changes
+during publication, the generator refetches and retries instead of overwriting concurrent work.
+Workflow concurrency also prevents two central reconciliation runs from racing each other.
+
+## Last-known-good and downgrade protection
+
+For every registered `InternalName`, the generator fetches and validates the exact matching object
+from the child manifest.
+
+- If the child entry is valid and its release package is downloadable, it becomes the candidate.
+- If a known child's manifest, icon, or release asset is temporarily unavailable or invalid, the
+  current valid central entry is preserved and the workflow emits a warning.
+- If the child advertises an older version than the current central entry, the generator preserves
+  the central entry and reports the stale child manifest.
+- If a new plugin has no last-known-good entry and cannot be validated, generation fails and no
+  partial catalog is published.
+- If the current catalog contains an entry absent from the registry, generation fails rather than
+  silently removing it.
+
+The full candidate is validated before a conditional, atomic `repo.json` update. A failed run leaves
+the public catalog untouched.
+
+## Child repository release contract
+
+Every installable Sentinel plugin release should perform this sequence:
 
 ```text
-https://raw.githubusercontent.com/MarshalTitan/SRankSentinel/main/repo.json
+build
+→ test
+→ publish the GitHub Release ZIP
+→ update that plugin repository's own repo.json
 ```
 
-To switch without losing settings:
+The child manifest must contain the authoritative object for each installable `InternalName` owned
+by that repository. It no longer needs to directly edit `MarshalTitan/Sentinel/repo.json`.
 
-1. Add the new central URL and save Dalamud settings.
-2. Confirm S Rank Sentinel appears and has the correct icon/version. A temporary duplicate is expected while both URLs are enabled.
-3. Remove only the old SRankSentinel-specific URL, then save and refresh `/xlplugins`.
-4. Do not uninstall S Rank Sentinel. Its existing plugin configuration remains in Dalamud and normal updates continue against the same `InternalName`.
+An optional immediate notification may send a `repository_dispatch` event named
+`plugin-released`. Failure to send that notification only delays discovery until the next hourly
+run.
 
-## Publishing updates
+## Manual recovery
 
-The **Update Plugin Entry** workflow changes exactly one existing object, selected by its unique `InternalName`. It updates that plugin's versions and release URLs, validates every catalog entry, commits `repo.json`, and confirms the public catalog after GitHub's raw-content cache updates.
+The preferred manual recovery operation is **Actions → Update Sentinel Catalog → Run workflow**.
+It performs a complete reconciliation of every registered plugin.
 
-For a manual update, run the workflow with the plugin's `InternalName` and new four-part version after its GitHub Release asset is public.
+The older **Update Plugin Entry** workflow remains temporarily available as emergency tooling during
+the migration. It should not be the normal publication path and can be retired after the central
+generator has operated successfully across routine plugin releases.
 
-Individual plugin repositories may automate the same operation with a fine-grained token stored only as a GitHub Actions secret. The token must be limited to this repository with **Contents: Read and write** permission. Never put a token in source, logs, a release asset, or `repo.json`.
+## Adding a plugin
 
-## Adding another plugin
+1. Publish the plugin's valid release ZIP.
+2. Add or update the authoritative `repo.json` in the child repository.
+3. Add one registry record for each new `InternalName` to `generator/plugins.json`.
+4. Generate and validate the candidate catalog.
+5. Merge after confirming no existing plugin is downgraded or removed.
 
-Create the new plugin in its own repository and publish a valid permanent GitHub Release ZIP first. Add one new catalog object with a unique `InternalName`, its own version and metadata, and URLs pointing to that repository's release asset and icon. Run the validation workflow before enabling automated cross-repository updates from the new plugin project.
+Use the exact child branch containing `repo.json`. Do not add `SentinelCore` unless it intentionally
+becomes an installable Dalamud plugin in the future.
+
+## Intentionally retiring a plugin
+
+Retirement must be deliberate. Remove the registry record and the corresponding central entry in
+the same reviewed change, document the reason, and verify the remaining catalog. Simply deleting or
+breaking a child manifest does not remove an existing plugin because last-known-good fallback keeps
+it published.
+
+## Local validation
+
+Node.js 20 or newer is required.
+
+```bash
+npm test
+node generator/generate-catalog.mjs --output candidate-repo.json --verify-assets
+pwsh -File ./.github/scripts/Test-Catalog.ps1 -CatalogPath candidate-repo.json
+diff -u repo.json candidate-repo.json
+```
+
+For a checked-out set of sibling repositories, `--source-root ..` reads those local child manifests
+for pre-publication comparison. Production workflows always omit that option and use the GitHub
+Contents API.
+
+## Legacy SRankSentinel catalog URL
+
+The older SRankSentinel-specific URL may remain enabled during migration, but the central URL above
+is the permanent catalog. Users should not uninstall a plugin when changing repository URLs because
+configuration continuity is tied to its unchanged `InternalName`.

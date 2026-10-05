@@ -1,0 +1,44 @@
+[
+  {
+    "owner": "MarshalTitan",
+    "repository": "SRankSentinel",
+    "branch": "main",
+    "internalName": "SRankSentinel"
+  },
+  {
+    "owner": "MarshalTitan",
+    "repository": "ClassySentinel",
+    "branch": "main",
+    "internalName": "ClassySentinel"
+  },
+  {
+    "owner": "MarshalTitan",
+    "repository": "PvPSentinel",
+    "branch": "main",
+    "internalName": "PvPSentinel"
+  },
+  {
+    "owner": "MarshalTitan",
+    "repository": "SRankSentinel",
+    "branch": "main",
+    "internalName": "SentinelHunts"
+  },
+  {
+    "owner": "MarshalTitan",
+    "repository": "SentinelProfiles",
+    "branch": "main",
+    "internalName": "SentinelProfiles"
+  },
+  {
+    "owner": "MarshalTitan",
+    "repository": "SentinelRelay",
+    "branch": "main",
+    "internalName": "SentinelRelay"
+  },
+  {
+    "owner": "MarshalTitan",
+    "repository": "SentinelHUD",
+    "branch": "main",
+    "internalName": "SentinelHUD"
+  }
+]

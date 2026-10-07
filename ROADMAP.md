@@ -53,3 +53,7 @@ SRank migration must preserve hunt parking, S/SS staging, one tag per real pull,
 Future Frontline Brain work includes allied proximity clustering, meaningful field groups, switch hysteresis, smoothed centroids/velocity and short lead, mounted-group and enemy awareness, formation/role positioning, destination commitment/repath cooldown, bounded perpendicular recovery and target scoring. Preserve map safety policies; recognition does not prove objective semantics. All Frontline changes require supervised acceptance.
 
 Close roadmap items only with a source/release link plus automated evidence and, where required, the user's in-game result. Record outstanding testing even when code is already published. The separate MINION project is not a dependency or proof of Dalamud readiness.
+
+### Proving coverage correction — 2026-10-07
+
+Two 0.7.56.0 hunts exercised the legacy visible-mark/parking branch with zero shared operations; the session exporter retained both. Stop requesting repeated natural spawns as the next test. First prepare repeatable controlled coverage of shared movement without weakening mark detection, protected parking or landing policy. A mechanics-only probe cannot close the end-to-end hunt gate. No further user test is requested until that procedure is ready; PR #25 stays unmerged and PvP migration remains blocked. See [the evidence record](TEST_MATRIX.md#repeated-bypass--2026-10-07-0159-americatoronto).

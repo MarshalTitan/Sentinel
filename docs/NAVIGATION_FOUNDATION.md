@@ -9,7 +9,7 @@ Verified 2026-10-07 UTC. Engineering foundations are complete enough for a contr
 | SentinelCore | [PR #2](https://github.com/MarshalTitan/SentinelCore/pull/2); merge `67e52f5d4afb080042f9e526a6afae7480b01ff0` | Published [0.4.0.0](https://github.com/MarshalTitan/SentinelCore/releases/tag/v0.4.0.0), NuGet 0.4.0 |
 | SentinelCore landing | [PR #4](https://github.com/MarshalTitan/SentinelCore/pull/4); merge `e6527400680cddc39803321792b7c3b02fb0501d` | Published [0.4.1.0](https://github.com/MarshalTitan/SentinelCore/releases/tag/v0.4.1.0), NuGet 0.4.1; bounded opt-in landing, compatible defaults |
 | SentinelCore CI | [PR #3](https://github.com/MarshalTitan/SentinelCore/pull/3) | Merged after Linux/Windows CI passed; batched native command errors now fail immediately, with no release/version change |
-| SRankSentinel | [PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25); candidate `122db6c6a4ba5222512f1deec18b471077115c31` | Unmerged 0.7.60.0 CI-only proving build; default legacy, session opt-in |
+| SRankSentinel | [PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25); candidate `5e23d52bd750ecbef74d9b0f9ba80c879aee135e` | Unmerged 0.7.61.0 CI-only proving build; default legacy, session opt-in |
 | Sentinel | This canonical reconciliation | Documents only; no catalog mutation |
 | PvP/HUD/Classy/Profiles/Relay/Hunts | No Phase 3 source or package changes | Existing releases preserved |
 
@@ -35,31 +35,32 @@ Release source: `67e52f5d4afb080042f9e526a6afae7480b01ff0`. The release includes
 
 Core release infrastructure now accepts a reviewed main version change or matching tag, tests before publication, refuses asset replacement and verifies public hashes. No catalog entry is created.
 
-## Current controlled landing test and rollback
+## Current supervised ordinary-hunt test and rollback
 
-Use **SRankSentinel 0.7.60.0** with bundled Core **0.4.1** from [the verified CI artifact](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37643748882/artifacts/11492119907). The outer ZIP contains latest.zip; extract that into the separate dev-plugin directory while the old candidate is unloaded, replacing it, then load SRankSentinel.dll. Keep the public copy disabled; do not run two copies or another movement automation.
+The 0.7.60.0 physical landing/cancellation/resume gate passed by human report and inspected transition excerpt. **No repeated probe is required.** This current section supersedes dated test requests below.
 
-1. Main SRank Enabled **off**, state **Idle**, out of combat. Manually land on flat clear outdoor ground with flight unlocked, 150–400 yalms from an aetheryte. Run `/sranknavtest on`, then `/sranknavtest probe set`; stay still until destination-set confirmation.
-2. Teleport to another zone and back to the saved zone/world/instance's aetheryte. Run `/sranknavtest probe run cancel-landing`. It flies, enters Landing and automatically cancels before the first native landing action. Expect follower-stop confirmation.
-3. Immediately run `/sranknavtest probe resume`. A distinct new operation must physically land and print **SHARED probe landed: physical ground confirmed**. Hovering at ground level is FAIL; no retired operation may stop or act on the replacement.
-4. Run `/sranknavtest off`. Return PASS/FAIL and final JSON Entries (paste if attachment access fails). Required: Cancelled first operation, distinct replacement ID, Landing → Arrived with GroundConfirmed, Grounded=true and InFlight=false. Timestamp/short clip only on failure.
+Use **SRankSentinel 0.7.61.0**, bundled unchanged published **Core 0.4.1**. [Download the exact successful PR #25 Build artifact](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37650647078/artifacts/11495698917) from source `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`; its outer ZIP contains latest.zip. Extract latest.zip into the separate dev-plugin directory while the previous candidate is unloaded, replace it and load SRankSentinel.dll. Confirm 0.7.61.0. Keep the public copy disabled and other movement automation stopped.
 
-No spawn or repeated 0.7.59.0 test is required. The armed live cancellation covers revocation before native submission; isolated tests also cover cancellation after submission. Do not intentionally force an unsafe timeout. Landing failure is bounded at 20 seconds and exports typed diagnostics.
+1. Idle with no hunt/movement, run `/sranknavtest on`. Keep existing parking/tag settings, enable main Sentinel, and choose one ordinary live report needing zoning/flight, preferably with the mark still near full HP. Avoid SS for this gate.
+2. Observe zone load → ready mesh → mount/takeoff → continuous flight. Require **SHARED protected parking started** and same-ID **SHARED protected parking handoff ... state=Following**. Existing safe landing must physically unmount/land, then tag once at the configured threshold, retain normal retreat, observe positive kill/reward wait and return to Ul'dah.
+3. Once Idle run `/sranknavtest off`. Return PASS/FAIL for travel, landing, tag and return plus those two short shared chat lines. Failure only: timestamp, last diagnostic transitions and a short clip/description.
 
-Rollback: keep main automation disabled after failure, export, then `/sranknavtest off`. If follower stop is unconfirmed, stop vnavmesh and retry off. Unload the dev candidate and re-enable public **0.7.54.0**. Configurations are unchanged; off/reload clears session proving and its in-memory destination. Full [candidate procedure](https://github.com/MarshalTitan/SRankSentinel/blob/122db6c6a4ba5222512f1deec18b471077115c31/docs/NAVIGATION_PROVING.md). This procedure supersedes dated historical requests below.
+A created operation that never reaches Following does not satisfy the gate. If no shared eligible route starts, send chat/status/final domain states; do not alter safe settings or repeat spawns blindly. No second STOP hunt or UI retest is required: accepted mechanics and new isolated priority/ownership tests cover those stages within their stated limits.
+
+Failure disables proving/Sentinel and retains the hunt. Export then off; explicitly enable legacy only after confirmed stop. Off during parking returns to LocateMark for protected resampling. If stop is unconfirmed, keep automation disabled, stop vnavmesh and retry off. Full rollback: unload candidate and re-enable public **0.7.54.0**; never run both copies. Config/positions/layouts are unchanged. Full [candidate procedure](https://github.com/MarshalTitan/SRankSentinel/blob/5e23d52bd750ecbef74d9b0f9ba80c879aee135e/docs/NAVIGATION_PROVING.md).
 
 ## Limits and remaining gates
 
 - vnavmesh has no public mesh-territory identity API. Stable readiness after an observed zone epoch is an inference; zoning proof is mandatory.
 - Ownership is local to this consumer/backend, not an inter-plugin movement lock.
-- Core 0.4.1 adds opt-in bounded Landing with physical confirmation; only the SRank deterministic probe requests it. Real landing inference is pending proof. Ordinary hunt crowd-aware parking/landing and facing remain separate unchanged consumer policy.
+- Core 0.4.1 opt-in bounded Landing has a scoped 0.7.60.0 physical probe PASS. Ordinary-hunt crowd-aware parking/landing and facing remain unchanged consumer policy; its 0.7.61.0 shared-route integration is the next live gate.
 - Normal SRank scan-range/visible-entity handoff, tag/kill/return and cancellation/rollback require real FFXIV evidence. SS, death and exceptional recovery were not newly tested.
 - PvP has neither a baseline live result nor a shared migration. Its adoption stays blocked until supervised SRank proof, then its own baseline/design/testing.
 - Profiles/UI/history resizing, HUD unrelated-choice proof, Hub and Trains are outside this phase.
 
 ## Catalog verification
 
-All seven public central objects exactly matched their authoritative child objects after this work: SRank 0.7.54.0, Hunts 0.1.1.0, PvP 0.3.1.23, HUD 0.8.4.5, Classy 0.8.6.0, Profiles 0.2.1.2 and Relay 0.5.0.5. No plugin release or catalog promotion occurred. The SRank PR is deliberately unmerged because its version change would trigger publication.
+All seven public central objects exactly matched their authoritative child objects after this work: SRank 0.7.54.0, Hunts 0.1.1.0, PvP 0.3.1.23, HUD 0.8.4.5, Classy 0.8.6.0, Profiles 0.2.1.3 and Relay 0.5.0.5. No navigation plugin release or promotion occurred. The independent Profiles UI release was observed/reconciled while this work ran. The SRank PR is deliberately unmerged because its version change would trigger publication.
 
 ### User follow-up — 2026-10-07 00:47 America/Toronto
 
@@ -152,3 +153,14 @@ Source `e6527400680cddc39803321792b7c3b02fb0501d`; public release manifest recor
 | MarshalTitan.SentinelCore.UI.0.4.1.nupkg | `1ec7841311316994d4f71350b499c3f718d36179e1565f0d7316270063c6baea` |
 
 SRank PR #25 remains unmerged/unpublished; no child or central plugin promotion occurred. Public SRank 0.7.54.0 remains accepted. PvP stays blocked; UI/Profile/history/facing changes are not in this candidate. After the new landing evidence returns, engineering resumes automatically to the next source-supported gate; the subsequent actual shared ordinary-hunt safe landing/tag/kill/return proof remains required.
+
+## Physical landing proof and approved hunt route stage — 2026-10-07
+
+The user reports physical unmount/landing and confirms cancellation stopped movement and resume landed. Inspected 0.7.60.0 excerpts: ProbeCancelled for `2d7c66c4-9243-41ed-b792-a6ed043477d0` at **15:37:23.812 UTC**; distinct replacement `75ac0f50-ebca-443c-aad4-9c4cfe4c6fc5` recorded **Landing → Arrived / GroundConfirmed** at **15:37:29.918 UTC**, ready/current-zone mesh and Following=false. Classify **PASS — scoped physical landing/cancellation/replacement**, based on the human report plus inspected transition/session excerpts. PhysicalContext/Result fields and the full attachments were not readable/contained in the excerpts; do not claim independent inspection of Grounded/InFlight fields or every cancellation race. No repeat 0.7.60.0 test is required. This closes the isolated mechanics landing gate, not actual shared hunt policy integration.
+
+Candidate **0.7.61.0**, commit `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`, in [SRank PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25), extends session opt-in to ordinary **pre-tag protected flight parking** only after the existing path AND landing-ground-connectivity validation. Core receives a one-use immutable approved route; its query phase here accepts prevalidated consumer data rather than issuing a new unprotected query. Fresh entity/zone/path/clearance checks precede following; zero parking retries forbid requery outside approval. Original point selection, crowd safety, preference bookkeeping, alignment/landing revalidation and kill/reset/tag/return semantics remain consumer-owned. Planned landing handoff cancels the Core lease before legacy landing and records the correlated ParkingLandingHandoff event/last Core state. SS, unprotected fallback and post-tag retreat remain legacy. Failure stops proving/Sentinel, retains the hunt and exports; off during shared parking returns to LocateMark for safe legacy resampling.
+
+This stage reuses Core 0.4.1 without adding gameplay policy to the generic library. Actual-hunt Core movement and the old consumer landing/tag/kill/return remain the next supervised gate. Keep PR #25 unmerged/unpublished, all seven public entries preserved, and PvP blocked.
+
+
+Final **0.7.61.0** candidate validation at `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`: [Build 37650647078](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37650647078), [SentinelHunts 37650647629](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37650647629), and [release-infrastructure checks 37650647338](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37650647338) all passed. Build reports 29/29 state and 32/32 UI/migration/history test groups, plus isolated approved-parking and landing ownership tests, source audits and exact Core dependency/package validation; compilation had zero warnings/errors. CI action runtime deprecation notices are separate from compilation. [Exact proving artifact 11495698917](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37650647078/artifacts/11495698917), outer archive SHA256 `f95353b63849fc6e99dcec9c252ed7eae1f90e1a490f475f656495bff402462c`; public plugin release/catalog remain unchanged.

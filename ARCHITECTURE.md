@@ -46,6 +46,10 @@ The [registry](https://github.com/MarshalTitan/Sentinel/blob/1f703528c428fc99394
 
 The [publisher](https://github.com/MarshalTitan/Sentinel/blob/1f703528c428fc993945aafb85a27bdd0742932e/generator/publish-catalog.mjs) uses the current manifest blob SHA, refetches/retries conflicts and verifies public output. Dispatch payloads are notifications, never metadata authority. Notifications are optional accelerators. Scheduled reconciliation is an allowed token-free path; release completion still requires public-catalog verification. See [Release process](RELEASE_PROCESS.md).
 
+## Shared release infrastructure
+
+The commit-pinned [distribution action](.github/actions/distribute/action.yml) is build-time infrastructure in Sentinel, independent of SentinelCore/runtime plugins. After public package validation it uses the child's repository-scoped token to conditionally update only its own approved root-manifest entry, preserve siblings, reject downgrades/concurrent metadata changes, and retry SHA conflicts. Unchanged reruns do not churn LastUpdate. Optional cross-repository credentials are confined to notification; exact public child/central verification always runs and has a 90-minute bound. Linux/Windows tests exercise missing/rejected notification, stale catalog, conflicts and permission failures. No child writes the central manifest; the old direct-entry updater is retired.
+
 ## Relay boundary
 
 [Relay architecture](https://github.com/MarshalTitan/SentinelRelay/blob/d2401031bd20430c37d2bc0d64a98aa17c157954/ARCHITECTURE.md) is direct webhook delivery plus optional authenticated REST polling. Channel/user/character binding, freshness, checkpointing, fixed chat allowlists and default-off permissions constrain replies. Screenshots capture only the active FFXIV client area. No arbitrary remote execution, desktop capture, hosted relay dependency or Dreamforge coupling is part of the published design.

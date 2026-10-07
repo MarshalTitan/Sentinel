@@ -8,9 +8,9 @@ The user steers priorities and performs in-game acceptance. The architect coordi
 
 Break work into reviewable stages: verify current source/releases and evidence; define the narrow change and compatibility constraints; implement and run relevant automated checks; obtain required in-game acceptance; publish and verify child/central manifests; reconcile these five documents. Keep published functionality, implemented candidates, planned work, reported issues and pending validation distinct. Update the applicable documents whenever verified reality changes during ecosystem work; record blockers with the exact evidence or decision needed.
 
-**Published** means an accessible release/catalog artifact, not proof of in-game correctness. **Implemented** means inspected source; **planned** means work still to do; **reported issue** means user evidence without a verified current-build closure; **unverified** means evidence is missing. Executable code, release assets/manifests and workflows outrank historical chats and stale README text. Resolve source-versus-release differences explicitly.
+**Published** means an accessible release/catalog artifact, not proof of in-game correctness. **Implemented** means inspected source; **planned** means work still to do; **reported issue** means user evidence without a verified current-build closure; **unverified** means evidence is missing. Source-of-truth order: live repository source; published releases/assets; live workflows/manifests; canonical ecosystem Markdown; current active chats; historical chats. Resolve source-versus-release differences explicitly; an implemented head is not automatically a published binary.
 
-Project memory retrieval supplied partial Core Work and active plugin Work context. It did **not** recover the requested FFXIV Bot Questions Hub/Trains discussion; it is not a complete transcript audit. Those decisions remain open in [Roadmap](ROADMAP.md).
+The user confirmed Hub/Trains scope and the broad execution order on 2026-10-06 America/Toronto; those decisions are recorded in [Roadmap](ROADMAP.md). Earlier incomplete chat retrieval no longer blocks this scope.
 
 ## Verified inventory
 
@@ -27,7 +27,8 @@ All six active plugin projects reference Core UI package **0.3.1**. All seven ce
 | SentinelProfiles | [v0.2.1.2](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.2) (prerelease) | Manual Enable / Leave Alone / Disable profiles and drift reporting; saved profiles do not make temporary Dalamud overrides persistent. |
 | SentinelRelay | [v0.5.0.5](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.5) | Per-character webhooks, authorized REST-polled replies, hunt rewards and opt-in game-window screenshots; no hosted backend. |
 | SentinelHunts | [v0.1.1.0-sentinelhunts](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.1.1.0-sentinelhunts) (cataloged) | Separate existing beta owned by SRankSentinel's repository; preserve its entry. It is not Sentinel Trains. |
-| Sentinel Hub / Sentinel Trains | Unverified/planned | Named priority tracks; no catalog entries or accessible repositories at the exact names checked. Scope/order needs original context. |
+| Sentinel Hub | Planned; scope confirmed | Ecosystem control center consuming plugin/version/dependency/readiness, Profiles and diagnostics state; quick-open actions, no gameplay automation. |
+| Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
 

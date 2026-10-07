@@ -8,7 +8,7 @@ Verified 2026-10-07 UTC. Engineering foundations are complete enough for a contr
 |---|---|---|
 | SentinelCore | [PR #2](https://github.com/MarshalTitan/SentinelCore/pull/2); merge `67e52f5d4afb080042f9e526a6afae7480b01ff0` | Published [0.4.0.0](https://github.com/MarshalTitan/SentinelCore/releases/tag/v0.4.0.0), NuGet 0.4.0 |
 | SentinelCore CI | [PR #3](https://github.com/MarshalTitan/SentinelCore/pull/3) | Merged after Linux/Windows CI passed; batched native command errors now fail immediately, with no release/version change |
-| SRankSentinel | [PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25); candidate `957d1dba5111dae70b00554d0ba9f81e1b86b60c` | Unmerged 0.7.55.0 CI-only proving build; default legacy, session opt-in |
+| SRankSentinel | [PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25); candidate `9bead74bd1a14b24fd2bd24e0bb4fadc4d56eae7` | Unmerged 0.7.56.0 CI-only proving build; default legacy, session opt-in |
 | Sentinel | This canonical reconciliation | Documents only; no catalog mutation |
 | PvP/HUD/Classy/Profiles/Relay/Hunts | No Phase 3 source or package changes | Existing releases preserved |
 
@@ -36,7 +36,7 @@ Core release infrastructure now accepts a reviewed main version change or matchi
 
 ## Controlled SRank test and rollback
 
-[Download the proving artifact](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37569981786/artifacts/11460063732).
+[Download the proving artifact](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37574717238/artifacts/11462286124).
 The artifact's outer ZIP contains latest.zip; unpack that into a separate dev-plugin directory, disable the installed SRank copy, and load SRankSentinel.dll. Do not run two copies or another movement automation.
 
 1. While idle, run `/sranknavtest on`. Choose an ordinary S-rank needing zoning and flight.
@@ -66,4 +66,14 @@ The user reports **“Everything worked”** after the proving instructions and 
 
 Live source verification shows diagnostics are held only in memory for the plugin instance. A successful Core Begin records Started immediately; off and normal completion do not clear the buffer. Reload creates a new instance, and enabling proving without starting a shared operation can produce an empty export. SRank can also resolve an already-visible mark before entering the shared approach. The empty file alone cannot distinguish these situations or prove an export defect.
 
-Focused next evidence: establish whether export occurred after a plugin/game reload. If needed, capture `/sranknavtest status` during one ordinary long approach and export **before any reload/restart**. Confirm ON with a nonempty operation ID and Pathfinding/Following state; a returned transition history must establish that shared movement actually ran. Do not repeat unrelated UI or already-reported functional checks. SRank PR #25 remains unmerged and PvP migration remains blocked pending this evidence.
+Initial follow-up (superseded by the confirmed command sequence below): establish whether export occurred after a plugin/game reload. If needed, capture `/sranknavtest status` during one ordinary long approach and export **before any reload/restart**. Confirm ON with a nonempty operation ID and Pathfinding/Following state; a returned transition history must establish that shared movement actually ran. Do not repeat unrelated UI or already-reported functional checks. SRank PR #25 remains unmerged and PvP migration remains blocked pending this evidence.
+
+### Confirmed command sequence — 2026-10-07 01:05 America/Toronto
+
+The user supplied chat responses: **00:57 ON for this session**, **01:03 OFF / Legacy travel restored**, then **01:03 Sanitized export**, again with zero Entries. Activation was accepted; turning it off does not clear diagnostics. Do not attribute this report to a missed activation step or assume reload caused it. The exact hunt-state path is still unknown. A successful Core Begin would record Started immediately, but the original exporter captures neither activation nor legacy state transitions. This is a confirmed observability gap, not evidence of a broken flight path.
+
+SRank PR #25 now prepares **0.7.56.0**, commit `9bead74bd1a14b24fd2bd24e0bb4fadc4d56eae7`, with bounded session observations, plugin/instance identity, hunt-state transitions and a real shared-operation count. It announces **SHARED operation started**, warns explicitly when none started, and automatically exports on off/halt. Original Core Entries remain genuine operation transitions; session observations do not fabricate shared-movement acceptance. Export I/O failures cannot change movement. No routing, parking, facing, tag, UI or saved-configuration policy changed.
+
+Focused next test after CI: load the new PR artifact, enable proving while idle and run one ordinary report. Look for SHARED operation started. Turn proving off and send the generated JSON even if the announcement never appeared; the session states will identify the path taken. Export before unloading. No broader retest or PvP migration is authorized by the empty export; the user's successful functional observation remains recorded.
+
+[Candidate CI 37574717238](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37574717238) passed: 29 state tests, 32 UI/migration/history tests, ownership/handoff and new session-evidence tests, zero build warnings/errors, package/hash checks, workflow policy, both public distribution checks and sibling Hunts build. [Download 0.7.56.0](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37574717238/artifacts/11462286124). Replace the previous dev candidate; keep the public installed copy disabled. PR #25 remains unmerged.

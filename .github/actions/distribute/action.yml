@@ -1,0 +1,41 @@
+name: Publish child manifest and verify Sentinel catalog
+description: Preserve child ownership; optional notification and mandatory exact public verification.
+inputs:
+  internal-name:
+    description: Registered plugin InternalName
+    required: true
+  version:
+    description: Four-part release version (defaults to checked-out child entry)
+    required: false
+  tag:
+    description: Exact release tag (defaults to identity/version convention)
+    required: false
+  source-token:
+    description: Child repository token; never used to write the central repository
+    default: '${{ github.token }}'
+  notification-token:
+    description: Optional cross-repository dispatch token
+    required: false
+  publish-child:
+    description: Set false for read-only verification of existing public manifests
+    default: 'true'
+  timeout-seconds:
+    description: Bounded wait allowing hourly scheduling and runner delay
+    default: '5400'
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    - name: Publish child and verify public distribution
+      shell: bash
+      env:
+        SENTINEL_INTERNAL_NAME: '${{ inputs.internal-name }}'
+        SENTINEL_VERSION: '${{ inputs.version }}'
+        SENTINEL_TAG: '${{ inputs.tag }}'
+        SENTINEL_SOURCE_TOKEN: '${{ inputs.source-token }}'
+        SENTINEL_NOTIFICATION_TOKEN: '${{ inputs.notification-token }}'
+        SENTINEL_PUBLISH_CHILD: '${{ inputs.publish-child }}'
+        SENTINEL_TIMEOUT_SECONDS: '${{ inputs.timeout-seconds }}'
+      run: node "$GITHUB_ACTION_PATH/../../../release/distribute.mjs"

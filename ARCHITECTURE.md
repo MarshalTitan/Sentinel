@@ -20,7 +20,7 @@ Core 0.3.1 owns Classic and released Modern 2 primitives: compact custom header,
 
 Consumers own page definitions, icons, commands, window state, persistence and interactions. Minimize keeps the themed header and expand/close controls, retains expanded dimensions separately, and restores at the current position. A package update alone does not prove correct consumer integration. Verify scale, narrow widths, controller operation and reload in each consumer; no automation behavior changes should be hidden in a UI migration.
 
-Confirmed responsive-UI requirements from the 2026-10-06 acceptance report (planned, not shipped): smaller supported window widths with correct wrapping/reflow and accessible controls; fix Profiles PROFILE ACTIONS clipping; bottom-anchor SRank Clear History controls and let its scrollable SPAWN REPORTS region consume remaining height. Measure Core and consumer minimum-size constraints before changing them. Preserve persisted placement, Classic and controller/keyboard interaction; do not bundle these changes with movement migration.
+Confirmed responsive-UI requirements from the 2026-10-06 acceptance report (partially shipped independently; Profiles 0.2.1.3 actions/reflow repair awaits live visual/controller proof): smaller supported window widths with correct wrapping/reflow and accessible controls; fix Profiles PROFILE ACTIONS clipping; bottom-anchor SRank Clear History controls and let its scrollable SPAWN REPORTS region consume remaining height. Measure Core and consumer minimum-size constraints before changing them. Preserve persisted placement, Classic and controller/keyboard interaction; do not bundle these changes with movement migration.
 
 ## Navigation and combat
 

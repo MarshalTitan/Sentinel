@@ -188,3 +188,23 @@ On the same 0.7.59.0 candidate, the user reports that cancelling stopped the fli
 The user again reports incomplete physical landing. Combined with the prior inspected export's InFlight=true at Arrived, landing remains **OPEN — explicit landing/ground confirmation absent from the probe**. No repeated 0.7.59.0 probe is requested. Proving OFF and legacy restoration are confirmed by pasted chat. The new JSON, screenshot and text attachments could not be authorized/resolved by the attachment reader; they are not claimed inspected. The written report and pasted command output are sufficient to record this scoped live result. Full retained JSON may be pasted later for independent transition review; do not repeat the movement test merely to work around attachment access.
 
 Next engineering gate: specify and test an explicit bounded landing handoff with cancellation, retained movement ownership, ground-state confirmation and a failure timeout before requesting new live evidence. Do not equate a destination radius with landing or add unconditional dismount to manufacture success. Keep consumer-owned SRank safe/crowd parking authoritative. The subsequent controlled hunt integration must still demonstrate actual shared movement plus existing landing/tag/kill/return policy. PR #25 remains unmerged/unreleased and PvP adoption remains blocked.
+
+## Bounded landing candidate — 2026-10-07
+
+Current source: Core [PR #4](https://github.com/MarshalTitan/SentinelCore/pull/4), release **0.4.1.0**; SRank [PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25), candidate **0.7.60.0** at `122db6c6a4ba5222512f1deec18b471077115c31`. This section supersedes earlier next-test instructions.
+
+| Evidence | Classification |
+|---|---|
+| 0.7.59.0 readiness/mount/takeoff/query/continuous follow | PASS for inspected genuine probe; zero retries |
+| 0.7.59.0 flight cancellation / immediate replacement | PASS user-reported, pasted follower-stop/replacement chat; pending-query race not claimed live-proven |
+| 0.7.59.0 landing | OPEN: Arrived while InFlight=true; destination radius did not prove landing |
+| Core 0.4.1 landing lifecycle | Automated PASS: 13 navigation scenario groups; stable ground success, unknown/unstable/vertically invalid ground, native rejection, fixed timeout, drift, dependency loss, cancellation/disposal/zoning, replacement and late results; default arrival/legacy adapters compatible |
+| SRank 0.7.60.0 probe landing | Implemented; live physical landing and cancellation/resume pending |
+| Shared actual hunt landing/tag/kill/return | Still pending after mechanics proof; two prior hunts were legacy-only |
+| PvP movement baseline / shared migration | Baseline untouched; migration blocked |
+
+[Core PR CI](https://github.com/MarshalTitan/SentinelCore/actions/runs/37642555100) passed Linux generic and Windows generic/UI build/test/package checks. [Release CI](https://github.com/MarshalTitan/SentinelCore/actions/runs/37643419684) passed all tests and public package verification. Cancellation during Landing revokes the lease even after an action submission in automated tests; no late task or retired handle may act on its replacement.
+
+Next required live evidence is **only the new landing gate** in [NAVIGATION_FOUNDATION.md](docs/NAVIGATION_FOUNDATION.md): armed Landing cancellation followed by a distinct near-destination resume operation and physical ground confirmation. Return PASS/FAIL and the final JSON Entries establishing Cancelled then GroundConfirmed with Grounded=true/InFlight=false. Timestamp/short clip is needed only on failure. Do not repeat 0.7.59.0 movement tests or wait for an S-rank spawn. Real native action acceptance/ground-state inference remains unproven until this evidence returns.
+
+Candidate [Build 37643748882](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37643748882) passed 29 state tests, 32 UI/history tests, landing consumer/ownership evidence tests, legacy source audits and exact published-package/bundled-DLL checks with zero build warnings/errors. [Release policy 37643748886](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37643748886) and [SentinelHunts build 37643748870](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37643748870) also passed. [Download 0.7.60.0](https://github.com/MarshalTitan/SRankSentinel/actions/runs/37643748882/artifacts/11492119907).

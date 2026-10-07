@@ -5,7 +5,7 @@ Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this e
 1. Sentinel Modern 2 / Core 0.3: published; released consumers retain package 0.3.1.
 2. Release/workflow cleanup: implemented and merged across all six children; next genuine release will exercise changed publication end-to-end.
 3. Current-build acceptance baseline: initial live results recorded; partial acceptance is sufficient for Phase 3 design/tests, with specific UI/restart/facing and untested gameplay gates retained.
-4. Shared navigation and diagnostics foundations: Core 0.4.0.0 published with passing isolated tests; supervised consumer proof pending.
+4. Shared navigation and diagnostics foundations: Core 0.4.1.0 published with passing isolated tests; supervised consumer proof pending.
 5. SRankSentinel incremental reliability migration: PR #25 prepares session-only opt-in ordinary approach; do not merge/publish before live proof.
 6. PvPSentinel Frontline Brain improvements: only after automated and supervised SRank navigation proof.
 7. Sentinel Hub: only after shared foundations are stable.
@@ -69,3 +69,17 @@ The first genuine Core operation on SRank 0.7.59.0 completed readiness, mount, t
 ### Cancellation evidence and landing gate — 2026-10-07 11:03 America/Toronto
 
 The user reports successful flight-path cancellation and replacement on 0.7.59.0; pasted chat confirms stop, replacement arrival and OFF with three shared operations. Record this scoped live pass without claiming independent review of the inaccessible new attachments or a pending-query race. Landing remains open. Stop repeating this probe; prepare an explicit bounded landing handoff with ground confirmation and cancellation tests before the next supervised request. Preserve SRank's crowd-aware parking policy and the outstanding end-to-end hunt gate. No PR #25 release or PvP migration yet.
+
+## Active work queue — 2026-10-07
+
+| Priority / track | State | Next action / gate |
+|---|---|---|
+| Shared landing mechanics | Core 0.4.1.0 published; SRank 0.7.60.0 opt-in candidate CI passed | Supervised bounded physical landing, armed Landing cancellation and new-owner resume; use the current procedure in NAVIGATION_FOUNDATION.md. No repeated 0.7.59.0 test. |
+| Controlled ordinary-hunt adoption | Gated on shared landing proof | Resume automatically on returned evidence. Prepare actual shared movement plus unchanged crowd-aware safe parking/tag/kill/return, preserving practical legacy rollback. Keep PR #25 unpublished until applicable gates pass. |
+| PvP baseline / shared adoption | Live baseline untouched; migration blocked | Obtain current map-specific baseline and passed supervised SRank adoption before movement migration. |
+| Responsive UI / Profiles clipping / SRank history | Separate authorized backlog | Audit/repair in separate changes; never include in navigation proving build. |
+| Profiles full-restart semantics / HUD unrelated choices / SRank facing | Narrow live diagnosis outstanding | Use naturally available evidence; preserve existing working behavior. |
+| Catalog/release maintenance | Seven entries preserved | Carry token-free verification and routine reconciliation forward without gameplay changes. |
+| Hub / Trains | Deferred | Only after foundations stable or explicit reprioritization. |
+
+Live evidence automatically resumes engineering under the operating agreement. Pending human validation does not require pausing independent low-risk work; isolate it so the proving build stays reproducible. This landing candidate supersedes the dated earlier requests above. Successful probe mechanics will not alone close the ordinary-hunt or PvP gates.

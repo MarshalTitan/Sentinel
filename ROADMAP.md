@@ -61,3 +61,7 @@ Two 0.7.56.0 hunts exercised the legacy visible-mark/parking branch with zero sh
 ### Deterministic proving candidate — 2026-10-07
 
 SRank PR #25 now prepares 0.7.59.0 with a session-only anchor-and-return probe. CI, release-infrastructure checks and the sibling SentinelHunts build pass. The next supervised gate no longer depends on an S-rank spawn: prove zoning readiness, required flight, arrival, cancellation and immediate replacement in a safe outdoor zone. This mechanics probe does not close the later end-to-end hunt gate. Keep PR #25 unreleased and PvP migration blocked until the required evidence passes.
+
+### Shared flight evidence — 2026-10-07 10:56 America/Toronto
+
+The first genuine Core operation on SRank 0.7.59.0 completed readiness, mount, takeoff, pathfinding and following with zero retries; the user reports successful travel. Final InFlight=true means landing remains open. Next prove cancellation and immediate replacement on the same build, then address the controlled hunt landing/handoff gate. No release or PvP migration is authorized by this partial pass. See TEST_MATRIX.md for the exact evidence.

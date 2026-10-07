@@ -38,7 +38,7 @@ GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and 
 - SRank source includes direct Faloop integration as well as HuntAlerts/Sonar despite older introductory descriptions. Personal reward credit is distinct from report/tag/kill evidence; [Plugin.History.cs](https://github.com/MarshalTitan/SRankSentinel/blob/0731a00e9186ec916718e6c031d4f0b163a6a3e6/Plugin.History.cs) gates receipt matching and enabled-expansion recording.
 - PvP [readiness code](https://github.com/MarshalTitan/PvPSentinel/blob/d47e8b7429c135fec2976c1e980175f33787c4f3/Strategy/FrontlinePilotReadiness.cs) permits travel with responsive, loaded RSR even when its mode reports Off. Generic external/native modes do not satisfy the current automatic-pilot connection gate. Queue/requeue remains disabled.
 - Relay's earlier hosted-service/slash-command architecture is superseded. Its prefixes are ordinary Discord messages polled by the plugin, not registered application commands.
-- Published minimize fixes exist for HUD, PvP and Profiles; Classy has themed collapse code. Retest the actual installed versions before reopening old reports or declaring them resolved.
+- HUD/Classy/Profiles Modern minimize/restore and Classy controller behavior passed the user's 2026-10-06 report. Do not extend that acceptance to untested consumers or all full-game restart semantics.
 
 ## Audited gameplay source heads
 
@@ -57,6 +57,10 @@ These are source snapshots, not a claim that every head is a release tag target;
 
 Phase 1 merged in all six child repositories; see [release process](RELEASE_PROCESS.md) and [audit/evidence](docs/RELEASE_INFRASTRUCTURE_AUDIT.md). One pinned CI action in Sentinel maintains child manifests and verifies exact public distribution with optional notification. This introduces no runtime plugin coupling. Classy PR publication and asset replacement were removed; SentinelHunts now has a complete child-manifest path. Published plugin versions and all seven catalog entries are unchanged; SentinelCore remains 0.3.1.
 
-Next gate: the focused [current-build acceptance checklist](TEST_MATRIX.md#current-build-supervised-acceptance). No new in-game acceptance or gameplay fix is claimed. Shared navigation implementation/consumer migration has not started.
+## Phase 2 live evidence and Phase 3 readiness
+
+The user's 2026-10-06 22:40 America/Toronto report is recorded in [current-build acceptance](TEST_MATRIX.md#current-build-supervised-acceptance). Reported passes: HUD/Classy/Profiles minimize/restore, Classy controller behavior, HUD submarine skipping, and SRank 0.7.54.0 ordinary mount/travel/fluid flight/configured-% tag/reward-wait/return. Exceptions: Profiles PROFILE ACTIONS clipping and ambiguous full-game-restart behavior, SRank history height and away/sideways facing. Narrower responsive UI widths are requested. PvP 0.3.1.23 was not tested; unrelated HUD choices/rewards and exceptional hunt recovery remain open. Screenshots were inaccessible; the written report is the evidence, with its version/context limits recorded.
+
+**Phase 3 may begin with contract design, additive diagnostics and isolated tests.** Preserve the working SRank path; future consumer migration requires a new supervised test of the changed implementation. PvP migration also requires its current-build baseline and subsequent live acceptance. The remaining UI work can proceed independently. This update changes documentation only; no shared navigation implementation, UI repair or plugin release is claimed.
 
 Refresh the inventory, outstanding evidence and test results together when a release changes behavior. Do not copy “passed” counts from chat into current acceptance records.

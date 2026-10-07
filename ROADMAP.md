@@ -57,3 +57,7 @@ Close roadmap items only with a source/release link plus automated evidence and,
 ### Proving coverage correction — 2026-10-07
 
 Two 0.7.56.0 hunts exercised the legacy visible-mark/parking branch with zero shared operations; the session exporter retained both. Stop requesting repeated natural spawns as the next test. First prepare repeatable controlled coverage of shared movement without weakening mark detection, protected parking or landing policy. A mechanics-only probe cannot close the end-to-end hunt gate. No further user test is requested until that procedure is ready; PR #25 stays unmerged and PvP migration remains blocked. See [the evidence record](TEST_MATRIX.md#repeated-bypass--2026-10-07-0159-americatoronto).
+
+### Deterministic proving candidate — 2026-10-07
+
+SRank PR #25 now prepares 0.7.57.0 with a session-only anchor-and-return probe. CI, release-infrastructure checks and the sibling SentinelHunts build pass. The next supervised gate no longer depends on an S-rank spawn: prove zoning readiness, required flight, arrival, cancellation and immediate replacement in a safe outdoor zone. This mechanics probe does not close the later end-to-end hunt gate. Keep PR #25 unreleased and PvP migration blocked until the required evidence passes.

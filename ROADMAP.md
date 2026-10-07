@@ -65,3 +65,7 @@ SRank PR #25 now prepares 0.7.59.0 with a session-only anchor-and-return probe. 
 ### Shared flight evidence — 2026-10-07 10:56 America/Toronto
 
 The first genuine Core operation on SRank 0.7.59.0 completed readiness, mount, takeoff, pathfinding and following with zero retries; the user reports successful travel. Final InFlight=true means landing remains open. Next prove cancellation and immediate replacement on the same build, then address the controlled hunt landing/handoff gate. No release or PvP migration is authorized by this partial pass. See TEST_MATRIX.md for the exact evidence.
+
+### Cancellation evidence and landing gate — 2026-10-07 11:03 America/Toronto
+
+The user reports successful flight-path cancellation and replacement on 0.7.59.0; pasted chat confirms stop, replacement arrival and OFF with three shared operations. Record this scoped live pass without claiming independent review of the inaccessible new attachments or a pending-query race. Landing remains open. Stop repeating this probe; prepare an explicit bounded landing handoff with ground confirmation and cancellation tests before the next supervised request. Preserve SRank's crowd-aware parking policy and the outstanding end-to-end hunt gate. No PR #25 release or PvP migration yet.

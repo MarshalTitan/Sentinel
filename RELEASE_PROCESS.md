@@ -67,3 +67,7 @@ Core [PR #4](https://github.com/MarshalTitan/SentinelCore/pull/4) merged at `e65
 SRank PR #25's **0.7.60.0** remains a CI artifact only, not a plugin release or child/central promotion. Exact Core/UI pins, lock SHA512 and bundled DLL SHA256 validation identify the published packages. Do not merge its version change until the applicable supervised gates pass. Preserve SRank 0.7.54.0 and SentinelHunts 0.1.1.0 catalog identities.
 
 Returned test evidence authorizes automatic continuation through routine implementation, CI, review, PR/release work and canonical reconciliation. A new FFXIV gate must include the exact tested artifact/build and rollback; never use a successful build as proof of game behavior or broaden a scoped live pass.
+
+## Post-landing continuation — 2026-10-07
+
+0.7.60.0 landing evidence closed the isolated mechanics gate and automatically authorized the next controlled consumer implementation. [SRank PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25) now prepares **0.7.61.0** using the same exact published Core 0.4.1 packages. There is no new Core release, plugin release, asset replacement or child/central promotion. Keep the version-changing PR unpublished pending actual shared ordinary-hunt follow/handoff/safe landing/tag/kill/return. Public rollback remains SRank **0.7.54.0**, with the independent SentinelHunts entry unchanged. See TEST_MATRIX.md for scoped live evidence and the consumer gate.

@@ -59,3 +59,11 @@ Full [procedure](https://github.com/MarshalTitan/SRankSentinel/blob/957d1dba5111
 ## Catalog verification
 
 All seven public central objects exactly matched their authoritative child objects after this work: SRank 0.7.54.0, Hunts 0.1.1.0, PvP 0.3.1.23, HUD 0.8.4.5, Classy 0.8.6.0, Profiles 0.2.1.2 and Relay 0.5.0.5. No plugin release or catalog promotion occurred. The SRank PR is deliberately unmerged because its version change would trigger publication.
+
+### User follow-up — 2026-10-07 00:47 America/Toronto
+
+The user reports **“Everything worked”** after the proving instructions and pasted the complete export: `{"Schema":"sentinel.navigation.v1","Entries":[]}`. Record this as a user-reported functional pass, with **shared-path execution unconfirmed**, not a navigation failure or a completed migration gate. Installed version/context and export timing relative to reload were not restated.
+
+Live source verification shows diagnostics are held only in memory for the plugin instance. A successful Core Begin records Started immediately; off and normal completion do not clear the buffer. Reload creates a new instance, and enabling proving without starting a shared operation can produce an empty export. SRank can also resolve an already-visible mark before entering the shared approach. The empty file alone cannot distinguish these situations or prove an export defect.
+
+Focused next evidence: establish whether export occurred after a plugin/game reload. If needed, capture `/sranknavtest status` during one ordinary long approach and export **before any reload/restart**. Confirm ON with a nonempty operation ID and Pathfinding/Following state; a returned transition history must establish that shared movement actually ran. Do not repeat unrelated UI or already-reported functional checks. SRank PR #25 remains unmerged and PvP migration remains blocked pending this evidence.

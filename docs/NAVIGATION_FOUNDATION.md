@@ -7,6 +7,7 @@ Verified 2026-10-07 UTC. Engineering foundations are complete enough for a contr
 | Repository | Change | State |
 |---|---|---|
 | SentinelCore | [PR #2](https://github.com/MarshalTitan/SentinelCore/pull/2); merge `67e52f5d4afb080042f9e526a6afae7480b01ff0` | Published [0.4.0.0](https://github.com/MarshalTitan/SentinelCore/releases/tag/v0.4.0.0), NuGet 0.4.0 |
+| SentinelCore CI | [PR #3](https://github.com/MarshalTitan/SentinelCore/pull/3) | Merged after Linux/Windows CI passed; batched native command errors now fail immediately, with no release/version change |
 | SRankSentinel | [PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25); candidate `957d1dba5111dae70b00554d0ba9f81e1b86b60c` | Unmerged 0.7.55.0 CI-only proving build; default legacy, session opt-in |
 | Sentinel | This canonical reconciliation | Documents only; no catalog mutation |
 | PvP/HUD/Classy/Profiles/Relay/Hunts | No Phase 3 source or package changes | Existing releases preserved |

@@ -2,11 +2,11 @@
 
 Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this execution order on 2026-10-06 America/Toronto:
 
-1. Sentinel Modern 2 / Core 0.3: already published (current package 0.3.1).
+1. Sentinel Modern 2 / Core 0.3: published; released consumers retain package 0.3.1.
 2. Release/workflow cleanup: implemented and merged across all six children; next genuine release will exercise changed publication end-to-end.
 3. Current-build acceptance baseline: initial live results recorded; partial acceptance is sufficient for Phase 3 design/tests, with specific UI/restart/facing and untested gameplay gates retained.
-4. Shared navigation and diagnostics foundations: understand existing contracts before extraction.
-5. SRankSentinel incremental reliability migration: first proving consumer.
+4. Shared navigation and diagnostics foundations: Core 0.4.0.0 published with passing isolated tests; supervised consumer proof pending.
+5. SRankSentinel incremental reliability migration: PR #25 prepares session-only opt-in ordinary approach; do not merge/publish before live proof.
 6. PvPSentinel Frontline Brain improvements: only after automated and supervised SRank navigation proof.
 7. Sentinel Hub: only after shared foundations are stable.
 8. Sentinel Trains: consumes proven shared navigation.
@@ -40,13 +40,13 @@ Do not start Hub or Trains unless the foundations are stable or the user explici
 
 ## Current execution gate
 
-The [2026-10-06 live acceptance record](TEST_MATRIX.md#current-build-supervised-acceptance) provides a sufficient baseline to **begin Phase 3 contract design, additive diagnostics and isolated automated implementation/tests**. It does not close all Phase 2 gates. UI fixes, Profiles full-restart diagnosis, HUD unrelated choices and PvP's untested baseline remain separate work. No blanket migration/release readiness is implied.
+The [2026-10-06 live acceptance record](TEST_MATRIX.md#current-build-supervised-acceptance) justified Phase 3. Core 0.4 is now published and tested; [SRank PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25) awaits a **supervised opt-in proving run** before merge or catalog release. This does not close all Phase 2 gates. UI fixes, Profiles full-restart diagnosis, HUD unrelated choices and PvP's untested baseline remain separate work. No blanket migration/release readiness is implied.
 
-Preserve the working SRank travel flow as the reference and rollback path. A new supervised SRank test of the future shared implementation is required before broader rollout or PvP migration; today's old-implementation pass cannot satisfy that gate. Obtain the current PvP baseline before modifying its movement. Hub/Trains remain deferred.
+Preserve the working SRank travel flow as the reference and rollback path. A new supervised SRank test of the prepared shared implementation is required before broader rollout or PvP migration; today's old-implementation pass cannot satisfy that gate. Obtain the current PvP baseline before modifying its movement. Hub/Trains remain deferred.
 
 ## P2 — Shared foundations after evidence
 
-Plan a small shared navigation contract and consistent diagnostic export only where tested duplication justifies extraction. Retain plugin-owned strategy and optional integrations; Core must remain independently consumable libraries. Add new Core APIs with compatibility tests, release them, then migrate consumers individually.
+Implemented in Core 0.4: operation ownership/cancellation, stale-result rejection, zone/build readiness, distinct query/follow phases, waypoint-progress stalls, bounded retries, mount/takeoff/flight changes, landing projection and sanitized correlated diagnostics. Existing Core APIs and UI source remain compatible. Core PR #2 is merged/released; SRank PR #25 is the controlled proving candidate. See [foundation evidence and gate](docs/NAVIGATION_FOUNDATION.md). Retain plugin-owned strategy and independent consumption.
 
 SRank migration must preserve hunt parking, S/SS staging, one tag per real pull, positive reset/death evidence and recovery. Prove zone-mesh readiness, mount/takeoff, continuous flight and usable-aetheryte selection before broad rollout.
 

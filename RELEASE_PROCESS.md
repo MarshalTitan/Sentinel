@@ -5,7 +5,7 @@ Applies to independent Sentinel repositories. [Inventory](SENTINEL_ECOSYSTEM.md)
 ## Normal release contract
 
 1. Inspect current source/instructions on a branch. Preserve InternalName, configuration, positions, themes and input behavior. Keep workflow/UI changes separate from gameplay.
-2. Pin approved Core packages, locks and bundled assemblies exactly; verify hashes. Core 0.3.1 remains the current audited baseline.
+2. Pin approved Core packages, locks and bundled assemblies exactly; verify hashes. Released plugins retain Core 0.3.1; the SRank proving branch pins published Core 0.4.0 and its verified hashes. Do not upgrade unrelated consumers implicitly.
 3. Build, run relevant tests and validate the package on cloud runners. Obtain required in-game evidence before treating gameplay changes as complete. Acceptance is scoped to the tested build/scenario: the Phase 2 pass of existing SRank is a regression reference, not approval of a future shared-navigation build. UI/Profiles/facing work and unrelated choice/PvP gates remain separately recorded in the test matrix.
 4. Increment the four-part version for changed plugin content. Publish the source/tag-linked ZIP, then download and validate its public contents. Never replace an existing asset.
 5. Invoke the full-commit-pinned [shared action](.github/actions/distribute/action.yml) to promote the owning entry in the child's root repo.json. Do not pre-advertise an unavailable ZIP. The action preserves other entries, refuses downgrade/concurrent metadata overwrite and uses conditional blob-SHA writes with bounded retries.
@@ -19,7 +19,7 @@ Permanent installation URL: https://raw.githubusercontent.com/MarshalTitan/Senti
 
 | Repository | Publication trigger / scope | Revalidation and distribution |
 |---|---|---|
-| Core | Tag push; three NuGet libraries | No installable-plugin ZIP or catalog entry; unchanged in Phase 1. |
+| Core | Tag push or main Directory.Build.props version change; three NuGet libraries | Build/tests before publication; immutable exact-source assets, package-hashes.json (SHA256/SHA512), then public download/hash verification. No plugin ZIP/catalog entry. |
 | SRank | Main change to SRankSentinel.csproj or manual main dispatch | Event source is checked out; same-source prerelease revalidation only; public ZIP then shared action. |
 | SentinelHunts (SRank repo) | Matching v*-sentinelhunts tag or manual main dispatch | Separate immutable ZIP; shared action promotes only SentinelHunts and preserves SRank. |
 | PvP | Main/tag push; PRs build/test only | Existing release is revalidated, never overwritten; public ZIP then shared action. Main workflow-only merges do not create a new version. |
@@ -53,3 +53,9 @@ The central workflow runs hourly at minute 17, manually, or on plugin-released. 
 - For documentation/workflow-only work, run applicable CI and inspect the diff. Do not bump plugin versions or manufacture releases to test infrastructure.
 
 The next genuine changed-version release must demonstrate upload → child promotion → reconciliation → exact public verification. Read-only smoke and policy tests alone do not prove that future run.
+
+## Controlled Phase 3 distribution
+
+Core [0.4.0.0](https://github.com/MarshalTitan/SentinelCore/releases/tag/v0.4.0.0) is published from `67e52f5d4afb080042f9e526a6afae7480b01ff0`. Its [release run](https://github.com/MarshalTitan/SentinelCore/actions/runs/37569682234) built/tested, published all three libraries without asset replacement, and downloaded/verified their public hashes. No custom catalog token is needed for Core.
+
+SRank 0.7.55.0 is a PR-only proving artifact, not a release or manifest promotion. Keep [PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25) unmerged until the supervised test passes, because merging its project-version change triggers normal publication. The public SRank and SentinelHunts entries remain 0.7.54.0 and 0.1.1.0 respectively. Use a separate dev-plugin load for testing, with the installed SRank copy disabled. Rollback is the session command or unloading the dev build and re-enabling accepted 0.7.54.0; no catalog downgrade is required.

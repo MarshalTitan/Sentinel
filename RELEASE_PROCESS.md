@@ -1,48 +1,55 @@
 # Release Process
 
-Applies to the independently versioned Sentinel repositories. Current source snapshot: [Sentinel Ecosystem](SENTINEL_ECOSYSTEM.md). This document separates the required contract from workflow gaps.
+Applies to independent Sentinel repositories. [Inventory](SENTINEL_ECOSYSTEM.md) records published versions; [Phase 1 audit](docs/RELEASE_INFRASTRUCTURE_AUDIT.md) records infrastructure commits, checks and limits.
 
 ## Normal release contract
 
-1. Work on a branch in the owning repository; inspect current instructions and source. Preserve InternalName and configuration compatibility. Keep UI-only work separate from automation changes.
-2. Pin approved Core packages exactly, update vendored/downloaded packages and lock data through that repository's process, and verify hashes. Core 0.3.1 is the current audited baseline; future upgrades require a fresh release check.
-3. Run the repository's policy tests, restore/build, applicable UI checks and package validation on cloud runners. Record commit, environment/API and results. Obtain required in-game evidence or clearly label the build as awaiting supervised acceptance.
-4. Increment the plugin's four-part version for changed release content. Produce a tag/source-linked ZIP with the correctly named top-level DLL, manifest and dependency metadata; check bundled Core assemblies. Avoid same-version replacement.
-5. Publish the ZIP, verify the public asset and embedded manifest, then update the **child** repo.json. Preserve other entries when one repository owns multiple plugins.
-6. Optionally send `plugin-released` repository_dispatch to MarshalTitan/Sentinel to accelerate reconciliation. Child plugins must not directly edit the central repo.json. Central reconciliation independently reads child manifests and validates the candidate; the scheduled path must work without a cross-repository token.
-7. Wait for reconciliation and verify the permanent public catalog contains the exact version and install/update/testing URLs. Inspect warnings: a successful central run can preserve last-known-good rather than advance the requested release.
-8. Report source/tag/asset/CI links, catalog confirmation and remaining in-game tests. “ZIP uploaded” alone is not release completion.
+1. Inspect current source/instructions on a branch. Preserve InternalName, configuration, positions, themes and input behavior. Keep workflow/UI changes separate from gameplay.
+2. Pin approved Core packages, locks and bundled assemblies exactly; verify hashes. Core 0.3.1 remains the current audited baseline.
+3. Build, run relevant tests and validate the package on cloud runners. Obtain required in-game evidence before treating gameplay changes as complete.
+4. Increment the four-part version for changed plugin content. Publish the source/tag-linked ZIP, then download and validate its public contents. Never replace an existing asset.
+5. Invoke the full-commit-pinned [shared action](.github/actions/distribute/action.yml) to promote the owning entry in the child's root repo.json. Do not pre-advertise an unavailable ZIP. The action preserves other entries, refuses downgrade/concurrent metadata overwrite and uses conditional blob-SHA writes with bounded retries.
+6. Optionally notify central Sentinel with plugin-released. Missing/rejected notification warns and uses scheduled reconciliation; it never skips verification.
+7. Wait for reconciliation and verify the exact public child and central entry, including all release URLs and metadata. The current bound is 90 minutes for the hourly schedule plus runner delay. Schedules can be delayed/dropped; a stale catalog at the deadline fails visibly.
+8. Report source/tag/asset/CI links, catalog result and remaining live tests. Update the five canonical documents.
 
 Permanent installation URL: https://raw.githubusercontent.com/MarshalTitan/Sentinel/main/repo.json
 
-## Actual workflow entry points
+## Current workflow entry points
 
-| Repository | Inspected publication trigger | Current caveat |
+| Repository | Publication trigger / scope | Revalidation and distribution |
 |---|---|---|
-| Core | Tag push, [release.yml](https://github.com/MarshalTitan/SentinelCore/blob/300703b360a58fb4b73bf7675d31fe8cab4614cd/.github/workflows/release.yml) | Three NuGet libraries, no plugin ZIP/catalog entry. |
-| SRank | Main change to SRankSentinel.csproj or manual dispatch, [release.yml](https://github.com/MarshalTitan/SRankSentinel/blob/0731a00e9186ec916718e6c031d4f0b163a6a3e6/.github/workflows/release.yml) | Checks out main; verify resolved source before dispatch. Separate SentinelHunts workflows also exist. |
-| PvP | Main/tag pushes in [build.yml](https://github.com/MarshalTitan/PvPSentinel/blob/d47e8b7429c135fec2976c1e980175f33787c4f3/.github/workflows/build.yml); PR build path | Missing catalog token currently warns; public verification is conditional on dispatch. |
-| HUD | Main commit containing `[publish-live]`, [release.yml](https://github.com/MarshalTitan/SentinelHUD/blob/e7d53978a2821ffc4cb6613de4b92511caad415d/.github/workflows/release.yml) | Mandatory dispatch and bounded verification; same-source retries revalidate existing assets. |
-| Classy | Manual; main push or opened/synchronized PR touching .github/releases, [publish.yml](https://github.com/MarshalTitan/ClassySentinel/blob/8763b77a1f8b8fcc4a01845d108715b4431565d7/.github/workflows/publish.yml) | Checks out main, can publish from a PR event and clobber an existing asset; token notification is optional. Treat as a remediation priority. |
-| Profiles | Manual dispatch, [release.yml](https://github.com/MarshalTitan/SentinelProfiles/blob/23610575f0a9f20a31f003866cfcb60ea1b4caf8/.github/workflows/release.yml) | Mandatory dispatch and bounded verification. |
-| Relay | Manual or main commit with `[publish-live]` / `[verify-live]`, [release.yml](https://github.com/MarshalTitan/SentinelRelay/blob/d2401031bd20430c37d2bc0d64a98aa17c157954/.github/workflows/release.yml) | Supports revalidation; mandatory dispatch and bounded verification. |
+| Core | Tag push; three NuGet libraries | No installable-plugin ZIP or catalog entry; unchanged in Phase 1. |
+| SRank | Main change to SRankSentinel.csproj or manual main dispatch | Event source is checked out; same-source prerelease revalidation only; public ZIP then shared action. |
+| SentinelHunts (SRank repo) | Matching v*-sentinelhunts tag or manual main dispatch | Separate immutable ZIP; shared action promotes only SentinelHunts and preserves SRank. |
+| PvP | Main/tag push; PRs build/test only | Existing release is revalidated, never overwritten; public ZIP then shared action. Main workflow-only merges do not create a new version. |
+| HUD | Main commit containing [publish-live] | Existing same-source release can be revalidated; public ZIP then shared action. Manual catalog-sync is read-only recovery with optional notification. |
+| Classy | Manual main dispatch or main change under .github/releases | No PR publication; same-source prerelease revalidation only; local/public ZIP checks then shared action. |
+| Profiles | Manual main dispatch | Existing release is refused (immutable). New ZIP is verified before shared child promotion. |
+| Relay | Manual main dispatch or main [publish-live] / [verify-live] commit | Existing asset can be explicitly revalidated without replacement; public ZIP then shared action. |
 
-Read the actual workflow before each release; do not assume identical triggers or that opening a plugin PR is always publication-free. The scope/order follow-up to merged PR #2 changes documentation only; Phase 1 will reconcile the actual workflow table after implementation.
+Each child has Release Infrastructure Checks: actionlint, PowerShell script parsing, asset/token policy checks and read-only token-free verification of published entries. Existing plugin build/test/package checks remain. Read the actual workflow before publication; triggers are intentionally not identical.
 
-## Credentials and central reconciliation
+## Credentials and retirement
 
-The central workflow uses its own GITHUB_TOKEN with contents:write. Optional child notification may use DALAMUD_CATALOG_TOKEN for repository dispatch; the child GITHUB_TOKEN alone is repository-scoped. No cross-repository secret should be required for the scheduled reconciliation path. Public verification must run regardless of notification availability/success and allow the hourly schedule plus execution time; a finite timeout fails visibly. Audit all references before declaring an old secret removable. Never place credentials in documentation or logs.
+| Credential/location | Required? | Safe action after Phase 1 |
+|---|---|---|
+| Built-in GITHUB_TOKEN, each child | Yes for release upload/changed child manifest; repository contents:write | Retain normal workflow permissions. This is not a manually stored PAT. |
+| DALAMUD_CATALOG_TOKEN, each of the six children | No; optional notification only | May delete that repository secret if hourly latency is acceptable. Do not revoke its underlying token until all other uses are checked. |
+| Built-in GITHUB_TOKEN, central Sentinel | Yes for central conditional publication | Retain; generator uses its own repository token. |
+| Other old PAT/secret names | Not inventoried through secret administration | Do not delete based on a guessed name. No additional custom secret was found in audited release code. |
 
-[Update Sentinel Catalog](https://github.com/MarshalTitan/Sentinel/blob/1f703528c428fc993945aafb85a27bdd0742932e/.github/workflows/update-catalog.yml) runs hourly at minute 17, on manual dispatch and on plugin-released. Registry order is deterministic; remote entry metadata, PNG icons, ZIP structure and embedded identity/version/API are checked. The inspected central ZIP validator requires a DLL but does not independently inspect its assembly version; child package validation remains necessary.
+No secrets were deleted or inspected. The child token never writes central repo.json. The shared action rejects unapproved repository/identity mappings. Central dispatch payloads remain notifications, not metadata authority.
 
-The publisher updates repo.json conditionally by blob SHA, retries conflicts, and checks public output. Failed/invalid known children fall back; invalid new children and unregistered existing entries abort. This is self-healing distribution, not automated bug repair.
+The central workflow runs hourly at minute 17, manually, or on plugin-released. Invalid/unavailable known children retain last-known-good; new invalid or unregistered existing entries abort. A successful run can preserve an older entry, so verify the requested result. Central ZIP checks do not replace child DLL/package validation.
 
-## Failure recovery and rollback
+## Recovery and rollback
 
-- Diagnose the child release, manifest, dispatch and central warning/result separately. Prefer rerunning **Update Sentinel Catalog** after correcting the child source.
-- Missing/rejected optional notifications may warn and fall back to scheduled reconciliation. Missing child-manifest credentials or a stale public catalog after the verification deadline fail the release. Existing workflows still need normalization to this revised contract.
-- Do not lower a child version expecting automatic rollback: downgrade protection preserves the higher central version. Prefer a new higher version containing reverted behavior. Any deliberate downgrade/retirement requires an explicit coordinated review.
-- Keep the older Update Plugin Entry workflow for emergency recovery only. Normal plugins do not write the central entry directly.
-- Register a new InternalName only after a valid child release exists. Retire registry and central entry together in a reviewed change.
+- First diagnose public ZIP, child manifest, notification and central result independently. Correct the child and run **Update Sentinel Catalog**, then read-only distribution verification.
+- If interrupted before child promotion, rerun the same-source release where supported; otherwise make a reviewed child-manifest recovery after validating the public ZIP. Profiles' existing-release refusal remains explicit.
+- Retired legacy **Update Plugin Entry** workflow/script and unused child upsert/duplicate waiter paths must not be restored as normal distribution.
+- Automatic downgrade protection blocks a simple version rollback. Prefer a higher version containing reverted behavior; deliberate downgrade or retirement requires coordinated review.
+- Add a registry identity only after its valid child release exists; retire registry and central entry together deliberately. Preserve SentinelHunts.
+- For documentation/workflow-only work, run applicable CI and inspect the diff. Do not bump plugin versions or manufacture releases to test infrastructure.
 
-For these canonical documents, create a cloud/GitHub branch and PR, check only the intended files changed, verify relative links and evidence, and run central PR CI. Do not tag a plugin release or alter repo.json for a documentation-only change.
+The next genuine changed-version release must demonstrate upload → child promotion → reconciliation → exact public verification. Read-only smoke and policy tests alone do not prove that future run.

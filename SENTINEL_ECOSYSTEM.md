@@ -40,7 +40,7 @@ GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and 
 - Relay's earlier hosted-service/slash-command architecture is superseded. Its prefixes are ordinary Discord messages polled by the plugin, not registered application commands.
 - Published minimize fixes exist for HUD, PvP and Profiles; Classy has themed collapse code. Retest the actual installed versions before reopening old reports or declaring them resolved.
 
-## Audited source heads
+## Audited gameplay source heads
 
 These are source snapshots, not a claim that every head is a release tag target; release workflows can add manifest-only commits.
 
@@ -52,5 +52,11 @@ These are source snapshots, not a claim that every head is a release tag target;
 - [ClassySentinel `8763b77a1f8b`](https://github.com/MarshalTitan/ClassySentinel/commit/8763b77a1f8b8fcc4a01845d108715b4431565d7)
 - [SentinelProfiles `23610575f0a9`](https://github.com/MarshalTitan/SentinelProfiles/commit/23610575f0a9f20a31f003866cfcb60ea1b4caf8)
 - [SentinelRelay `d2401031bd20`](https://github.com/MarshalTitan/SentinelRelay/commit/d2401031bd20430c37d2bc0d64a98aa17c157954)
+
+## Release-infrastructure phase completed
+
+Phase 1 merged in all six child repositories; see [release process](RELEASE_PROCESS.md) and [audit/evidence](docs/RELEASE_INFRASTRUCTURE_AUDIT.md). One pinned CI action in Sentinel maintains child manifests and verifies exact public distribution with optional notification. This introduces no runtime plugin coupling. Classy PR publication and asset replacement were removed; SentinelHunts now has a complete child-manifest path. Published plugin versions and all seven catalog entries are unchanged; SentinelCore remains 0.3.1.
+
+Next gate: the focused [current-build acceptance checklist](TEST_MATRIX.md#current-build-supervised-acceptance). No new in-game acceptance or gameplay fix is claimed. Shared navigation implementation/consumer migration has not started.
 
 Refresh the inventory, outstanding evidence and test results together when a release changes behavior. Do not copy “passed” counts from chat into current acceptance records.

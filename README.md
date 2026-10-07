@@ -42,9 +42,8 @@ The **Update Sentinel Catalog** workflow runs:
 - immediately after a normal plugin release through a `plugin-released` `repository_dispatch`
   notification.
 
-The scheduled run is the authoritative self-healing safety net, not the normal publication path. A
-child notification asks the central workflow to reconcile immediately; payload metadata is never
-trusted. The generator always fetches the actual child `repo.json` through the GitHub Contents API.
+The scheduled run is the authoritative self-healing safety net and the supported token-free publication path. An optional
+child notification accelerates reconciliation; payload metadata is never trusted. The generator always fetches the actual child `repo.json` through the GitHub Contents API.
 
 The workflow uses this repository's own `GITHUB_TOKEN` with `contents: write`. Normal plugin
 releases no longer depend on a child repository successfully writing into this repository.
@@ -81,7 +80,7 @@ build
 → publish the GitHub Release ZIP
 → verify the public ZIP and packaged manifest
 → update that plugin repository's own repo.json
-→ dispatch plugin-released to MarshalTitan/Sentinel
+→ optionally dispatch plugin-released to MarshalTitan/Sentinel
 → wait for central reconciliation
 → verify the public central repo.json contains the exact version and asset URLs
 ```
@@ -89,21 +88,19 @@ build
 The child manifest must contain the authoritative object for each installable `InternalName` owned
 by that repository. It no longer needs to directly edit `MarshalTitan/Sentinel/repo.json`.
 
-Each child release repository must expose a `DALAMUD_CATALOG_TOKEN` Actions secret whose token can
-create repository-dispatch events in `MarshalTitan/Sentinel` (`Contents: write` for a fine-grained
-token). The built-in child `GITHUB_TOKEN` is repository-scoped and cannot dispatch to the central
-repository. A missing credential, rejected dispatch, failed reconciliation, or stale public catalog
-must fail the release workflow visibly. The hourly run remains available to repair an interrupted
-publication, but normal releases must not wait for it.
+The pinned [shared distribution action](.github/actions/distribute/action.yml) uses the child's normal
+GITHUB_TOKEN only for its own manifest. DALAMUD_CATALOG_TOKEN is optional notification. Missing or rejected
+notification falls back to hourly reconciliation; exact public verification always runs with a 90-minute bound.
+A stale catalog fails visibly at the deadline. See [release process](RELEASE_PROCESS.md) for credential retirement,
+recovery, immutable assets and the next-real-release validation gate.
 
 ## Manual recovery
 
 The preferred manual recovery operation is **Actions → Update Sentinel Catalog → Run workflow**.
 It performs a complete reconciliation of every registered plugin.
 
-The older **Update Plugin Entry** workflow remains temporarily available as emergency tooling during
-the migration. It should not be the normal publication path and can be retired after the central
-generator has operated successfully across routine plugin releases.
+The legacy **Update Plugin Entry** workflow/script was retired in Phase 1. Correct the authoritative child
+manifest and run full reconciliation instead of editing the combined catalog through a separate publisher.
 
 ## Adding a plugin
 

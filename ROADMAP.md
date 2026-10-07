@@ -3,7 +3,7 @@
 Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this execution order on 2026-10-06 America/Toronto:
 
 1. Sentinel Modern 2 / Core 0.3: already published (current package 0.3.1).
-2. Release/workflow cleanup: infrastructure only; preserve published gameplay.
+2. Release/workflow cleanup: implemented and merged across all six children; next genuine release will exercise changed publication end-to-end.
 3. Current-build acceptance baseline: targeted supervised checks, not blanket historical bug fixing.
 4. Shared navigation and diagnostics foundations: understand existing contracts before extraction.
 5. SRankSentinel incremental reliability migration: first proving consumer.
@@ -24,7 +24,7 @@ Do not start Hub or Trains unless the foundations are stable or the user explici
 
 ## P1 — Close verified gaps
 
-- **Release enforcement:** make notification optional while making public-catalog verification unconditional. Classy/PvP currently couple verification to token notification. Separate Classy's PR validation from publication and remove routine same-tag asset replacement. These are identified gaps; this documentation PR does not change workflows.
+- **Release enforcement — completed:** shared action, optional notification/unconditional exact verification, PR-safe Classy publication, immutable assets, all seven child promotion paths, legacy cleanup and policy CI are merged. Tests/smoke and remaining next-release evidence are in the [audit](docs/RELEASE_INFRASTRUCTURE_AUDIT.md). No new plugin release was needed.
 - **Profiles restart semantics:** saved profiles/selection exist, but native temporary loaded-state overrides reset. User requested last-selected profile persistence across restart. Determine whether the remaining need is restoring selection, explicitly opted-in reapplication after discovery stabilizes, or native collection integration. Do not describe continuous enforcement or persistent native collections as shipped.
 - **SRank history/credit:** enabled-expansion recording, reward matching, one report list, clear control and tagged activity presentation are in source. Verify positive receipt correlation in-game; capped currency, missing reward lines and localization can leave a valid tag credit-unconfirmed. Do not equate a kill report with personal credit.
 - **Five-map evidence:** prioritize Onsal discovery per the available user request, then resolve remaining Secure semantics and regressions on Worqor/Seal Rock/Shatter. Recognition, destination discovery, objective meaning and tactical acceptance are separate gates.
@@ -35,6 +35,10 @@ Do not start Hub or Trains unless the foundations are stable or the user explici
 **Hub** is an ecosystem control center, not a replacement for individual plugins. Show installed Sentinel plugins, versions, dependency health, readiness/connection status, quick-open actions, Profiles status and shared diagnostics. Eventually reduce duplicated ecosystem/dependency pages where appropriate. Hub consumes ecosystem state and performs no gameplay automation.
 
 **Trains** is an A-rank hunt-train automation plugin. Intended flow: train/conductor report → world/instance travel → nearest usable aetheryte → conductor/map flag → continuous flight → safe arrival → single tag → next flag. Consume shared Sentinel navigation; do not create another independent movement stack. Preserve SRankSentinel and the existing SentinelHunts identity/catalog entry.
+
+## Current execution gate
+
+Phase 2 source review and the focused acceptance checklist are prepared in [Test matrix](TEST_MATRIX.md#current-build-supervised-acceptance). User evidence is still required for native cutscene callbacks, rendering/persistence and live movement. Do not publish speculative gameplay fixes. Profiles' lack of startup reapplication is a verified source behavior, distinct from loss of its saved profile IDs. Core/navigation work follows baseline review; PvP migration additionally requires a supervised SRank proving test.
 
 ## P2 — Shared foundations after evidence
 

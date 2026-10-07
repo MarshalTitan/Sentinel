@@ -4,9 +4,7 @@
   "type": "module",
   "scripts": {
     "generate": "node generator/generate-catalog.mjs --verify-assets",
-    "test": "node --test generator/*.test.mjs"
+    "test": "node --test generator/*.test.mjs release/*.test.mjs"
   },
-  "engines": {
-    "node": ">=20"
-  }
+  "engines": { "node": ">=20" }
 }

@@ -34,3 +34,27 @@ jobs:
 
       - name: Require a reconciled checked-in catalog
         run: diff -u repo.json "$RUNNER_TEMP/candidate-repo.json"
+
+  distribution:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test child publication, conflict, notification and timeout policies
+        run: node --test release/*.test.mjs
+      - name: Read-only token-free smoke of all seven published entries
+        run: node release/smoke.mjs
+      - name: Exercise composite action without writes or notification credentials
+        uses: ./.github/actions/distribute
+        env:
+          SENTINEL_REPOSITORY: MarshalTitan/SRankSentinel
+        with:
+          internal-name: SRankSentinel
+          publish-child: 'false'
+          source-token: ''
+          timeout-seconds: '60'

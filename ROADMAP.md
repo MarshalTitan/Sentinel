@@ -8,10 +8,10 @@ Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this e
 4. Shared navigation and diagnostics foundations: Core 0.4.1.0 published with passing isolated tests; supervised consumer proof pending.
 5. SRankSentinel incremental reliability migration: PR #25 prepares session-only opt-in ordinary approach; do not merge/publish before live proof.
 6. PvPSentinel Frontline Brain improvements: only after automated and supervised SRank navigation proof.
-7. Sentinel Hub: only after shared foundations are stable.
+7. Sentinel Hub: explicitly reprioritized by the 2026-10-16 MVP brief; see current Hub section.
 8. Sentinel Trains: consumes proven shared navigation.
 
-Do not start Hub or Trains unless the foundations are stable or the user explicitly reprioritizes them.
+Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains deferred until its shared-navigation prerequisites are proven.
 
 ## P0 — Preserve live behavior and obtain current evidence
 
@@ -34,7 +34,7 @@ Do not start Hub or Trains unless the foundations are stable or the user explici
 
 ## Sentinel Hub and Sentinel Trains — confirmed future scope
 
-**Hub** is an ecosystem control center, not a replacement for individual plugins. Show installed Sentinel plugins, versions, dependency health, readiness/connection status, quick-open actions, Profiles status and shared diagnostics. Eventually reduce duplicated ecosystem/dependency pages where appropriate. Hub consumes ecosystem state and performs no gameplay automation.
+**Hub** is an ecosystem control center, not a replacement for individual plugins. Show installed Sentinel plugins, versions, dependency health, readiness/connection status, quick-open actions, Profiles status and shared diagnostics. Eventually reduce duplicated ecosystem/dependency pages where appropriate. Hub 0.1 consumes ecosystem state and performs no gameplay actions. Future opt-in nonvisual utilities follow separate migration gates.
 
 **Trains** is an A-rank hunt-train automation plugin. Intended flow: train/conductor report → world/instance travel → nearest usable aetheryte → conductor/map flag → continuous flight → safe arrival → single tag → next flag. Consume shared Sentinel navigation; do not create another independent movement stack. Preserve SRankSentinel and the existing SentinelHunts identity/catalog entry.
 
@@ -42,7 +42,7 @@ Do not start Hub or Trains unless the foundations are stable or the user explici
 
 The [2026-10-06 live acceptance record](TEST_MATRIX.md#current-build-supervised-acceptance) justified Phase 3. Core 0.4 is now published and tested; [SRank PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25) awaits a **supervised opt-in proving run** before merge or catalog release. This does not close all Phase 2 gates. UI fixes, Profiles full-restart diagnosis, HUD unrelated choices and PvP's untested baseline remain separate work. No blanket migration/release readiness is implied.
 
-Preserve the working SRank travel flow as the reference and rollback path. A new supervised SRank test of the prepared shared implementation is required before broader rollout or PvP migration; today's old-implementation pass cannot satisfy that gate. Obtain the current PvP baseline before modifying its movement. Hub/Trains remain deferred.
+Preserve the working SRank travel flow as the reference and rollback path. A new supervised SRank test of the prepared shared implementation is required before broader rollout or PvP migration; today's old-implementation pass cannot satisfy that gate. Obtain the current PvP baseline before modifying its movement. The historical Hub deferral is superseded by the 2026-10-16 MVP brief; Trains remains deferred.
 
 ## P2 — Shared foundations after evidence
 
@@ -80,7 +80,7 @@ The user reports successful flight-path cancellation and replacement on 0.7.59.0
 | Responsive UI / Profiles clipping / SRank history | Profiles 0.2.1.3 published separately; visual proof pending; other consumers backlog | Audit/repair in separate changes; never include in navigation proving build. |
 | Profiles full-restart semantics / HUD unrelated choices / SRank facing | Narrow live diagnosis outstanding | Use naturally available evidence; preserve existing working behavior. |
 | Catalog/release maintenance | Seven entries preserved | Carry token-free verification and routine reconciliation forward without gameplay changes. |
-| Hub / Trains | Deferred | Only after foundations stable or explicit reprioritization. |
+| Hub / Trains | Hub 0.1.0.0 published by explicit reprioritization; Trains deferred | Hub dashboard acceptance; Trains still depends on proven navigation. |
 
 Live evidence automatically resumes engineering under the operating agreement. Pending human validation does not require pausing independent low-risk work; isolate it so the proving build stays reproducible. This landing candidate supersedes the dated earlier requests above. Successful probe mechanics will not alone close the ordinary-hunt or PvP gates.
 
@@ -91,3 +91,19 @@ The user reports physical unmount/landing and confirms cancellation stopped move
 Candidate **0.7.61.0**, commit `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`, in [SRank PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25), extends session opt-in to ordinary **pre-tag protected flight parking** only after the existing path AND landing-ground-connectivity validation. Core receives a one-use immutable approved route; its query phase here accepts prevalidated consumer data rather than issuing a new unprotected query. Fresh entity/zone/path/clearance checks precede following; zero parking retries forbid requery outside approval. Original point selection, crowd safety, preference bookkeeping, alignment/landing revalidation and kill/reset/tag/return semantics remain consumer-owned. Planned landing handoff cancels the Core lease before legacy landing and records the correlated ParkingLandingHandoff event/last Core state. SS, unprotected fallback and post-tag retreat remain legacy. Failure stops proving/Sentinel, retains the hunt and exports; off during shared parking returns to LocateMark for safe legacy resampling.
 
 Next real-game gate: one ordinary report on the new candidate, shared protected parking **Following** and same-ID safe landing handoff, physical landing, one configured-threshold tag, normal retreat, positive kill/reward wait and Ul'dah return. No new probe or duplicate UI acceptance is requested. Use NAVIGATION_FOUNDATION.md for the verified artifact, shortest procedure and rollback. PvP remains blocked until this supervised integration and its own current-build baseline pass. Other low-risk backlog work must stay in separate PRs/builds.
+
+## Sentinel Hub MVP — 2026-10-16 UTC
+
+**Explicit reprioritization:** the user's Hub build brief supersedes the earlier Hub-only deferral. Trains and shared-navigation acceptance remain gated separately. No SRank/PvP gameplay or HUD utility migration is included.
+
+| Track | Current state | Next gate |
+|---|---|---|
+| Hub 0.1.0.0 | Published/cataloged optional MVP; automated validation clean | [Supervised acceptance](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/ACCEPTANCE.md): inventory, quick-open, narrow UI/minimize/reload, diagnostics, consumers with Hub disabled |
+| Hub status contracts | Installation/load/version and verified dependency responses implemented; Profiles selection/drift, Relay connection and consumer fault aggregation unavailable | Add documented, versioned, read-only contracts in owning consumers before displaying richer state |
+| Anti-AFK | Planned/inactive; HUD remains owner | After MVP acceptance, default-OFF Hub engine, explicit duplicate-owner prevention and practical preference migration; supervised validation before separate HUD cleanup |
+| Quest Convenience | Planned/inactive; HUD remains owner | Isolated module preserving accepted submarine handling, explicit choices, unrelated prompts and bounded failures; supervised dialogue/cutscene/reward evidence before cleanup |
+| Latency/Weaving | Future; no engine, hooks or compensation in MVP | Independent design, measurements, bounded opt-in compensation and conflict detection for NoClippy/XivAlexander where reliable; default OFF |
+| Shared appearance | Hub-local theme/reduced motion implemented | Optional Core-owned shared contract only if consumers keep independent local fallback |
+| Trains/navigation proving | Unchanged by Hub | Existing separate acceptance gates remain authoritative |
+
+Recommended next implementation after the human Hub acceptance gate: **Anti-AFK single-owner migration**. Hub publication is not evidence that existing hunt or Frontline migration gates have passed.

@@ -40,5 +40,11 @@
     "repository": "SentinelHUD",
     "branch": "main",
     "internalName": "SentinelHUD"
+  },
+  {
+    "owner": "MarshalTitan",
+    "repository": "SentinelHub",
+    "branch": "main",
+    "internalName": "SentinelHub"
   }
 ]

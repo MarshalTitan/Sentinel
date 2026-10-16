@@ -92,3 +92,12 @@ export function registeredOwners(registry) {
     return [record.internalName, repository];
   });
 }
+
+export function publishedOwners(registry, published) {
+  const registered = registeredOwners(registry);
+  if (!Array.isArray(published) || !published.length) throw new Error('Public catalog must be nonempty');
+  const ids = published.map(p => p.InternalName);
+  if (new Set(ids).size !== ids.length) throw new Error('Duplicate public identity');
+  for (const id of ids) if (!registered.some(([name]) => name === id)) throw new Error('Unregistered public identity');
+  return registered.filter(([name]) => ids.includes(name));
+}

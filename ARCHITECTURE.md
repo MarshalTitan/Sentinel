@@ -9,7 +9,7 @@ Status and version snapshot: [Sentinel Ecosystem](SENTINEL_ECOSYSTEM.md). “Req
 | Sentinel catalog | Registry, generated manifest, validation and reconciliation | Monorepo for plugin implementations or owner of child version metadata |
 | SentinelCore | Versioned shared configuration, lifecycle, diagnostics, job metadata, safe IPC and UI primitives | Required installed plugin, live service, or implicit upgrade of every consumer |
 | Each plugin | Domain policy, runtime adapters, configuration migration, window lifetime, release and evidence | Private fork of Core palettes, shells or shared widgets |
-| Future Hub | Installed plugins/versions, dependency/readiness state, quick-open actions, Profiles status and shared diagnostics | Gameplay automation or a replacement for individual plugins |
+| Sentinel Hub | Optional inventory/dependency/readiness, quick-open actions, Profiles status foundation, diagnostics; future opt-in shared utility engines | Mandatory runtime service or replacement for hunt, Frontline, gear, Profiles, Relay or visual HUD domains |
 | Future Trains | A-rank train domain policy consuming shared navigation | Replacement for SRankSentinel/SentinelHunts or another independent movement stack |
 
 Core generic code targets .NET 10 without Dalamud. Core.Dalamud and Core.UI target Windows/Dalamud API 15 and depend toward the generic library. Each consumer pins and bundles its required packages. See [Core architecture](https://github.com/MarshalTitan/SentinelCore/blob/300703b360a58fb4b73bf7675d31fe8cab4614cd/docs/ARCHITECTURE.md) and [adoption contract](https://github.com/MarshalTitan/SentinelCore/blob/300703b360a58fb4b73bf7675d31fe8cab4614cd/ADOPTION.md). Core 0.4 adds an opt-in, platform-neutral movement coordinator and diagnostics; it does not own world travel or a runtime service.
@@ -85,3 +85,15 @@ Reviewed priority edges: revoke the old lease before any legacy parking replan/f
 Unconfirmed follower stop during a policy replan blocks any replacement submission and disables Sentinel. Explicit off likewise keeps the parking rollback marker until stop confirmation. This failure behavior is covered in isolated consumer tests.
 
 Planned Landing and death handoffs also require follower stop confirmation. A failed check disables Sentinel before native landing/recovery can tick, preserves rollback and emits no successful ParkingLandingHandoff. Off resamples through LocateMark after a confirmed stop even when the held domain state is Landing.
+
+## Sentinel Hub MVP — 2026-10-16 UTC
+
+Hub is an optional independent API-15 plugin, `SentinelHub`, command `/shub`. It bundles exact Core/UI 0.4.1 packages; it does not install a Core service or change other consumers' pins. Hub owns its local configuration, inventory/status projections, fixed quick-open router, typed bounded fault journal and `sentinel.hub.v1` export. Its engines are independent of rendering; the Utilities registry contains inactive plans only in 0.1.
+
+Public `InstalledPlugins` observations and source-verified settings commands are sufficient for the MVP. Read-only vnavmesh/Lifestream/RSR/Splatoon probes are isolated per dependency. Discovery failure invalidates observations; unload is rechecked before a settings command. No consumer config reading, private reflection, plugin enabling, profile application, movement, actions or chat transmission is present. Profiles selection/drift and Relay connection remain unknown rather than inferred.
+
+Core remains the canonical owner of palette, styles, application shell, rail, cards, switches, status pills and ambient motion. Hub uses a stable window identity, retains expanded size separately from Modern collapse, supports Classic, and has a 480×500 logical minimum audited against Core and all eight rail destinations. Native rendering and input checks are automated; actual saved placement and controller behavior require in-game acceptance.
+
+Future utilities remain staged: Anti-AFK, then Quest Convenience, then independently implemented Latency/Weaving compensation. Default OFF; explicit single ownership prevents duplicate HUD/Hub behavior. Keep the accepted submarine fix, user choices and unrelated prompts intact. Separate HUD cleanup follows supervised replacement validation. Latency engine/settings belong in Hub; HUD may optionally render its status without requiring Hub. Camera and all visual/editor modules remain in HUD. Optional shared preference contracts should live in Core, with consumer-local fallback.
+
+Distribution bootstrap: authorize Hub's repository/identity in the shared action first; validate and publish the immutable installable ZIP; only then create its child manifest and add the central registry/candidate entry through a central PR. Child workflows never write central repo.json. Publication smoke verifies all currently public registered identities; new candidate identities are covered by the generator's public-asset validation before central publication.

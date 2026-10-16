@@ -47,7 +47,7 @@ jobs:
           node-version: '22'
       - name: Test child publication, conflict, notification and timeout policies
         run: node --test release/*.test.mjs
-      - name: Read-only token-free smoke of all seven published entries
+      - name: Read-only token-free smoke of all registered public entries
         run: node release/smoke.mjs
       - name: Exercise composite action without writes or notification credentials
         uses: ./.github/actions/distribute

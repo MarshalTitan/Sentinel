@@ -101,3 +101,22 @@ export function publishedOwners(registry, published) {
   for (const id of ids) if (!registered.some(([name]) => name === id)) throw new Error('Unregistered public identity');
   return registered.filter(([name]) => ids.includes(name));
 }
+
+export function verificationTargets(registry, candidate, published, isPullRequest = false) {
+  const registered = registeredOwners(registry);
+  if (new Set(registered.map(([name]) => name)).size !== registered.length)
+    throw new Error('Duplicate registered identity');
+  const candidateOwners = publishedOwners(registry, candidate);
+  if (candidateOwners.length !== registered.length)
+    throw new Error('Candidate must contain every registered identity');
+  publishedOwners(registry, published);
+  return registered.map(([name, repository]) => ({
+    name, repository,
+    deferred: isPullRequest === true && !isDeepStrictEqual(
+      entry(candidate, name), published.find(value => value.InternalName === name)),
+  }));
+}
+export function requireCandidateChild(child, expected) {
+  if (!verify(child, expected)) throw new Error('Candidate does not match authoritative child');
+  return expected;
+}

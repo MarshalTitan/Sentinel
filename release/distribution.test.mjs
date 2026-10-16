@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { publishedOwners, registeredOwners, contract, entry, desiredEntry, promote, publishChild, verify, notifyOptional, waitForCatalog } from './distribution.mjs';
+import { verificationTargets, requireCandidateChild, publishedOwners, registeredOwners, contract, entry, desiredEntry, promote, publishChild, verify, notifyOptional, waitForCatalog } from './distribution.mjs';
 const c = contract('MarshalTitan/SRankSentinel', 'SRankSentinel', '0.7.55.0', 'v0.7.55.0');
 const old = { InternalName: c.name, AssemblyVersion: '0.7.54.0', TestingAssemblyVersion: '0.7.54.0',
   Name: 'S Rank Sentinel', LastUpdate: 1, DownloadLinkInstall: 'old', DownloadLinkUpdate: 'old', DownloadLinkTesting: 'old' };
@@ -97,4 +97,32 @@ test('registration candidates do not hide existing publication failures', () => 
   assert.throws(() => publishedOwners(registry, []));
   assert.throws(() => publishedOwners(registry, [{ InternalName: 'Unknown' }]));
   assert.throws(() => publishedOwners(registry, [{ InternalName: 'SentinelHUD' }, { InternalName: 'SentinelHUD' }]));
+});
+
+test('PR candidates defer only changed identities; post-merge verifies all', () => {
+  const registry = [
+    { owner: 'MarshalTitan', repository: 'SentinelHUD', internalName: 'SentinelHUD' },
+    { owner: 'MarshalTitan', repository: 'SentinelHub', internalName: 'SentinelHub' },
+  ];
+  const hud = { InternalName: 'SentinelHUD', AssemblyVersion: '0.8.4.6' };
+  const hub = { InternalName: 'SentinelHub', AssemblyVersion: '0.2.0.0' };
+  const candidate = [hud, hub];
+  const published = [hud, { ...hub, AssemblyVersion: '0.1.0.0' }];
+  assert.deepEqual(verificationTargets(registry, candidate, published, true).map(x => x.deferred), [false, true]);
+  assert.deepEqual(verificationTargets(registry, candidate, [hud], true).map(x => x.deferred), [false, true]);
+  assert.deepEqual(verificationTargets(registry, candidate, published, false).map(x => x.deferred), [false, false]);
+  assert.deepEqual(verificationTargets(registry, candidate, [hud]).map(x => x.deferred), [false, false]);
+  assert.deepEqual(verificationTargets(registry, candidate, candidate, true).map(x => x.deferred), [false, false]);
+  assert.throws(() => verificationTargets(registry, [hud], published, true), /every registered/);
+  assert.throws(() => verificationTargets(registry, [hud, hud, hub], published, true), /Duplicate/);
+  assert.throws(() => verificationTargets(registry, candidate, [...published, { InternalName: 'Unknown' }], true), /Unregistered/);
+  assert.throws(() => verificationTargets([...registry, registry[0]], candidate, published, true), /Duplicate registered/);
+});
+test('deferred candidate still requires exact authoritative child metadata', () => {
+  const expected = desiredEntry([old], c);
+  assert.deepEqual(requireCandidateChild([expected, sibling], expected), expected);
+  assert.throws(() => requireCandidateChild([old], expected), /authoritative child/);
+  assert.throws(() => requireCandidateChild([{ ...expected, DownloadLinkInstall: 'wrong' }], expected));
+  assert.throws(() => requireCandidateChild([], expected));
+  assert.throws(() => requireCandidateChild([expected, expected], expected));
 });

@@ -76,3 +76,9 @@ test('token-free wait spans hourly schedule and has finite failure', async () =>
   assert(clock >= 3660000);
   await assert.rejects(waitForCatalog({ expected, timeoutMs: 0, read: async () => [old] }), /deadline/);
 });
+
+test('Hub is authorized only for its independent child repository', () => {
+  assert.equal(contract('MarshalTitan/SentinelHub', 'SentinelHub', '0.1.0.0', 'v0.1.0.0').name, 'SentinelHub');
+  assert.throws(() => contract('MarshalTitan/SentinelHUD', 'SentinelHub', '0.1.0.0', 'v0.1.0.0'));
+  assert.throws(() => contract('MarshalTitan/SentinelHub', 'SentinelHUD', '0.1.0.0', 'v0.1.0.0'));
+});

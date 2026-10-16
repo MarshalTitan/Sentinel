@@ -3,7 +3,7 @@ export const owners = Object.freeze({
   SRankSentinel: 'MarshalTitan/SRankSentinel', SentinelHunts: 'MarshalTitan/SRankSentinel',
   PvPSentinel: 'MarshalTitan/PvPSentinel', SentinelHUD: 'MarshalTitan/SentinelHUD',
   ClassySentinel: 'MarshalTitan/ClassySentinel', SentinelProfiles: 'MarshalTitan/SentinelProfiles',
-  SentinelRelay: 'MarshalTitan/SentinelRelay',
+  SentinelRelay: 'MarshalTitan/SentinelRelay', SentinelHub: 'MarshalTitan/SentinelHub',
 });
 export function versionParts(version) {
   if (!/^\d+\.\d+\.\d+\.\d+$/.test(version)) throw new Error('Expected four-part numeric version');

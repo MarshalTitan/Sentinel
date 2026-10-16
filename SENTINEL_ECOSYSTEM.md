@@ -24,12 +24,12 @@ The six pre-Hub plugin projects retain Core UI package **0.3.1**; Hub bundles **
 | Central Sentinel | [current catalog](https://github.com/MarshalTitan/Sentinel/blob/main/repo.json) | Approved registry, deterministic aggregation, validation, last-known-good fallback and automated reconciliation. |
 | SRankSentinel | [v0.7.56.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.56.0) (prerelease) | S/SS report intake, same-DC queue/travel, safe parking, one gated tag, positive kill evidence and recovery; companion/history UI. |
 | PvPSentinel | [v0.3.1.23](https://github.com/MarshalTitan/PvPSentinel/releases/tag/v0.3.1.23) | Experimental five-map Frontline navigation, diagnostics and combat-provider boundaries. Map recognition does not imply complete objective semantics or in-game acceptance. |
-| SentinelHUD | [v0.8.4.5](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.4.5) | Actor HUD/editor, self marker/highlight, awareness, targeting counter, camera and opt-in convenience; companion status is informational. |
+| SentinelHUD | [v0.8.4.6](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.4.6) | Actor HUD/editor, self marker/highlight, awareness, targeting counter, camera and opt-in convenience; companion status is informational. |
 | ClassySentinel | [v0.8.6.0](https://github.com/MarshalTitan/ClassySentinel/releases/tag/v0.8.6.0) (prerelease) | Exact gear-set launcher, dynamic job classification, multiple sets and scoped controller capture. |
 | SentinelProfiles | [v0.2.1.6](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.6) (prerelease) | Manual three-state profiles and drift reporting; separate responsive actions/editor repair published, visual/controller acceptance pending; restart semantics unchanged. |
 | SentinelRelay | [v0.5.0.5](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.5) | Per-character webhooks, authorized REST-polled replies, hunt rewards and opt-in game-window screenshots; no hosted backend. |
-| SentinelHunts | [v0.1.1.0-sentinelhunts](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.1.1.0-sentinelhunts) (cataloged) | Separate existing beta owned by SRankSentinel's repository; preserve its entry. It is not Sentinel Trains. |
-| Sentinel Hub | [v0.1.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0) beta | Optional control center; installed/loaded/version inventory, dependency responses, settings quick-open, sanitized Hub diagnostics. Runtime Profiles/Relay state unavailable; live acceptance pending; utility engines inactive. |
+| SentinelHunts | Historical test, still cataloged as 0.1.1.0 | User retired it from Hub inventory. This Dashboard-scoped removal does not delete its historical catalog/release identity. It is not Sentinel Trains. |
+| Sentinel Hub | [v0.2.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.2.0.0) beta | Optional control center plus default-OFF Anti-AFK proving. Retired Hunts hidden; icon repaired. Runtime Profiles/Relay state unavailable; native migration acceptance pending. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
@@ -81,3 +81,13 @@ Implemented: Core Modern/Classic shell, Dashboard, Plugins, Dependencies, Profil
 Hub alone bundles Core/UI **0.4.1** (published tag/source verified); the six prior plugin projects retain their own 0.3.1 UI pins. Latest public catalog versions inspected for this task are SRank **0.7.56.0**, Profiles **0.2.1.6**, and the other five previous entries unchanged. This publication adds the eighth entry and does not recertify any dated gameplay evidence. PR #25 remains open at `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`; no navigation gate is advanced.
 
 Automated validation and exact release/catalog verification are recorded in [Test matrix](TEST_MATRIX.md#sentinel-hub-mvp--2026-10-16-utc). **In-game acceptance pending.** Next recommended utility is default-OFF Anti-AFK, after dashboard acceptance and explicit single-owner transition design.
+
+## Anti-AFK migration and Hub corrections — 2026-10-16 UTC
+
+The user reported that Hub looks good, retired Sentinel Hunts as a test build for Hub inventory, and authorized migration. This is visual acceptance, not a separately confirmed pass of every MVP check.
+
+Hub **0.2.0.0** removes Sentinel Hunts from its inventory/dependency uses and repairs the installed icon metadata. Cloud audit of the public 0.1 ZIP confirmed its installed manifest lacked IconUrl; the PNG itself was valid. The historical SentinelHunts catalog identity is not removed by this Dashboard-scoped request.
+
+Hub now has an isolated **default-OFF Anti-AFK** engine with explicit optional preference import. HUD **0.8.4.6** retains its engine, saved setting and schema, adding only an optional ownership bridge. Absent/old Hub preserves HUD behavior. A compatible loaded HUD must acknowledge a fresh short claim before Hub writes; legacy/unknown installed HUD blocks Hub. Disable/logout/unload stops Hub's writer before release; HUD retains rollback ownership.
+
+**Supervised Anti-AFK acceptance is pending.** No HUD cleanup, Quest Convenience/submarine/reward migration, camera change or latency engine is included. After the replacement passes the [exact live gate](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/ANTI_AFK_MIGRATION.md), continue the next separate migration under the operating agreement.

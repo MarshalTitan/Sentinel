@@ -97,3 +97,13 @@ Core remains the canonical owner of palette, styles, application shell, rail, ca
 Future utilities remain staged: Anti-AFK, then Quest Convenience, then independently implemented Latency/Weaving compensation. Default OFF; explicit single ownership prevents duplicate HUD/Hub behavior. Keep the accepted submarine fix, user choices and unrelated prompts intact. Separate HUD cleanup follows supervised replacement validation. Latency engine/settings belong in Hub; HUD may optionally render its status without requiring Hub. Camera and all visual/editor modules remain in HUD. Optional shared preference contracts should live in Core, with consumer-local fallback.
 
 Distribution bootstrap: authorize Hub's repository/identity in the shared action first; validate and publish the immutable installable ZIP; only then create its child manifest and add the central registry/candidate entry through a central PR. Child workflows never write central repo.json. Publication smoke verifies all currently public registered identities; new candidate identities are covered by the generator's public-asset validation before central publication.
+
+## Anti-AFK optional ownership — 2026-10-16 UTC
+
+Hub 0.2 isolates a synchronous inactivity-timer adapter/engine from UI. It preserves HUD's 10-second check interval and above-30-second threshold, validating finite values. No synthetic input, movement, chat, gameplay action or asynchronous continuation is introduced. Faults stop writes until a bounded retry and remain local to the utility.
+
+Optional primitive IPC v1: HUD ProtocolVersion(int), Preference(bool), TryClaim(session token)->bool and Release(session token)->bool; Hub exposes AntiAfk.Enabled(bool). HUD suspends synchronously and guards the first/hot-reload callback before claim. The private in-memory GUID claim expires after 3 seconds without renewal; other/stale tokens cannot steal/release a replacement. Unknown compatible-peer state fails closed. Hub requires current acknowledgment while HUD is loaded and blocks legacy/unknown installed HUD, including disabled old installations that could be hot-loaded.
+
+No consumer assembly is bundled or required. Tests compile a pinned copy of the actual HUD lease source only into the test runner. Hub absence preserves the retained HUD implementation/config. Explicit Import copies only the public saved boolean. Disabling Hub stops its writer before lease release; missing/abrupt peers are bounded by the lease/request guard. Exports add only enum state and check count, never the claim token or private config.
+
+Quest Convenience and camera stay in HUD. HUD cleanup is explicitly separate and gated on supervised native/IPC/reload acceptance.

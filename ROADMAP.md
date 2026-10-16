@@ -107,3 +107,16 @@ Next real-game gate: one ordinary report on the new candidate, shared protected 
 | Trains/navigation proving | Unchanged by Hub | Existing separate acceptance gates remain authoritative |
 
 Recommended next implementation after the human Hub acceptance gate: **Anti-AFK single-owner migration**. Hub publication is not evidence that existing hunt or Frontline migration gates have passed.
+
+## Current migration gate — 2026-10-16 UTC
+
+| Track | Current state | Next action |
+|---|---|---|
+| Hub inventory/icon | Retired Sentinel Hunts removed from Hub; missing installed IconUrl repaired and validated | Confirm updated installer icon after Hub 0.2 update |
+| Anti-AFK | Hub 0.2.0.0 default-OFF engine + HUD 0.8.4.6 compatibility bridge; automated checks pass | Supervised ownership/import/off/reload/logout and meaningful idle-interval check |
+| HUD Anti-AFK cleanup | Not implemented; original engine/preference retained | Only after Hub replacement acceptance; separate cleanup PR/testing |
+| Quest Convenience | Still HUD-owned; accepted submarine path untouched | Next isolated migration after Anti-AFK gate, preserving choices/unrelated prompts/rewards |
+| Latency/Weaving | Inactive plan | Later independent design/measurement/conflict proving |
+| Hunt/PvP/Core navigation | Unchanged | Existing separate proving gates |
+
+The user's “looks good” report authorizes this migration, without certifying unreported original MVP tests. The next return should be scoped PASS/FAIL under the exact Anti-AFK checklist; returned evidence resumes routine engineering automatically.

@@ -254,3 +254,21 @@ Shortest gate: install catalog Hub **0.1.0.0**, open `/shub`; compare inventory/
 Publication evidence: [Hub source `ac1e7411788b`](https://github.com/MarshalTitan/SentinelHub/commit/ac1e7411788ba89b973073576d421a9c2a024127), [PR #1](https://github.com/MarshalTitan/SentinelHub/pull/1), [PR validation](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846223646), [release/distribution run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846452080), [public release](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0). ZIP SHA256: `7ee080adf3cec91e92f4b106aa0720ddf925a023ddb1a258da74a177ed0c0690` (public release metadata and workflow public-download comparison). [Central PR #20](https://github.com/MarshalTitan/Sentinel/pull/20) merged as `6bf497a8b45567386d06bb415a75ec767980d5e0`. Independent public raw child/central readback at 2026-10-16 03:44 UTC confirmed exact Hub 0.1.0.0 equality, eight total entries and all seven prior objects unchanged. [Post-merge central CI 38846833272](https://github.com/MarshalTitan/Sentinel/actions/runs/38846833272) passed generator/assets and Linux/Windows distribution checks.
 
 Source-independence audit: Core and all six existing plugin heads were unchanged throughout this task; no consumer or navigation PR was modified. Source inspection confirmed SRank PR #25 remains open at `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`. Their prior game gates are unaffected.
+
+## Anti-AFK migration proving — 2026-10-16 UTC
+
+| Evidence | Classification |
+|---|---|
+| Hub visual acceptance | User: “It looks good”; migration authorized. No blanket pass of all MVP checklist steps |
+| Icon | Public 0.1 ZIP audit: installed manifest missing IconUrl; public PNG valid. New package requires IconUrl/RepoUrl |
+| Hub policy/ownership | 27 automated groups pass, including default-OFF upgrades, legacy/unknown/login/ack gates, no writes off, rate/finite thresholds, bounded faults, explicit preference, token exclusion and actual pinned HUD lease simulation |
+| Hub UI/package | 480 existing native cases + 42 Anti-AFK state/theme/scale cases; package/Core/icon validation and zero compiler warnings/errors |
+| HUD compatibility | 51 Core groups, 11 pinned UI groups, 7 native UI groups; zero warnings/errors; existing engine/preference/schema retained |
+| Native/IPC acceptance | PENDING: actual timer behavior, startup callback order, lease handoff, off/unload/reload, logout/login and return to retained HUD preference |
+| HUD cleanup/Quest Convenience | Not implemented; unrelated prompts, accepted submarine handling, rewards, camera and visual modules untouched |
+
+Exact test: update Hub 0.2.0.0 + HUD 0.8.4.6; confirm default Off and icon; enable/import and check Hub Active/HUD Managed; turn Hub off and reload each plugin, verifying one owner/retained HUD preference; logout/login; test idle longer than the configured automatic-away interval with Hub On, then both preferences Off for the same interval. The check counter alone is not proof. Run sanitized export if needed. [Full procedure/rollback](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/ANTI_AFK_MIGRATION.md).
+
+Source/tests: [Hub PR #2](https://github.com/MarshalTitan/SentinelHub/pull/2), [Hub cloud validation](https://github.com/MarshalTitan/SentinelHub/actions/runs/38850172799), [HUD PR #5](https://github.com/MarshalTitan/SentinelHUD/pull/5), [HUD compatibility tests](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38849521851). Both public packages validated; source/hash evidence follows.
+
+Publication evidence: Hub source `884fa0d7512111d61128cfd1b8378d8fcbbc8166`, [0.2.0.0 release](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.2.0.0), [cloud release run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38850365423); public ZIP SHA256 `03cf0905bafc58e9c4a99554648aea105007864787da3a0374dd65011f80bb35`. HUD source `8be0102d9d438407eb3ca9ce30fd6817589074e4`, [0.8.4.6 release](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.4.6), [release run](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38850004862); public ZIP SHA256 `016becfc8824355421fedeb15d963bc4acefe55991b70ed473f296880482c8fa`. Both public package validation steps passed before child promotion. Exact public central readback is required before reporting task completion.

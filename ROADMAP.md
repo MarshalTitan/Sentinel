@@ -112,14 +112,14 @@ Recommended next implementation after the human Hub acceptance gate: **Anti-AFK 
 
 | Track | Current state | Next action |
 |---|---|---|
-| Hub inventory/icon | Retired Sentinel Hunts removed from Hub; missing installed IconUrl repaired and validated | Confirm updated installer icon after Hub 0.2 update |
+| Hub inventory | Hub 0.3.1.1 prefers installed live component over duplicate dev; icon metadata remains validated | Focused live SRank 0.7.56.0 version/state display check |
 | Anti-AFK | Scoped four-step user PASS, 2026-10-16 00:46 America/Toronto; source/settings unchanged | Preserve accepted behavior; unreported scenarios remain distinct; fallback cleanup is a separate change |
-| HUD utility cleanup | Separate Hub 0.3.1.0 / HUD 0.8.5.1 cleanup; original preference/schema/IPC retained | Narrow [cleanup runtime gate](https://github.com/MarshalTitan/SentinelHUD/blob/main/docs/UTILITY_CLEANUP.md): settings, Hub On/Off, HUD/camera independence and reload |
+| HUD utility cleanup | Scoped four-step user PASS at 01:38 America/Toronto for instructed Hub 0.3.1.0 / HUD 0.8.5.1; preferences/schema/IPC retained | Closed cleanup gate; preserve accepted utilities, no repeat full test |
 | Quest Convenience | Scoped latest-checklist user PASS at 01:08 America/Toronto; reward mode unspecified, submarine not separately confirmed | Preserve accepted Hub native code/settings; no repeat full replacement test for structural cleanup |
 | Latency/Weaving | Inactive plan | Later independent design/measurement/conflict proving |
 | Hunt/PvP/Core navigation | Unchanged | Existing separate proving gates |
 
-The Anti-AFK and Quest PASS reports automatically authorized separate HUD cleanup. Its narrow runtime acceptance is now the active gate. No repeat full Anti-AFK idle/cutscene/reward checklist is requested for unchanged Hub algorithms. After cleanup acceptance, prepare Latency/Weaving's separate source/measurement/conflict design; do not silently enable compensation or add hooks without that proving stage.
+The Anti-AFK and Quest PASS reports automatically authorized separate HUD cleanup. The subsequent scoped cleanup PASS closes that runtime gate; the separate live/dev inventory correction below is current. No repeat full Anti-AFK idle/cutscene/reward checklist is requested for unchanged Hub algorithms. After cleanup acceptance, prepare Latency/Weaving's separate source/measurement/conflict design; do not silently enable compensation or add hooks without that proving stage.
 
 ## Anti-AFK acceptance scope — 2026-10-16 UTC
 
@@ -136,3 +136,11 @@ The user replied **PASS** at **2026-10-16 01:08 America/Toronto** to the latest 
 **Cleanup in-game acceptance is pending.** [Exact procedure and rollback](https://github.com/MarshalTitan/SentinelHUD/blob/main/docs/UTILITY_CLEANUP.md): confirm versions/settings and HUD's migration notice; with Hub utilities enabled prove ordinary text/manual choice; turn utilities OFF and verify manual dialogue/no increasing Hub check counter after 35 seconds; disable Hub while HUD/camera continue working, then re-enable/restore options and reload HUD once. With HUD 0.8.5.0, disabling Hub leaves utility actions OFF instead of resuming old HUD engines. Rollback: turn Hub utilities OFF before restoring HUD 0.8.4.7 and review its retained old preferences. Do not repeat the prior full idle/cutscene/reward checklist for this structural cleanup.
 
 Metadata correction: HUD **0.8.5.0** removed the native engines, but distribution inspection caught stale separate installed/catalog descriptions. **0.8.5.1** corrects those descriptions without changing runtime code or replacing the immutable 0.8.5.0 asset. Package validation now requires exact project/template/catalog/packaged description agreement. The final cleanup test pair uses Hub 0.3.1.0 and HUD 0.8.5.1.
+
+## Cleanup PASS and live/dev inventory correction — 2026-10-16 UTC
+
+The user replied **PASS** at **2026-10-16 01:38 America/Toronto** to the four-step utility-cleanup checklist for the preceding instructed pair **Hub 0.3.1.0 / HUD 0.8.5.1**: settings retained, Hub dialogue/manual choices, both modules Off with unchanged Anti-AFK counter, and HUD/camera independence plus Hub re-enable/HUD reload. Versions were not separately restated in the reply. This closes that scoped cleanup gate. The same message reports a separate Hub Plugins inventory defect: the SRank development copy's version was shown instead of installed live **0.7.56.0**. This does not recertify unreported earlier reward modes/submarine scenarios or navigation gates.
+
+**Hub 0.3.1.1** corrects component inventory selection. Dalamud's public IsDev and effective Version identify instances; when both copies exist, the non-dev installation supplies version, load/restriction state and fresh settings-button eligibility regardless of enumeration order. A dev-only installation remains visible with an explicit development label. Versions are read from the selected installation, not hardcoded to 0.7.56.0 or inferred from the remote catalog. Dependency lookup/probes, utility controllers/native algorithms/settings, Core/UI pins, HUD and all SRank source/binaries remain unchanged.
+
+The focused [inventory check](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/LIVE_DEV_DISCOVERY.md) remains: update Hub to 0.3.1.1, /shub → Dashboard → Refresh inventory, then Plugins; with live SRank 0.7.56.0 and dev both installed, expect **0.7.56.0 / Installation: live** and the live loaded/not-loaded state. Dashboard must agree. No repeat utility/idle/cutscene/reward checklist. Rollback is Hub 0.3.1.0; no config deletion or SRank/HUD change. After this correction, Latency/Weaving remains a separate source/measurement/conflict-design stage with default OFF; no compensation/hooks are enabled.

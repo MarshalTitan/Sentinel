@@ -235,3 +235,22 @@ Final **0.7.61.0** candidate validation at `5e23d52bd750ecbef74d9b0f9ba80c879aee
 Independent live-state reconciliation at **2026-10-07 16:05 UTC**: [Profiles PR #2](https://github.com/MarshalTitan/SentinelProfiles/pull/2), source `291c3e777f7839463e4ac925ea72135f3e40b71d`, published [0.2.1.3](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.3). Inspected UI source adds scrollable actions/editor, measured state-control reflow and a 680-logical-pixel minimum in both themes; profile/restart semantics are unchanged. Published asset metadata SHA256 `39695578453ab4ea1a345fdf541fe4e586c9b54982ec3b7f50a49e9e2c771aab` was read, not independently rehashed. Child/central manifest objects match. This is separate from navigation: its [visual/controller acceptance](https://github.com/MarshalTitan/SentinelProfiles/blob/291c3e777f7839463e4ac925ea72135f3e40b71d/docs/UI_VALIDATION.md) remains pending and is not part of the SRank proving procedure. Earlier dated 0.2.1.2 baseline reports remain historical.
 
 The final consumer tests also refuse unconfirmed native Landing handoff without emitting a successful handoff event; the parking rollback marker remains until confirmed off. A coordinator poisoned by an unconfirmed stop cannot be revived by Begin; separate failure fixtures preserve that fail-closed behavior.
+
+## Sentinel Hub MVP — 2026-10-16 UTC
+
+| Validation | Evidence / classification |
+|---|---|
+| Pure policy/command/persistence/privacy/utility boundaries | 21 automated groups: missing/disabled/restricted/unknown discovery, aliases, verified probes, versions, exact quick-open dispatch and errors, Hub-absence status independence, configuration round-trip, typed bounded faults, export allowlist and inactive utilities |
+| Native UI | 480 rendered page/state/width/theme/scale cases; minimum 480×500, wide layouts, Classic/Modern, loaded/missing/disabled/restricted/unknown/unavailable/not-ready; balanced styles, rail geometry, collapse/restore and keyboard/controller switch activation |
+| Build/package | Zero compiler warnings/errors; exact Core/UI 0.4.1 hash/lock verification, installable identity/API/version and bundled-DLL equality; no consumer assemblies bundled; PowerShell syntax parsed |
+| Distribution | Immutable source-linked 0.1.0.0 ZIP publicly downloaded, validated and hash-compared with CI artifact; authoritative child and exact central entry verified; eight entries preserved |
+| Actual game behavior | **PENDING** — public API discovery, loaded-state transitions, consumer window commands, saved placement/reload, keyboard/controller and disabling Hub while consumers keep working |
+| HUD utilities / gameplay | Unchanged. No Anti-AFK, Quest Convenience, latency engine or consumer cleanup was implemented. Existing hunt/PvP proving gates are unaffected. |
+
+Exact build/release/source evidence follows. Automated absence/dependency checks establish the architecture and status model, not live game behavior.
+
+Shortest gate: install catalog Hub **0.1.0.0**, open `/shub`; compare inventory/dependencies; open consumer settings; resize/minimize/restore/switch theme and reload; run `/shub export` and check sanitized content; disable Hub and confirm existing Sentinel plugins continue normally. [Full exact checklist and rollback](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/ACCEPTANCE.md). Return PASS/FAIL with step/symptom; screenshots/log evidence only for failures. No hunt or Frontline run is requested for this control-center gate.
+
+Publication evidence: [Hub source `ac1e7411788b`](https://github.com/MarshalTitan/SentinelHub/commit/ac1e7411788ba89b973073576d421a9c2a024127), [PR #1](https://github.com/MarshalTitan/SentinelHub/pull/1), [PR validation](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846223646), [release/distribution run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846452080), [public release](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0). ZIP SHA256: `7ee080adf3cec91e92f4b106aa0720ddf925a023ddb1a258da74a177ed0c0690` (public release metadata and workflow public-download comparison). Hub registration is this central change; exact public readback follows merge before task completion.
+
+Source-independence audit: Core and all six existing plugin heads were unchanged throughout this task; no consumer or navigation PR was modified. Source inspection confirmed SRank PR #25 remains open at `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`. Their prior game gates are unaffected.

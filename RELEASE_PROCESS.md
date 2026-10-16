@@ -5,7 +5,7 @@ Applies to independent Sentinel repositories. [Inventory](SENTINEL_ECOSYSTEM.md)
 ## Normal release contract
 
 1. Inspect current source/instructions on a branch. Preserve InternalName, configuration, positions, themes and input behavior. Keep workflow/UI changes separate from gameplay.
-2. Pin approved Core packages, locks and bundled assemblies exactly; verify hashes. Released plugins retain Core 0.3.1; the SRank proving branch pins published Core 0.4.1 and its verified hashes. Do not upgrade unrelated consumers implicitly.
+2. Pin approved Core packages, locks and bundled assemblies exactly; verify hashes. The six prior plugin projects retain Core 0.3.1; Hub bundles exact 0.4.1; the SRank proving branch pins published Core 0.4.1 and its verified hashes. Do not upgrade unrelated consumers implicitly.
 3. Build, run relevant tests and validate the package on cloud runners. Obtain required in-game evidence before treating gameplay changes as complete. Acceptance is scoped to the tested build/scenario: the Phase 2 pass of existing SRank is a regression reference, not approval of a future shared-navigation build. UI/Profiles/facing work and unrelated choice/PvP gates remain separately recorded in the test matrix.
 4. Increment the four-part version for changed plugin content. Publish the source/tag-linked ZIP, then download and validate its public contents. Never replace an existing asset.
 5. Invoke the full-commit-pinned [shared action](.github/actions/distribute/action.yml) to promote the owning entry in the child's root repo.json. Do not pre-advertise an unavailable ZIP. The action preserves other entries, refuses downgrade/concurrent metadata overwrite and uses conditional blob-SHA writes with bounded retries.
@@ -74,3 +74,13 @@ Returned test evidence authorizes automatic continuation through routine impleme
 
 
 Independent live-state reconciliation at **2026-10-07 16:05 UTC**: [Profiles PR #2](https://github.com/MarshalTitan/SentinelProfiles/pull/2), source `291c3e777f7839463e4ac925ea72135f3e40b71d`, published [0.2.1.3](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.3). Inspected UI source adds scrollable actions/editor, measured state-control reflow and a 680-logical-pixel minimum in both themes; profile/restart semantics are unchanged. Published asset metadata SHA256 `39695578453ab4ea1a345fdf541fe4e586c9b54982ec3b7f50a49e9e2c771aab` was read, not independently rehashed. Child/central manifest objects match. This is separate from navigation: its [visual/controller acceptance](https://github.com/MarshalTitan/SentinelProfiles/blob/291c3e777f7839463e4ac925ea72135f3e40b71d/docs/UI_VALIDATION.md) remains pending and is not part of the SRank proving procedure. Earlier dated 0.2.1.2 baseline reports remain historical.
+
+## Sentinel Hub MVP — 2026-10-16 UTC
+
+Hub follows the standard child-release chain. `MarshalTitan/SentinelHub` cloud CI restores exact hash-verified Core/UI 0.4.1 locks, parses PowerShell release scripts, tests policy/native UI, builds the ZIP and validates its identity/API/version and exact bundled libraries. A main push with `[publish-live]` publishes only after validation passes. The version-linked public ZIP must match the validated artifact; existing releases/assets are refused, never replaced.
+
+First-child bootstrap creates root repo.json only after the installable public ZIP validates. Shared distribution is pinned to Sentinel commit `311b9d3446cca61c50213a320445f3e1d57a96f6`. It promotes/verifies only the Hub child; the central registry and generated candidate are handled by a separate central PR after release validation. The public registered-identity smoke distinguishes authorized future children from published entries while retaining mandatory verification of every existing public identity.
+
+0.1.0.0 is the first usable beta, awaiting FFXIV acceptance. Rollback is disabling/uninstalling Hub; no consumer migration or catalog downgrade is needed. No HUD cleanup or utility release is part of this publication.
+
+Publication: [Hub source ac1e7411788b](https://github.com/MarshalTitan/SentinelHub/commit/ac1e7411788ba89b973073576d421a9c2a024127), [cloud run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846452080), [release 0.1.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0). Public asset SHA256 `7ee080adf3cec91e92f4b106aa0720ddf925a023ddb1a258da74a177ed0c0690`.

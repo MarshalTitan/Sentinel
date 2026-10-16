@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { registeredOwners, contract, entry, desiredEntry, promote, publishChild, verify, notifyOptional, waitForCatalog } from './distribution.mjs';
+import { publishedOwners, registeredOwners, contract, entry, desiredEntry, promote, publishChild, verify, notifyOptional, waitForCatalog } from './distribution.mjs';
 const c = contract('MarshalTitan/SRankSentinel', 'SRankSentinel', '0.7.55.0', 'v0.7.55.0');
 const old = { InternalName: c.name, AssemblyVersion: '0.7.54.0', TestingAssemblyVersion: '0.7.54.0',
   Name: 'S Rank Sentinel', LastUpdate: 1, DownloadLinkInstall: 'old', DownloadLinkUpdate: 'old', DownloadLinkTesting: 'old' };
@@ -85,4 +85,16 @@ test('Hub ownership is isolated and registration controls publication smoke', ()
   assert.deepEqual(registeredOwners(existing), [['SentinelHUD', 'MarshalTitan/SentinelHUD']]);
   assert.deepEqual(registeredOwners([...existing, { owner: 'MarshalTitan', repository: 'SentinelHub', internalName: 'SentinelHub' }]).length, 2);
   assert.throws(() => registeredOwners([{ owner: 'MarshalTitan', repository: 'SentinelHUD', internalName: 'SentinelHub' }]));
+});
+
+test('registration candidates do not hide existing publication failures', () => {
+  const registry = [
+    { owner: 'MarshalTitan', repository: 'SentinelHUD', internalName: 'SentinelHUD' },
+    { owner: 'MarshalTitan', repository: 'SentinelHub', internalName: 'SentinelHub' },
+  ];
+  assert.deepEqual(publishedOwners(registry, [{ InternalName: 'SentinelHUD' }]), [['SentinelHUD', 'MarshalTitan/SentinelHUD']]);
+  assert.equal(publishedOwners(registry, [{ InternalName: 'SentinelHUD' }, { InternalName: 'SentinelHub' }]).length, 2);
+  assert.throws(() => publishedOwners(registry, []));
+  assert.throws(() => publishedOwners(registry, [{ InternalName: 'Unknown' }]));
+  assert.throws(() => publishedOwners(registry, [{ InternalName: 'SentinelHUD' }, { InternalName: 'SentinelHUD' }]));
 });

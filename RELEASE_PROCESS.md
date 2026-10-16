@@ -86,3 +86,13 @@ First-child bootstrap creates root repo.json only after the installable public Z
 Publication: [Hub source ac1e7411788b](https://github.com/MarshalTitan/SentinelHub/commit/ac1e7411788ba89b973073576d421a9c2a024127), [cloud run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846452080), [release 0.1.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0). Public asset SHA256 `7ee080adf3cec91e92f4b106aa0720ddf925a023ddb1a258da74a177ed0c0690`.
 
 [Central registration PR #20](https://github.com/MarshalTitan/Sentinel/pull/20) merged after generator/asset and Linux/Windows publication checks passed. Exact public child/central Hub readback was verified after merge; seven prior catalog objects remain unchanged. The [post-merge central run](https://github.com/MarshalTitan/Sentinel/actions/runs/38846833272) passed.
+
+## Hub 0.2 / HUD 0.8.4.6 proving release — 2026-10-16 UTC
+
+Publish HUD's additive compatibility bridge first; it preserves the runtime and config for absent/old Hub. Publish Hub's default-OFF utility only after cloud policy/peer-simulation/native-UI/package checks pass. Both releases remain source/version-linked and immutable; publicly download/validate before child promotion. Hub workflow versions/artifact names now derive from the project, avoiding stale 0.1 publication constants.
+
+Installed Hub manifest validation now requires correct IconUrl/RepoUrl and verifies the public PNG. The 0.1 missing installed IconUrl was confirmed directly from its published ZIP; no screenshot/browser access was required for diagnosis.
+
+Reconcile both authoritative child objects centrally, preserving the other six entries including the historical Hunts catalog object. No child writes central repo.json. Record exact public equality before completion. This is opt-in proving publication, not acceptance of native timer behavior; no HUD cleanup/Quest Convenience migration is released.
+
+Publication evidence: Hub source `884fa0d7512111d61128cfd1b8378d8fcbbc8166`, [0.2.0.0 release](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.2.0.0), [cloud release run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38850365423); public ZIP SHA256 `03cf0905bafc58e9c4a99554648aea105007864787da3a0374dd65011f80bb35`. HUD source `8be0102d9d438407eb3ca9ce30fd6817589074e4`, [0.8.4.6 release](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.4.6), [release run](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38850004862); public ZIP SHA256 `016becfc8824355421fedeb15d963bc4acefe55991b70ed473f296880482c8fa`. Both public package validation steps passed before child promotion. Exact public central readback is required before reporting task completion.

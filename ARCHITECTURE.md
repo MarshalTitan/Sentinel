@@ -107,3 +107,13 @@ Optional primitive IPC v1: HUD ProtocolVersion(int), Preference(bool), TryClaim(
 No consumer assembly is bundled or required. Tests compile a pinned copy of the actual HUD lease source only into the test runner. Hub absence preserves the retained HUD implementation/config. Explicit Import copies only the public saved boolean. Disabling Hub stops its writer before lease release; missing/abrupt peers are bounded by the lease/request guard. Exports add only enum state and check count, never the claim token or private config.
 
 Quest Convenience and camera stay in HUD. HUD cleanup is explicitly separate and gated on supervised native/IPC/reload acceptance.
+
+## Quest Convenience single-owner stage — Hub 0.3 / HUD 0.8.4.7
+
+Anti-AFK's latest four-step supervised gate has a scoped user PASS; its engine/settings remain unchanged. Quest Convenience is a separate default-OFF module with an independent instance of HUD's existing short lease. Optional primitive IPC v1 exposes protocol version, packed three-preference integer, token-scoped claim/release and Hub's requested-enabled bool. Synchronous suspension clears pending cutscene/reward work before acknowledgment; the per-update request guard covers startup/hot reload. Missing/old Hub retains HUD behavior; unknown compatible-peer state yields. No required consumer assembly or private configuration reads are added.
+
+Hub adapts accepted HUD native service/policies at **758068f68a76d72660fb6e2740f22d592130fdd7** through namespace/config type changes only. CI compares the complete source text, retaining live AgentCutscene addon-ID matching, AtkUnitBase callbacks without derived-layout reads, request-bound confirmation/deadline, manual dialogue choices and original reward ranking/fallback/completion behavior. A pure session wraps synchronous native updates: ownership loss, option change, logout/disposal and errors clear pending state; faults retry no faster than once per second. No task continuation can act after handoff. Logs/exports do not grant ownership.
+
+Master ON owns all three options, including Off/Manual. Import explicitly copies the packed public values, enables only if an imported feature is active, and never rewrites HUD preferences or Anti-AFK. The sanitized export adds only a typed Quest state; native status strings, quest/reward text, settings and tokens are excluded. The bounded local native diagnostic buffer is not exported. Core/UI stays 0.4.1 in Hub and 0.3.1 in HUD.
+
+HUD retains its native fallback pending [supervised replacement acceptance](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/QUEST_CONVENIENCE_MIGRATION.md). Camera/visual UI, navigation and Latency/Weaving ownership are unchanged.

@@ -113,10 +113,16 @@ Recommended next implementation after the human Hub acceptance gate: **Anti-AFK 
 | Track | Current state | Next action |
 |---|---|---|
 | Hub inventory/icon | Retired Sentinel Hunts removed from Hub; missing installed IconUrl repaired and validated | Confirm updated installer icon after Hub 0.2 update |
-| Anti-AFK | Hub 0.2.0.0 default-OFF engine + HUD 0.8.4.6 compatibility bridge; automated checks pass | Supervised ownership/import/off/reload/logout and meaningful idle-interval check |
+| Anti-AFK | Scoped four-step user PASS, 2026-10-16 00:46 America/Toronto; source/settings unchanged | Preserve accepted behavior; unreported scenarios remain distinct; fallback cleanup is a separate change |
 | HUD Anti-AFK cleanup | Not implemented; original engine/preference retained | Only after Hub replacement acceptance; separate cleanup PR/testing |
-| Quest Convenience | Still HUD-owned; accepted submarine path untouched | Next isolated migration after Anti-AFK gate, preserving choices/unrelated prompts/rewards |
+| Quest Convenience | Hub 0.3.0.0 opt-in proving + HUD 0.8.4.7 compatibility published; accepted native/policy source preserved | [Live dialogue/choice/cutscene/reward/ownership gate](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/QUEST_CONVENIENCE_MIGRATION.md); report reward mode and untested cases before HUD cleanup |
 | Latency/Weaving | Inactive plan | Later independent design/measurement/conflict proving |
 | Hunt/PvP/Core navigation | Unchanged | Existing separate proving gates |
 
-The user's “looks good” report authorizes this migration, without certifying unreported original MVP tests. The next return should be scoped PASS/FAIL under the exact Anti-AFK checklist; returned evidence resumes routine engineering automatically.
+The Anti-AFK PASS automatically authorized the next engineering phase. Quest Convenience is now the active supervised gate; no repeated Anti-AFK idle test is requested. Return scoped Quest PASS/FAIL, reward mode and any untested case. Preserve both HUD fallbacks until the separate cleanup stage; Latency/Weaving remains inactive.
+
+## Anti-AFK acceptance scope — 2026-10-16 UTC
+
+The user replied PASS at **2026-10-16 00:46 America/Toronto** to the latest four-step Anti-AFK checklist: Hub Active/HUD Managed, module OFF returns the retained HUD setting, Hub reload restores ownership, and idle beyond the configured automatic-away interval. The instruction referenced Hub **0.2.0.0** / HUD **0.8.4.6**; versions were not independently restated or inspected in the PASS reply. This closes that scoped supervised gate. It does not certify unreported original checklist cases, independent native instrumentation, all logout/dual-plugin reload races or all future builds. Anti-AFK source/settings are unchanged by Quest migration.
+
+Quest policy/source/native-UI/package checks passed; publication is proving availability, not native acceptance. No other consumer/navigation gate is advanced.

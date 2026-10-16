@@ -94,6 +94,8 @@ Next real-game gate: one ordinary report on the new candidate, shared protected 
 
 ## Sentinel Hub MVP — 2026-10-16 UTC
 
+Historical **0.1.0.0** publication record; the later Anti-AFK migration section below owns current utility status and the next acceptance gate.
+
 **Explicit reprioritization:** the user's Hub build brief supersedes the earlier Hub-only deferral. Trains and shared-navigation acceptance remain gated separately. No SRank/PvP gameplay or HUD utility migration is included.
 
 | Track | Current state | Next gate |
@@ -107,3 +109,19 @@ Next real-game gate: one ordinary report on the new candidate, shared protected 
 | Trains/navigation proving | Unchanged by Hub | Existing separate acceptance gates remain authoritative |
 
 Recommended next implementation after the human Hub acceptance gate: **Anti-AFK single-owner migration**. Hub publication is not evidence that existing hunt or Frontline migration gates have passed.
+
+## Current Hub execution queue — 2026-10-16 UTC
+
+The user approved the dashboard visually and authorized migration. This supersedes the earlier inactive Anti-AFK planning row; original MVP checklist items without explicit evidence are not silently closed.
+
+| Priority / track | Current state | Next gate |
+|---|---|---|
+| Hub inventory/icon | 0.2.0.0 published/cataloged; retired Sentinel Hunts removed from Hub; installed IconUrl repaired after public ZIP audit | Confirm icon and inventory on update |
+| Anti-AFK ownership migration | Hub 0.2.0.0 default OFF plus HUD 0.8.4.6 optional compatibility bridge published; automated ownership/native-UI/package checks passed | [Supervised native timer, disable/unload/reload and retained-preference test](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/ANTI_AFK_MIGRATION.md) |
+| HUD Anti-AFK cleanup | Deferred; existing engine, checkbox and saved preference retained | Only after replacement acceptance; preserve fallback/rollback |
+| Quest Convenience | Still owned by HUD; Hub module inactive | Separate migration after Anti-AFK acceptance, preserving submarine skipping/choices/rewards and bounded failures |
+| Latency/Weaving | Future/inactive | Independent design and conflict-aware default-OFF proving |
+| Rich Profiles/Relay status | Unavailable where no public contract exists | Owner-defined read-only status contracts |
+| Navigation/Trains | Unchanged by this work | Existing separate proving requirements |
+
+User-scope retirement is **Hub inventory only**. The central SentinelHunts test entry has not been deleted. No other consumer or Core version is changed by this migration.

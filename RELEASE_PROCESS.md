@@ -27,6 +27,7 @@ Permanent installation URL: https://raw.githubusercontent.com/MarshalTitan/Senti
 | Classy | Manual main dispatch or main change under .github/releases | No PR publication; same-source prerelease revalidation only; local/public ZIP checks then shared action. |
 | Profiles | Manual main dispatch | Existing release is refused (immutable). New ZIP is verified before shared child promotion. |
 | Relay | Manual main dispatch or main [publish-live] / [verify-live] commit | Existing asset can be explicitly revalidated without replacement; public ZIP then shared action. |
+| Hub | Main [publish-live] commit after required validation | Dynamic four-part project version; immutable source-linked ZIP, installed icon/repository metadata and exact Core checks; public ZIP must hash-match the validated artifact before child promotion. |
 
 Each child has Release Infrastructure Checks: actionlint, PowerShell script parsing, asset/token policy checks and read-only token-free verification of published entries. Existing plugin build/test/package checks remain. Read the actual workflow before publication; triggers are intentionally not identical.
 
@@ -77,6 +78,8 @@ Independent live-state reconciliation at **2026-10-07 16:05 UTC**: [Profiles PR 
 
 ## Sentinel Hub MVP — 2026-10-16 UTC
 
+Historical **0.1.0.0** publication record; the later Anti-AFK migration section below owns current utility status and the next acceptance gate.
+
 Hub follows the standard child-release chain. `MarshalTitan/SentinelHub` cloud CI restores exact hash-verified Core/UI 0.4.1 locks, parses PowerShell release scripts, tests policy/native UI, builds the ZIP and validates its identity/API/version and exact bundled libraries. A main push with `[publish-live]` publishes only after validation passes. The version-linked public ZIP must match the validated artifact; existing releases/assets are refused, never replaced.
 
 First-child bootstrap creates root repo.json only after the installable public ZIP validates. Shared distribution is pinned to Sentinel commit `311b9d3446cca61c50213a320445f3e1d57a96f6`. It promotes/verifies only the Hub child; the central registry and generated candidate are handled by a separate central PR after release validation. The public registered-identity smoke distinguishes authorized future children from published entries while retaining mandatory verification of every existing public identity.
@@ -86,3 +89,17 @@ First-child bootstrap creates root repo.json only after the installable public Z
 Publication: [Hub source ac1e7411788b](https://github.com/MarshalTitan/SentinelHub/commit/ac1e7411788ba89b973073576d421a9c2a024127), [cloud run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846452080), [release 0.1.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0). Public asset SHA256 `7ee080adf3cec91e92f4b106aa0720ddf925a023ddb1a258da74a177ed0c0690`.
 
 [Central registration PR #20](https://github.com/MarshalTitan/Sentinel/pull/20) merged after generator/asset and Linux/Windows publication checks passed. Exact public child/central Hub readback was verified after merge; seven prior catalog objects remain unchanged. The [post-merge central run](https://github.com/MarshalTitan/Sentinel/actions/runs/38846833272) passed.
+
+## Anti-AFK proving release — 2026-10-16 UTC
+
+Publish compatibility before replacement: HUD [PR #5](https://github.com/MarshalTitan/SentinelHUD/pull/5), source `8be0102d9d438407eb3ca9ce30fd6817589074e4`, publishes **0.8.4.6** after cloud tests/package checks; [release run 38850004862](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38850004862) downloads/validates its public ZIP before child promotion. Public asset metadata SHA256: `016becfc8824355421fedeb15d963bc4acefe55991b70ed473f296880482c8fa`.
+
+Hub [PR #2](https://github.com/MarshalTitan/SentinelHub/pull/2) publishes **0.2.0.0 beta** with dynamic project-version handling and mandatory installed IconUrl/RepoUrl. The release workflow verifies immutable public ZIP equality against the tested artifact, then the existing pinned action promotes the child and waits for exact central equality. HUD retains Core/UI 0.3.1; Hub retains 0.4.1. No old assets are replaced.
+
+Release availability is separate from **pending native replacement acceptance**. The user authorized this proving publication after dashboard approval. HUD cleanup remains deferred. Rollback: disable Hub Anti-AFK or unload Hub; HUD retains its original saved preference and engine. No downgrade or configuration rewrite is needed. Sentinel Hunts retirement is limited to Hub inventory; its catalog object remains unchanged.
+
+Hub source is `884fa0d7512111d61128cfd1b8378d8fcbbc8166`; final PR [38850172799](https://github.com/MarshalTitan/SentinelHub/actions/runs/38850172799) passed, and source-linked publication runs at [38850365423](https://github.com/MarshalTitan/SentinelHub/actions/runs/38850365423). HUD's main build and release-infrastructure runs [38850004879](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38850004879) and [38850004863](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38850004863) passed after merge.
+
+Hub public asset metadata SHA256: `03cf0905bafc58e9c4a99554648aea105007864787da3a0374dd65011f80bb35`. Its publication step downloaded/validated the public ZIP and verified byte equality against the tested artifact before child promotion.
+
+Central update is a reviewed candidate copied exactly from the validated authoritative child objects; generator/assets and Linux/Windows distribution checks must pass before merge. Six unrelated catalog objects, including the legacy SentinelHunts object, remain byte-for-byte equivalent as JSON data. Final public child/central equality is required after publication.

@@ -238,6 +238,8 @@ The final consumer tests also refuse unconfirmed native Landing handoff without 
 
 ## Sentinel Hub MVP — 2026-10-16 UTC
 
+Historical **0.1.0.0** publication record; the later Anti-AFK migration section below owns current utility status and the next acceptance gate.
+
 | Validation | Evidence / classification |
 |---|---|
 | Pure policy/command/persistence/privacy/utility boundaries | 21 automated groups: missing/disabled/restricted/unknown discovery, aliases, verified probes, versions, exact quick-open dispatch and errors, Hub-absence status independence, configuration round-trip, typed bounded faults, export allowlist and inactive utilities |
@@ -254,3 +256,23 @@ Shortest gate: install catalog Hub **0.1.0.0**, open `/shub`; compare inventory/
 Publication evidence: [Hub source `ac1e7411788b`](https://github.com/MarshalTitan/SentinelHub/commit/ac1e7411788ba89b973073576d421a9c2a024127), [PR #1](https://github.com/MarshalTitan/SentinelHub/pull/1), [PR validation](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846223646), [release/distribution run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846452080), [public release](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0). ZIP SHA256: `7ee080adf3cec91e92f4b106aa0720ddf925a023ddb1a258da74a177ed0c0690` (public release metadata and workflow public-download comparison). [Central PR #20](https://github.com/MarshalTitan/Sentinel/pull/20) merged as `6bf497a8b45567386d06bb415a75ec767980d5e0`. Independent public raw child/central readback at 2026-10-16 03:44 UTC confirmed exact Hub 0.1.0.0 equality, eight total entries and all seven prior objects unchanged. [Post-merge central CI 38846833272](https://github.com/MarshalTitan/Sentinel/actions/runs/38846833272) passed generator/assets and Linux/Windows distribution checks.
 
 Source-independence audit: Core and all six existing plugin heads were unchanged throughout this task; no consumer or navigation PR was modified. Source inspection confirmed SRank PR #25 remains open at `5e23d52bd750ecbef74d9b0f9ba80c879aee135e`. Their prior game gates are unaffected.
+
+## Hub Anti-AFK migration — 2026-10-16 UTC
+
+This supersedes the earlier MVP next-action request. The user reported the 0.1 dashboard looks good and explicitly authorized migration; other MVP checklist steps were not individually reported PASS.
+
+| Validation | Evidence / classification |
+|---|---|
+| Hub source/policy | [PR #2](https://github.com/MarshalTitan/SentinelHub/pull/2), [initial clean run 38849930385](https://github.com/MarshalTitan/SentinelHub/actions/runs/38849930385): 27 groups, including default-OFF upgrades, legacy/login/acknowledgment gates, disabled no-write, rate/finite-threshold checks, bounded faults, explicit preference persistence and sanitized export |
+| Hub native UI/package | 480 existing native cases plus 42 Anti-AFK state/theme/scale cases; keyboard/controller, minimize/restore and balanced stacks PASS; zero compiler warnings/errors, script parsing, exact Core/UI 0.4.1 and installable metadata/bundled DLLs PASS |
+| HUD compatibility | [PR #5](https://github.com/MarshalTitan/SentinelHUD/pull/5), [38849521851](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38849521851), [infrastructure 38849521862](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38849521862): 51 Core groups, 11 pinned Core UI groups and 7 native minimize/input/geometry groups PASS; zero compiler warnings/errors; original configuration remains unchanged |
+| Ownership simulation | Actual HUD lease source pinned to c86e688d747757e5c6d50aa95a44ce12bed53776 plus Hub engine simulation covers callback order, handoff/expiry/replacement and stale release. This does not prove live Dalamud IPC or native writes. |
+| Missing image | Cloud download of public Hub 0.1.0.0 confirms installed manifest missing IconUrl; repaired 0.2 installed metadata and public PNG signature checked. Visual post-update confirmation pending. |
+| Actual game behavior | **PENDING**: Hub 0.2.0.0 plus HUD 0.8.4.6 native idle timing, exclusive ownership, enable/disable/unload/hot-reload, logout/login, retained preference and export |
+| Unrelated consumers | No Core/other consumer source or navigation gate changed; no Quest Convenience, camera, latency or HUD cleanup |
+
+[Exact procedure/download/settings/rollback](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/ANTI_AFK_MIGRATION.md): update both; /shub → Utilities; confirm Off, repaired icon and no retired test. With HUD preference On, explicitly enable/import Hub; expect Hub Active and HUD Managed by Sentinel Hub. Toggle/disable/reload to verify return to the retained preference and one owner. To prove native behavior, idle longer than the configured automatic-away interval while Hub owns it, then turn both Off and verify ordinary automatic-away returns at that interval. Check-count increments alone do not prove resets. Export must exclude tokens/private data. Return PASS or failing step/symptom. Disable Hub for rollback; do not remove HUD's engine before acceptance.
+
+Final Hub PR [38850172799](https://github.com/MarshalTitan/SentinelHub/actions/runs/38850172799) passed on `7c6566fc2cd9dfc3e515da6482ebc02d026d69e2`; main/release source is `884fa0d7512111d61128cfd1b8378d8fcbbc8166`, [38850365423](https://github.com/MarshalTitan/SentinelHub/actions/runs/38850365423). HUD main source `8be0102d9d438407eb3ca9ce30fd6817589074e4` passed [build 38850004879](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38850004879) and [infrastructure 38850004863](https://github.com/MarshalTitan/SentinelHUD/actions/runs/38850004863).
+
+Hub's source-linked release step passed public download, installed-manifest/Core checks and hash equality with the tested package. Public asset metadata SHA256: `03cf0905bafc58e9c4a99554648aea105007864787da3a0374dd65011f80bb35`. HUD public asset metadata SHA256: `016becfc8824355421fedeb15d963bc4acefe55991b70ed473f296880482c8fa`; its public ZIP validation step passed. These are distribution evidence, not live-game acceptance.

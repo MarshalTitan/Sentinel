@@ -9,7 +9,7 @@ Status and version snapshot: [Sentinel Ecosystem](SENTINEL_ECOSYSTEM.md). “Req
 | Sentinel catalog | Registry, generated manifest, validation and reconciliation | Monorepo for plugin implementations or owner of child version metadata |
 | SentinelCore | Versioned shared configuration, lifecycle, diagnostics, job metadata, safe IPC and UI primitives | Required installed plugin, live service, or implicit upgrade of every consumer |
 | Each plugin | Domain policy, runtime adapters, configuration migration, window lifetime, release and evidence | Private fork of Core palettes, shells or shared widgets |
-| Sentinel Hub | Optional inventory/dependency/readiness, quick-open actions, Profiles status foundation, diagnostics; future opt-in shared utility engines | Mandatory runtime service or replacement for hunt, Frontline, gear, Profiles, Relay or visual HUD domains |
+| Sentinel Hub | Optional inventory/dependency/readiness, quick-open actions, Profiles status foundation, diagnostics; default-OFF Anti-AFK with optional single-owner HUD handoff | Mandatory runtime service or replacement for hunt, Frontline, gear, Profiles, Relay or visual HUD domains |
 | Future Trains | A-rank train domain policy consuming shared navigation | Replacement for SRankSentinel/SentinelHunts or another independent movement stack |
 
 Core generic code targets .NET 10 without Dalamud. Core.Dalamud and Core.UI target Windows/Dalamud API 15 and depend toward the generic library. Each consumer pins and bundles its required packages. See [Core architecture](https://github.com/MarshalTitan/SentinelCore/blob/300703b360a58fb4b73bf7675d31fe8cab4614cd/docs/ARCHITECTURE.md) and [adoption contract](https://github.com/MarshalTitan/SentinelCore/blob/300703b360a58fb4b73bf7675d31fe8cab4614cd/ADOPTION.md). Core 0.4 adds an opt-in, platform-neutral movement coordinator and diagnostics; it does not own world travel or a runtime service.
@@ -88,6 +88,8 @@ Planned Landing and death handoffs also require follower stop confirmation. A fa
 
 ## Sentinel Hub MVP — 2026-10-16 UTC
 
+Historical **0.1.0.0** publication record; the later Anti-AFK migration section below owns current utility status and the next acceptance gate.
+
 Hub is an optional independent API-15 plugin, `SentinelHub`, command `/shub`. It bundles exact Core/UI 0.4.1 packages; it does not install a Core service or change other consumers' pins. Hub owns its local configuration, inventory/status projections, fixed quick-open router, typed bounded fault journal and `sentinel.hub.v1` export. Its engines are independent of rendering; the Utilities registry contains inactive plans only in 0.1.
 
 Public `InstalledPlugins` observations and source-verified settings commands are sufficient for the MVP. Read-only vnavmesh/Lifestream/RSR/Splatoon probes are isolated per dependency. Discovery failure invalidates observations; unload is rechecked before a settings command. No consumer config reading, private reflection, plugin enabling, profile application, movement, actions or chat transmission is present. Profiles selection/drift and Relay connection remain unknown rather than inferred.
@@ -97,3 +99,13 @@ Core remains the canonical owner of palette, styles, application shell, rail, ca
 Future utilities remain staged: Anti-AFK, then Quest Convenience, then independently implemented Latency/Weaving compensation. Default OFF; explicit single ownership prevents duplicate HUD/Hub behavior. Keep the accepted submarine fix, user choices and unrelated prompts intact. Separate HUD cleanup follows supervised replacement validation. Latency engine/settings belong in Hub; HUD may optionally render its status without requiring Hub. Camera and all visual/editor modules remain in HUD. Optional shared preference contracts should live in Core, with consumer-local fallback.
 
 Distribution bootstrap: authorize Hub's repository/identity in the shared action first; validate and publish the immutable installable ZIP; only then create its child manifest and add the central registry/candidate entry through a central PR. Child workflows never write central repo.json. Publication smoke verifies all currently public registered identities; new candidate identities are covered by the generator's public-asset validation before central publication.
+
+## Anti-AFK single-owner transition — Hub 0.2 / HUD 0.8.4.6
+
+This supersedes 0.1's inactive Anti-AFK plan above. Hub owns a synchronous framework-thread timer engine separate from rendering. Checks run at most every 10 seconds and reset only finite AfkTimer, ContentInputTimer and InputTimer values above 30 seconds, retaining HUD's established behavior. No input, actions, movement or chat are synthesized.
+
+The optional primitive IPC v1 exposes HUD protocol version, saved Anti-AFK bool, token-scoped TryClaim and Release; Hub exposes its requested-enabled bool. Tokens remain in memory and never enter exports/configuration. HUD suspends synchronously before acknowledging a claim; its per-update request guard also covers initial and hot-reload callback order. Claims expire after 3 seconds without renewal, and stale tokens cannot release a successor. Unknown compatible-Hub status makes HUD yield. Missing Hub/known old Hub preserves HUD's prior behavior.
+
+Hub requires explicit opt-in, login, no installed legacy/unknown HUD, and a fresh acknowledgment when compatible HUD is loaded. Disable/logout/disposal stops the Hub writer before releasing its claim. Missing discovery/IPC prevents unsafe ownership. Timer faults are rate-limited and reported through typed state. Original HUD settings/schema/engine remain intact. Import is an explicit copy of one public bool; there is no private config access or silent enablement.
+
+The sanitized sentinel.hub.v1 projection adds only Anti-AFK enum state and bounded cycle count. Live IPC/native behavior remains a supervised gate; policy simulation is not game evidence. Utility removal from HUD follows replacement acceptance separately. Quest Convenience, camera and visual/editor ownership are unchanged. Sentinel Hunts is omitted from Hub inventory/dependency uses as a retired test component; its legacy central entry is preserved in this scoped change.

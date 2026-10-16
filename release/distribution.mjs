@@ -3,7 +3,7 @@ export const owners = Object.freeze({
   SRankSentinel: 'MarshalTitan/SRankSentinel', SentinelHunts: 'MarshalTitan/SRankSentinel',
   PvPSentinel: 'MarshalTitan/PvPSentinel', SentinelHUD: 'MarshalTitan/SentinelHUD',
   ClassySentinel: 'MarshalTitan/ClassySentinel', SentinelProfiles: 'MarshalTitan/SentinelProfiles',
-  SentinelRelay: 'MarshalTitan/SentinelRelay',
+  SentinelRelay: 'MarshalTitan/SentinelRelay', SentinelHub: 'MarshalTitan/SentinelHub',
 });
 export function versionParts(version) {
   if (!/^\d+\.\d+\.\d+\.\d+$/.test(version)) throw new Error('Expected four-part numeric version');
@@ -83,4 +83,12 @@ export async function waitForCatalog({ read, expected, timeoutMs, intervalMs = 6
     await sleep(Math.min(intervalMs, Math.max(0, deadline - now())));
   } while (now() <= deadline);
   throw new Error('Public catalog did not match the authoritative child entry before the deadline');
+}
+
+export function registeredOwners(registry) {
+  return registry.map(record => {
+    const repository = record.owner + '/' + record.repository;
+    if (owners[record.internalName] !== repository) throw new Error('Unapproved registered ownership');
+    return [record.internalName, repository];
+  });
 }

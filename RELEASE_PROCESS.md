@@ -84,3 +84,5 @@ First-child bootstrap creates root repo.json only after the installable public Z
 0.1.0.0 is the first usable beta, awaiting FFXIV acceptance. Rollback is disabling/uninstalling Hub; no consumer migration or catalog downgrade is needed. No HUD cleanup or utility release is part of this publication.
 
 Publication: [Hub source ac1e7411788b](https://github.com/MarshalTitan/SentinelHub/commit/ac1e7411788ba89b973073576d421a9c2a024127), [cloud run](https://github.com/MarshalTitan/SentinelHub/actions/runs/38846452080), [release 0.1.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.1.0.0). Public asset SHA256 `7ee080adf3cec91e92f4b106aa0720ddf925a023ddb1a258da74a177ed0c0690`.
+
+[Central registration PR #20](https://github.com/MarshalTitan/Sentinel/pull/20) merged after generator/asset and Linux/Windows publication checks passed. Exact public child/central Hub readback was verified after merge; seven prior catalog objects remain unchanged. The [post-merge central run](https://github.com/MarshalTitan/Sentinel/actions/runs/38846833272) passed.

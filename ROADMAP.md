@@ -117,6 +117,7 @@ Recommended next implementation after the human Hub acceptance gate: **Anti-AFK 
 | HUD utility cleanup | Scoped four-step user PASS at 01:38 America/Toronto for instructed Hub 0.3.1.0 / HUD 0.8.5.1; preferences/schema/IPC retained | Closed cleanup gate; preserve accepted utilities, no repeat full test |
 | Quest Convenience | Scoped latest-checklist user PASS at 01:08 America/Toronto; reward mode unspecified, submarine not separately confirmed | Preserve accepted Hub native code/settings; no repeat full replacement test for structural cleanup |
 | Latency/Weaving | Hub 0.4.0.0; scoped normal-play and re-enable/Hub reload PASS; prior screenshot showed Compensate Active and 28/28 samples/adjustments | Preserve current implementation; conflict, Measure-only, Off, zoning and comparative improvement remain unconfirmed |
+| Mount Collection | Hub 0.5.0.0 published; passive database and six independently authored tracks; explicit limited metadata coverage | Short native browser/count/token/context/reload observation; expand metadata only with verified provenance and report any third-party dataset proposal before import |
 | Hunt/PvP/Core navigation | Unchanged | Existing separate proving gates |
 
 The Anti-AFK and Quest PASS reports automatically authorized separate HUD cleanup. The subsequent scoped cleanup PASS closes that runtime gate; the separate live/dev inventory correction below is current. No repeat full Anti-AFK idle/cutscene/reward checklist is requested for unchanged Hub algorithms. After cleanup acceptance, prepare Latency/Weaving's separate source/measurement/conflict design; do not silently enable compensation or add hooks without that proving stage.
@@ -229,3 +230,11 @@ Profiles 0.2.1.7 independently adds an optional last-applied/drift server-info d
 Do not infer activation from editor selection or re-apply on startup. Focused native
 visibility/selection/Off/reload observation is pending; existing restart diagnosis and
 unrelated responsive-UI, navigation and Frontline gates remain unchanged.
+
+## Mount Collection first delivery — 2026-10-17 UTC
+
+Hub **0.5.0.0** implements the user-authorized independent passive module; [source/audit](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION_METADATA.md). Own-character browsing and optional player mount identification do not enable other utilities. No target-info hook/tooltip modification is implemented.
+
+Current proving: [short supervised checklist](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION.md) for owned/missing/counts, narrow layout/details/tracks, a carried token if available, opt-in player lookup/Off/reload. Unreported steps remain unverified; publication and automated checks do not close them. Rollback is context option OFF or immutable Hub 0.4.0.1 without config deletion.
+
+Metadata follow-up is separate from native correctness: expansion completion is mapped-only (47 authored keys before runtime resolution); direct quest/achievement/shop sources are incomplete; global current obtainability is Unknown. Do not guess expansions from IDs or availability from sheet presence. Any third-party dataset requires source/version/license/attribution/distribution review and a report before import. No such dataset was imported here. Other ecosystem queues and existing acceptance scopes remain unchanged.

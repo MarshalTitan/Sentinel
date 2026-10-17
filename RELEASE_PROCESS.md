@@ -292,3 +292,11 @@ unrelated catalog objects and SentinelHunts. No Core/SRank/PvP release accompani
 [Exact PR/CI/source/public asset evidence](TEST_MATRIX.md#releasesource-evidence) records the three immutable releases.
 Public child/central objects match all three new versions; eight identities remain and
 all five unrelated objects are unchanged. Native display/cleanup observation remains scoped.
+
+## Mount Collection publication — 2026-10-17 UTC
+
+[Hub #12](https://github.com/MarshalTitan/SentinelHub/pull/12), final head `0f2e0a225cdce0b678f13ee44062a4b3e4667e23`, passed [PR CI 39004931436](https://github.com/MarshalTitan/SentinelHub/actions/runs/39004931436): **67 policy groups, 1,364 native UI cases**, zero compiler warnings/errors, installed metadata/package checks and exact Core/UI 0.4.1 bundled bytes. Squash/release source `3c2a5a50dd3bc937bb45ffc648a676eb825f2140` has the exact tested tree.
+
+[Hub v0.5.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.5.0.0), [release workflow 39005065871](https://github.com/MarshalTitan/SentinelHub/actions/runs/39005065871), repeats required validation. Public ZIP validation and public-to-tested-artifact hash equality passed before child promotion. GitHub asset metadata digest: `sha256:81c19e1c92451a03c9b46339aba14caba470bef9df5a8217154aa4a2c62538b4` (metadata read; not independently rehashed by the architect). The immutable prior Hub 0.4.0.1 asset is retained.
+
+This reconciliation copies the authoritative public Hub child object exactly and preserves the other seven catalog objects, including historical SentinelHunts. Strict central CI and the child release's final exact-catalog verification remain required before delivery is closed. No Core/consumer release or native utility change accompanies this module. Native acceptance stays open under [MOUNT_COLLECTION.md](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION.md); source/metadata coverage limits are explicit.

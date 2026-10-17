@@ -181,3 +181,21 @@ At **2026-10-16 22:32 America/Toronto**, the user confirmed “yup it shows corr
 The user also clarified at 22:28 that “everything” meant Hub's own features and that they have **never used NoClippy**. The earlier reload PASS therefore concerns Hub features; real NoClippy conflict blocking remains untested. Installing another compensator is not required to continue independent Hub work.
 
 **Measure only remains available** as the observation-without-writes troubleshooting mode. The user asked whether to retain it; the recommendation is to keep it, with Compensate for normal use. No removal or native behavior change is made. Normal-play/re-enable/reload acceptance remains scoped as above, and remaining latency scenarios and unrelated hunt/PvP/navigation gates are unchanged. This is a documentation-only reconciliation, with no new binary, version, settings or catalog changes.
+
+## Remote controls publication hold — 2026-10-17 UTC
+
+SRank [#28](https://github.com/MarshalTitan/SRankSentinel/pull/28), candidate 0.7.62.0, and
+Relay [#11](https://github.com/MarshalTitan/SentinelRelay/pull/11), candidate 0.5.0.6, are
+draft PR-only artifacts. Do not merge their version changes or create releases until
+Wrothy passes the scoped real-game status/skip/reset/isolation gate. Existing releases
+SRank 0.7.56.0 / Relay 0.5.0.5 remain rollback; no assets/child/central entries are changed.
+The separate navigation PR #25 remains untouched/unpublished.
+
+After returned evidence passes, carry normal review/merge/build/test/publication through
+for each compatible consumer, verify immutable release ZIPs, child manifest promotion and
+exact public central equality, then update canonical records. Keep the new permission OFF
+by default for every character, including upgrades. Core stays unchanged: latest 0.4.1
+is published, but this feature retains the consumers' compatible exact 0.3.1 pins.
+Only Wrothy is the initial proving profile; prepare Elektra acceptance separately.
+
+Exact source/artifact/CI evidence is pinned in [the remote-control test record](TEST_MATRIX.md#exact-candidate-source-ci-and-downloads). New SRank contract/UI-equivalence checks are required in both build and future release workflows. Existing publication triggers and immutable-asset/distribution behavior are unchanged.

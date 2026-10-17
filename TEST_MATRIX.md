@@ -360,3 +360,71 @@ At **2026-10-16 22:32 America/Toronto**, the user confirmed “yup it shows corr
 The user also clarified at 22:28 that “everything” meant Hub's own features and that they have **never used NoClippy**. The earlier reload PASS therefore concerns Hub features; real NoClippy conflict blocking remains untested. Installing another compensator is not required to continue independent Hub work.
 
 **Measure only remains available** as the observation-without-writes troubleshooting mode. The user asked whether to retain it; the recommendation is to keep it, with Compensate for normal use. No removal or native behavior change is made. Normal-play/re-enable/reload acceptance remains scoped as above, and remaining latency scenarios and unrelated hunt/PvP/navigation gates are unchanged. This is a documentation-only reconciliation, with no new binary, version, settings or catalog changes.
+
+## Remote SRank controls candidate — 2026-10-17 UTC
+
+Implemented **SRank 0.7.62.0 / Relay 0.5.0.6** are not published or accepted in-game.
+Public comparison/rollback is SRank **0.7.56.0** / Relay **0.5.0.5**.
+See [SRank #28](https://github.com/MarshalTitan/SRankSentinel/pull/28) and
+[Relay #11](https://github.com/MarshalTitan/SentinelRelay/pull/11).
+
+| Automated scope | Coverage |
+|---|---|
+| SRank contract | Read-only status, private binding omission, fixed shared-delegate dispatch, character/thread/readiness/enabled/recovery/current-hunt guards, unsupported/disposed provider and sanitized failure |
+| UI/IPC parity | Exact original skip/reset bodies shared by UI/IPC; existing hunt source hash and travel/field-recovery audits retained |
+| Relay parsing/authorization | Four exact messages; no arbitrary/raw/multiline/parameter passthrough; default-OFF independent permission; wrong user/channel/character, paused, bot/webhook, stale/future/invalid IDs rejected |
+| Reset/replay | Request without action, 30s one-shot confirmation, expiry based on Discord request time, cross-binding refusal, clear/reload/permission/reader-generation revocation, consumed high-water and persisted checkpoint |
+| Results/privacy | Version/schema validation, missing/malformed/oversized/incompatible provider, null hunt, unknown-reason sanitation, no timestamp/mentions; action never retries after response failure |
+| Regression/package | Existing Relay chat/reward/screenshot/config tests, SRank state/native UI/source tests, Core pins and installable ZIP validation |
+
+**Supervised gate OPEN; no native recovery or Discord access claimed tested.** Use the exact
+paired artifacts pinned below; unload old candidates, extract inner latest.zip into the
+separate dev directories, keep public/other-dev copies disabled and confirm versions.
+In Wrothy's Relay profile retain its existing webhook/bot/channel/user, enable **Allow
+SRankSentinel remote controls** under Replies & Controls and save; chat replies need not
+be enabled. Wait for reader Connected.
+
+1. Ordinary text `/srank status` in #relay-wrothy: version/enabled/state/status/hunt/queue
+   agree with SRank UI. Missing/old provider returns unavailable, not invented status.
+2. In a safe active hunt with SRank enabled, `/srank skip`: exact manual skip behavior
+   through Ul'dah, remaining queue preserved.
+3. In a safe situation, `/srank reset`: no game action; `/srank reset confirm` within
+   30s: exact manual reset (queue cleared, normal enabled state retained). A second/late
+   confirmation does nothing.
+4. Elektra permission remains OFF; Wrothy channel cannot operate her client. Turn Wrothy
+   permission OFF/save: no private status or recovery. Test Elektra separately later.
+
+Return PASS/FAIL for status, skip/queue, reset/confirmation, isolation and permission OFF.
+Only failures need timestamp, versions, concise response and sanitized RemoteControl log
+lines; never send credentials/config. Screenshot is optional and independent.
+Rollback: permission OFF/save, unload both dev copies, re-enable public SRank 0.7.56.0 /
+Relay 0.5.0.5. No config deletion. Full
+[procedure](https://github.com/MarshalTitan/SentinelRelay/blob/feature/srank-remote-controls/docs/SRANK_REMOTE_CONTROLS.md).
+Keep both PRs draft/unreleased and navigation/PvP gates separate until required evidence.
+
+### Exact candidate source, CI and downloads
+
+- **SRank 0.7.62.0** source `92975ab0977ccd108e5c1f04cfa377d807d7a2cc`;
+  [Build 38997500072](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997500072)
+  PASS: 7/7 isolated recovery tests, 35/35 state tests, 35/35 native UI/migration/history,
+  original hunt hash/travel/field-recovery audits, fixed UI/IPC equivalence, exact
+  Core 0.3.1 package and bundled-library validation; zero compilation warnings/errors.
+  [Policy 38997500035](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997500035) PASS.
+  [Exact download](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997500072/artifacts/12088100327);
+  outer ZIP SHA256 `65fc090117c0c0175db2e2fc95d4d65786d50b842fe6a61d64345e5c0bf5362c`.
+- **Relay 0.5.0.6** source `da6b6ee6304c39cba46a1c73bb9d8081d4f7e922`;
+  [Build 38997402332](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38997402332)
+  PASS: 57/57 existing tests plus 11/11 remote groups, product/package/Core 0.3.1
+  validation; zero compilation warnings/errors.
+  [Policy 38997402343](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38997402343) PASS.
+  [Exact download](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38997402332/artifacts/12088200115);
+  outer ZIP SHA256 `52fd38a44ea9c775a4b5160d6e568acb2563e53cae2af1b647675ea5710b56b7`.
+
+The initial SRank runs exposed audit-file relocation and a line-ending matcher error
+after extraction; both were corrected without relaxing source hash or original
+recovery checks. The final artifacts above supersede those failed heads.
+No build is proof of native in-game recovery or private Discord access. Final branch
+diffs contain 13 SRank and 14 Relay files; no hunt algorithms, Core pins, stable
+manifests or navigation proving branch are edited.
+
+[SentinelHunts sibling build 38997500080](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997500080) also passed at the exact final SRank head. Its source, release and catalog entry remain unchanged.

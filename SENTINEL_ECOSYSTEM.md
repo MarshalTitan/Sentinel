@@ -149,3 +149,27 @@ At **2026-10-16 22:32 America/Toronto**, the user confirmed “yup it shows corr
 The user also clarified at 22:28 that “everything” meant Hub's own features and that they have **never used NoClippy**. The earlier reload PASS therefore concerns Hub features; real NoClippy conflict blocking remains untested. Installing another compensator is not required to continue independent Hub work.
 
 **Measure only remains available** as the observation-without-writes troubleshooting mode. The user asked whether to retain it; the recommendation is to keep it, with Compensate for normal use. No removal or native behavior change is made. Normal-play/re-enable/reload acceptance remains scoped as above, and remaining latency scenarios and unrelated hunt/PvP/navigation gates are unchanged. This is a documentation-only reconciliation, with no new binary, version, settings or catalog changes.
+
+## Remote SRank controls — experimental, 2026-10-17 UTC
+
+The user supplied a specific remote-control brief. Implemented candidates are **SRank 0.7.62.0**
+([PR #28](https://github.com/MarshalTitan/SRankSentinel/pull/28)) and **Relay 0.5.0.6**
+([PR #11](https://github.com/MarshalTitan/SentinelRelay/pull/11)); both remain draft/unmerged/unreleased.
+These branches start from current live main, not navigation PR #25. Published rollback is
+**SRank 0.7.56.0 / Relay 0.5.0.5**. Core latest **0.4.1** was inspected; existing compatible
+Core/UI **0.3.1** pins remain unchanged. This task adds no Core release or catalog promotion.
+
+Relay accepts only ordinary text `/srank status`, `/srank skip`, `/srank reset`,
+`/srank reset confirm` through the existing authorized REST reader. A separate per-character
+**Allow SRankSentinel remote controls** permission defaults OFF and can run without enabling
+chat replies or outbound chat destinations. Three fixed versioned IPC functions call the
+same extracted SRank UI operations. There is no UI simulation, arbitrary command/IPC,
+remote desktop, backend, companion application or mandatory plugin coupling.
+
+**In-game acceptance OPEN:** Wrothy first, with the exact successful experimental pair:
+status/UI agreement; safe skip with queue preservation; reset request does nothing until
+same-user/channel/character confirmation within 30 seconds; UI-equivalent Ul'dah recovery;
+isolation and permission OFF. Elektra remains OFF until separately supervised. No game
+actions or private Discord requests were performed by engineering. See the
+[paired procedure](https://github.com/MarshalTitan/SentinelRelay/blob/feature/srank-remote-controls/docs/SRANK_REMOTE_CONTROLS.md).
+Navigation PR #25, PvP migration and their prior gates remain unchanged.

@@ -174,3 +174,18 @@ At **2026-10-16 22:32 America/Toronto**, the user confirmed “yup it shows corr
 The user also clarified at 22:28 that “everything” meant Hub's own features and that they have **never used NoClippy**. The earlier reload PASS therefore concerns Hub features; real NoClippy conflict blocking remains untested. Installing another compensator is not required to continue independent Hub work.
 
 **Measure only remains available** as the observation-without-writes troubleshooting mode. The user asked whether to retain it; the recommendation is to keep it, with Compensate for normal use. No removal or native behavior change is made. Normal-play/re-enable/reload acceptance remains scoped as above, and remaining latency scenarios and unrelated hunt/PvP/navigation gates are unchanged. This is a documentation-only reconciliation, with no new binary, version, settings or catalog changes.
+
+## Remote recovery active queue — 2026-10-17 UTC
+
+| Track | Current state | Required next gate |
+|---|---|---|
+| Remote SRank recovery | SRank #28 0.7.62.0 + Relay #11 0.5.0.6; experimental pair only | Wrothy supervised status, queue-preserving skip, confirmed reset, isolation and permission OFF |
+| Remote release | Blocked solely on the above FFXIV acceptance | Resume automatically on evidence; merge/release only reviewed compatible pair, verify each child and public central catalog |
+| Elektra | New permission remains OFF | Separate character/profile acceptance after Wrothy, no hard-coded identity mapping |
+| Navigation PR #25 / PvP | Existing independent gates retained; branch unchanged | Do not interpret remote recovery acceptance as shared movement acceptance |
+
+The remote brief explicitly prioritizes this access-layer feature. It does not authorize
+replacing live builds before Wrothy's gate, change hunt semantics, or mix the navigation
+candidate into the remote pair. Current rollback is published SRank 0.7.56.0 and Relay
+0.5.0.5. Follow the exact paired artifact/procedure in TEST_MATRIX.md. No repeat UI,
+latency or movement probe is requested for this feature.

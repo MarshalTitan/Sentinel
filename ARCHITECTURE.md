@@ -167,3 +167,43 @@ At **2026-10-16 22:32 America/Toronto**, the user confirmed “yup it shows corr
 The user also clarified at 22:28 that “everything” meant Hub's own features and that they have **never used NoClippy**. The earlier reload PASS therefore concerns Hub features; real NoClippy conflict blocking remains untested. Installing another compensator is not required to continue independent Hub work.
 
 **Measure only remains available** as the observation-without-writes troubleshooting mode. The user asked whether to retain it; the recommendation is to keep it, with Compensate for normal use. No removal or native behavior change is made. Normal-play/re-enable/reload acceptance remains scoped as above, and remaining latency scenarios and unrelated hunt/PvP/navigation gates are unchanged. This is a documentation-only reconciliation, with no new binary, version, settings or catalog changes.
+
+## Remote recovery access boundary — 2026-10-17 UTC
+
+[SRank #28](https://github.com/MarshalTitan/SRankSentinel/pull/28) owns three fixed v1
+string→JSON endpoints: `SRankSentinel.Remote.v1.Status`,
+`SRankSentinel.Remote.v1.SkipCurrentKeepQueue`,
+`SRankSentinel.Remote.v1.StopResetThroughUldah`. The input is an expected local character
+key, never a command/method name. Schema `sentinel.srank.remote.v1` includes Version,
+Success, Reason and bounded Status (loaded/enabled/ready, character, state/status text,
+territory, active hunt, queue and recovery). Character binding is omitted from JSON.
+Status is read-only. Synchronous framework/current-player guards reject unloaded,
+wrong-character, initializing/loading, disabled or already-resetting mutations; skip
+also requires a current hunt. Exceptions do not cross IPC or expose exception text.
+
+UI and IPC share the exact extracted existing ManualSkip recovery methods. Reset keeps
+the original queue-clear semantics and neither action implicitly enables Sentinel.
+The original hunt implementation remains under its source-hash audit after only exact
+constructor/teardown hooks are removed. No detection/navigation/tag/kill/SS policy changes.
+
+[Relay #11](https://github.com/MarshalTitan/SentinelRelay/pull/11) owns external authorization:
+independent default-OFF permission, exact configured channel/user and actual logged-in
+character, bot/webhook rejection, bounded age, persisted checkpoint before mutation,
+in-memory consumed high-water guard and current-reader generation. Pending reset is
+one-shot, bound to character/channel/user/reader generation and expires 30 seconds after
+the original Discord timestamp. Reload/pause/logout/settings changes/observed reader
+interruption clear intent; newer generations revoke older intent. Player, permission,
+source authorization and reader generation are rechecked immediately before IPC.
+No asynchronous task retains authority to recover a later character.
+
+Only fixed IPC names are called; incompatible/missing/malformed providers become
+unavailable. A failed response delivery never retries an action. Results say recovery
+was requested, not physically completed. Existing per-character webhook sends compact
+timestamp-free responses with mentions disabled. Typed requested/rejected/confirmed/
+executed/failed logs contain correlation ID, operation, configured character, resulting
+state and fixed reason, excluding tokens/webhooks/Discord IDs/raw message/full status.
+
+This IPC is a trusted installed-plugin interface, not authentication against malicious
+in-process plugins. Local SRank operation never depends on Relay; Relay remains usable
+without SRank. The contract is domain-specific and stays in its owning repositories;
+published Core/UI pins and navigation proving remain untouched.

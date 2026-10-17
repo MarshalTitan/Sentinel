@@ -1,6 +1,6 @@
 # Sentinel Ecosystem
 
-Verified **2026-10-17 UTC for Relay publication, remote-control evidence and catalog inventory**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
+Verified **2026-10-17 UTC for HUD/Hub UI cleanup, Profiles server-info publication and catalog inventory**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
 
 ## Operating agreement and evidence
 
@@ -24,12 +24,12 @@ The six pre-Hub plugin projects retain Core UI package **0.3.1**; Hub bundles **
 | Central Sentinel | [current catalog](https://github.com/MarshalTitan/Sentinel/blob/main/repo.json) | Approved registry, deterministic aggregation, validation, last-known-good fallback and automated reconciliation. |
 | SRankSentinel | [v0.7.62.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.62.0) (prerelease) | S/SS report intake, same-DC queue/travel, safe parking, one gated tag, positive kill evidence and recovery; companion/history UI. |
 | PvPSentinel | [v0.3.1.23](https://github.com/MarshalTitan/PvPSentinel/releases/tag/v0.3.1.23) | Experimental five-map Frontline navigation, diagnostics and combat-provider boundaries. Map recognition does not imply complete objective semantics or in-game acceptance. |
-| SentinelHUD | [v0.8.5.1](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.5.1) | Actor HUD/editor, self marker/highlight, awareness, targeting counter and camera. Utility engines moved to Hub; original import preferences retained. |
+| SentinelHUD | [v0.8.5.2](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.5.2) | Actor HUD/editor, self marker/highlight, awareness, targeting counter and camera. Utility engines live in Hub; retired Convenience page removed. Compatibility data retained. |
 | ClassySentinel | [v0.8.6.0](https://github.com/MarshalTitan/ClassySentinel/releases/tag/v0.8.6.0) (prerelease) | Exact gear-set launcher, dynamic job classification, multiple sets and scoped controller capture. |
-| SentinelProfiles | [v0.2.1.6](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.6) (prerelease) | Manual three-state profiles and drift reporting; separate responsive actions/editor repair published, visual/controller acceptance pending; restart semantics unchanged. |
+| SentinelProfiles | [v0.2.1.7](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.7) (prerelease) | Manual three-state profiles and drift reporting; separate responsive actions/editor repair published, visual/controller acceptance pending; restart semantics unchanged; optional last-applied/drift server-info display. |
 | SentinelRelay | [v0.5.0.7](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.7) | Per-character webhooks, authorized REST-polled replies, hunt rewards, opt-in game-window screenshots and SRank recovery controls; localized territory labels. No hosted backend. |
 | SentinelHunts | Historical test, still cataloged as 0.1.1.0 | User retired it from Hub inventory. This Dashboard-scoped removal does not delete its historical catalog/release identity. It is not Sentinel Trains. |
-| Sentinel Hub | [v0.4.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.4.0.0) beta | Optional control center; accepted scoped utilities and default-OFF bounded Latency/Weaving proving. Latency has a scoped normal-play PASS; re-enable/reload also has a scoped PASS; live/dev version display also has a scoped PASS. Conflict/Measure/Off/zone checks remain unconfirmed. Profiles/Relay runtime state remains unavailable. |
+| Sentinel Hub | [v0.4.0.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.4.0.1) beta | Optional control center; accepted scoped utilities and default-OFF bounded Latency/Weaving proving. Latency has a scoped normal-play PASS; re-enable/reload also has a scoped PASS; live/dev version display also has a scoped PASS. Conflict/Measure/Off/zone checks remain unconfirmed. Profiles/Relay runtime state remains unavailable. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
@@ -236,3 +236,34 @@ and all seven unchanged unrelated catalog objects are verified before closing de
 Catalog reconciliation [39000020828](https://github.com/MarshalTitan/Sentinel/actions/runs/39000020828)
 succeeded at `29246d11657ffadcf658aa4ef18b5bdbe5190f8b`. Exact public child/central
 Relay 0.5.0.7 objects match; eight entries remain and the other seven are unchanged.
+
+## Completed utility transfer and Profiles server info — 2026-10-17 UTC
+
+The user confirmed the second tester installed Hub and copied her settings. This closes
+the need for the temporary import UI; it is not a new blanket certification of all native
+quest/Anti-AFK cases.
+
+- **HUD 0.8.5.2** removes the retired Modern Systems → Convenience entry, Classic tab,
+  transfer page and saved-import diagnostic summary. Camera and visual HUD settings remain.
+- **Hub 0.4.0.1** removes both utility Import buttons, saved-HUD summaries and transfer/version
+  explanations in both themes. Existing utility opt-ins/values, latency behavior and native
+  algorithms are unchanged.
+- **Profiles 0.2.1.7** adds default-OFF **Show profile in server info bar**: Modern Appearance,
+  Classic header. The entry reports the last applied profile, not editor selection.
+  `!` indicates live explicit-state drift/missing plugins or apply problems. Applying/none
+  are explicit; tooltip explains status and clicking only opens Profiles. It hides on
+  logout/Off, respects Dalamud visibility/order, and is removed with its callback on unload.
+
+Keep existing serialized utility preferences, schema and compatibility bridges for old
+consumers/rollback. No automatic import, configuration deletion, mandatory new coupling,
+Core upgrade or profile apply/restart semantics change. HUD/Profiles retain Core 0.3.1;
+Hub retains 0.4.1. Navigation PR #25 and PvP migration gates remain separate.
+
+Focused native observation after normal updates: confirm the retired UI is absent and
+Hub values unchanged; enable the Profiles bar, apply a safe normal profile, select another
+for editing (bar retains applied name), hover/click, Off/On and reload Profiles once.
+Expected: correct applied name or explicit warning, accessible controls, no duplicate/ghost
+entry. If hidden, inspect Dalamud's Server Info Bar setting for Sentinel Profiles.
+Return failures only with version/theme and concise screenshot/description; no config/secrets.
+Immediate rollback: bar option OFF or affected Hub utility OFF; retain saved settings.
+Prior immutable HUD 0.8.5.1 / Hub 0.4.0.0 / Profiles 0.2.1.6 remain binary comparison points.

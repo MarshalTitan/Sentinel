@@ -20,7 +20,7 @@ Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains def
 | HUD cutscene safety | User's submarine skipping retest PASS on 2026-10-06; other choice/reward behavior not tested. | Preserve the working skip path; check unrelated choice isolation at the next normal opportunity. No blanket all-cutscene acceptance. |
 | Frontline travel | Published dynamic follow, ordinary-combat travel and mount retention supersede older behavior; collision, respawn and entry-crash reports need current-build confirmation. | Supervised map-specific logs/video; classify genuine regression versus older build. STOP, death/results cancellation and no repeated failed corridor are mandatory. |
 | Configuration/UI | HUD/Classy/Profiles minimize/restore and Classy controller PASS by user report; Profiles actions clipping and full-game-restart limitation remain. | Isolated UI work: narrower responsive widths, Profiles action layout and SRank history height; preserve saved layouts and input behavior. Distinguish selected profile from active plugin states after full restart. |
-| Catalog health | Seven child/central entries match; successful scheduled reconciliation observed. | Continue checking release-to-catalog completion and warnings; preserve every approved entry, including SentinelHunts. |
+| Catalog health | Eight child/central entries match; successful reconciliation observed. | Continue checking release-to-catalog completion and warnings; preserve every approved entry, including SentinelHunts. |
 
 ## P1 — Close verified gaps
 
@@ -218,3 +218,14 @@ Prior SRank 0.7.56.0 / Relay 0.5.0.5 releases remain binary rollback points with
   report failures only with ID/language/version. No new reset or hunt run is needed.
 - Preserve independent navigation PR #25's actual-hunt proving gate, blocked PvP migration,
   UI/restart/facing queues and unrelated ecosystem gates.
+
+## Utility handoff UI closed; optional Profiles bar shipped — 2026-10-17 UTC
+
+The user confirmed the second tester copied settings into Hub. Temporary HUD/Hub transfer
+UI can now retire: HUD 0.8.5.2 removes Convenience navigation; Hub 0.4.0.1 removes imports
+and transfer explanations. Preserve historical data/protocol compatibility and native behavior.
+
+Profiles 0.2.1.7 independently adds an optional last-applied/drift server-info display.
+Do not infer activation from editor selection or re-apply on startup. Focused native
+visibility/selection/Off/reload observation is pending; existing restart diagnosis and
+unrelated responsive-UI, navigation and Frontline gates remain unchanged.

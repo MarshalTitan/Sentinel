@@ -25,7 +25,7 @@ Permanent installation URL: https://raw.githubusercontent.com/MarshalTitan/Senti
 | PvP | Main/tag push; PRs build/test only | Existing release is revalidated, never overwritten; public ZIP then shared action. Main workflow-only merges do not create a new version. |
 | HUD | Main commit containing [publish-live] | Existing same-source release can be revalidated; public ZIP then shared action. Manual catalog-sync is read-only recovery with optional notification. |
 | Classy | Manual main dispatch or main change under .github/releases | No PR publication; same-source prerelease revalidation only; local/public ZIP checks then shared action. |
-| Profiles | Manual main dispatch | Existing release is refused (immutable). New ZIP is verified before shared child promotion. |
+| Profiles | Manual main dispatch or main commit containing [publish-live] | Existing release is refused (immutable). New ZIP is verified before shared child promotion. |
 | Relay | Manual main dispatch or main [publish-live] / [verify-live] commit | Existing asset can be explicitly revalidated without replacement; public ZIP then shared action. |
 
 Each child has Release Infrastructure Checks: actionlint, PowerShell script parsing, asset/token policy checks and read-only token-free verification of published entries. Existing plugin build/test/package checks remain. Read the actual workflow before publication; triggers are intentionally not identical.
@@ -273,3 +273,22 @@ and all seven unchanged unrelated catalog objects are verified before closing de
 Catalog reconciliation [39000020828](https://github.com/MarshalTitan/Sentinel/actions/runs/39000020828)
 succeeded at `29246d11657ffadcf658aa4ef18b5bdbe5190f8b`. Exact public child/central
 Relay 0.5.0.7 objects match; eight entries remain and the other seven are unchanged.
+
+## Completed handoff UI and Profiles bar delivery — 2026-10-17 UTC
+
+Publish HUD 0.8.5.2, Hub 0.4.0.1 and Profiles 0.2.1.7 independently after their CI and diff
+reviews, using normal updates. Either HUD/Hub order is compatible. Profiles retains
+manual main dispatch and additionally accepts an explicit main `[publish-live]` marker;
+ordinary main commits and PRs never publish. Immutable assets and exact distribution
+verification are unchanged.
+
+HUD package CI previously hardcoded 0.8.5.1 and failed the new version correctly.
+It now reads the four-part project version for validation/artifact naming, retaining
+strict package/version checks. No release checks were bypassed or published assets replaced.
+Each release validates its public ZIP before authoritative child promotion, optional
+notification, central reconciliation and exact public verification. Preserve all five
+unrelated catalog objects and SentinelHunts. No Core/SRank/PvP release accompanies this work.
+
+[Exact PR/CI/source/public asset evidence](TEST_MATRIX.md#releasesource-evidence) records the three immutable releases.
+Public child/central objects match all three new versions; eight identities remain and
+all five unrelated objects are unchanged. Native display/cleanup observation remains scoped.

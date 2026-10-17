@@ -230,3 +230,19 @@ the row, name or sheet is unavailable. Bound/sanitize the label for Discord.
 This adds no IPC fields, domain policy, extra action dispatch, configuration migration,
 Core changes or plugin-to-plugin dependency. Lookup exceptions are isolated from the
 already accepted action and its result delivery. SRank remains 0.7.62.0/v1.
+
+## Completed utility UI transfer and Profiles DTR — 2026-10-17 UTC
+
+HUD/Hub remove presentation-only migration pages/import controls after both users copied
+preferences. Serialized legacy values, v1 bridges and bounded legacy ownership safeguards
+remain compatible; native utility engines and existing Hub opt-ins are unchanged.
+Hidden HUD legacy content IDs retain their ordinal and render Camera if encountered.
+
+Profiles owns its optional server-info entry through Dalamud's public IDtrBar API.
+It reads LastAppliedProfile plus the existing DriftDetector and apply coordinator, never
+SelectedProfile as activation. No auto-apply or new Hub status contract is introduced.
+A persisted last-applied name is history; the current explicit-state drift warning prevents
+it implying successful startup restoration. One stable entry updates at most twice per
+second, honors user visibility/order, hides while logged out/Off and removes callback/entry
+on disposal. Click opens settings only. Default OFF is additive without schema migration.
+This single-consumer adapter belongs in Profiles, not Core or a mandatory Hub service.

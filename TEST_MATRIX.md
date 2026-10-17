@@ -527,3 +527,72 @@ and all seven unchanged unrelated catalog objects are verified before closing de
 Catalog reconciliation [39000020828](https://github.com/MarshalTitan/Sentinel/actions/runs/39000020828)
 succeeded at `29246d11657ffadcf658aa4ef18b5bdbe5190f8b`. Exact public child/central
 Relay 0.5.0.7 objects match; eight entries remain and the other seven are unchanged.
+
+## Completed utility transfer and Profiles server info — 2026-10-17 UTC
+
+The user confirmed the second tester installed Hub and copied her settings. This closes
+the need for the temporary import UI; it is not a new blanket certification of all native
+quest/Anti-AFK cases.
+
+- **HUD 0.8.5.2** removes the retired Modern Systems → Convenience entry, Classic tab,
+  transfer page and saved-import diagnostic summary. Camera and visual HUD settings remain.
+- **Hub 0.4.0.1** removes both utility Import buttons, saved-HUD summaries and transfer/version
+  explanations in both themes. Existing utility opt-ins/values, latency behavior and native
+  algorithms are unchanged.
+- **Profiles 0.2.1.7** adds default-OFF **Show profile in server info bar**: Modern Appearance,
+  Classic header. The entry reports the last applied profile, not editor selection.
+  `!` indicates live explicit-state drift/missing plugins or apply problems. Applying/none
+  are explicit; tooltip explains status and clicking only opens Profiles. It hides on
+  logout/Off, respects Dalamud visibility/order, and is removed with its callback on unload.
+
+Keep existing serialized utility preferences, schema and compatibility bridges for old
+consumers/rollback. No automatic import, configuration deletion, mandatory new coupling,
+Core upgrade or profile apply/restart semantics change. HUD/Profiles retain Core 0.3.1;
+Hub retains 0.4.1. Navigation PR #25 and PvP migration gates remain separate.
+
+Focused native observation after normal updates: confirm the retired UI is absent and
+Hub values unchanged; enable the Profiles bar, apply a safe normal profile, select another
+for editing (bar retains applied name), hover/click, Off/On and reload Profiles once.
+Expected: correct applied name or explicit warning, accessible controls, no duplicate/ghost
+entry. If hidden, inspect Dalamud's Server Info Bar setting for Sentinel Profiles.
+Return failures only with version/theme and concise screenshot/description; no config/secrets.
+Immediate rollback: bar option OFF or affected Hub utility OFF; retain saved settings.
+Prior immutable HUD 0.8.5.1 / Hub 0.4.0.0 / Profiles 0.2.1.6 remain binary comparison points.
+
+### Automated scope and limits
+
+- HUD: 53/53 Core, 11/11 pinned Core UI, 7/7 native minimize/restore groups and package tests.
+  Only UI/navigation/text, version and build/release metadata change; utility engines and
+  compatibility protocols are unchanged. The initial stale expected-version failure was
+  corrected by reading the project version, not relaxing validation.
+- Hub: 50 policy groups; native UI includes 672 page/state/width/theme/scale, 198 latency,
+  288 Quest and 42 Anti-AFK cases, plus exact native-source/fixture and package validation.
+- Profiles: 18 core tests, including last-applied versus selected, drift/partial failure,
+  applying/none, restart without reapply, deletion, bounded names and default-OFF/serialization.
+  Full plugin/package build validates public DTR API usage; actual native bar visibility,
+  interaction, logout and unload/reload remain subject to the focused observation above.
+
+The existing functional acceptance evidence remains scoped. This UI cleanup does not
+close unrelated HUD choice/reward cases, latency conflict cases, profile restart behavior
+or the shared-navigation actual-hunt proving gate.
+
+### Release/source evidence
+
+| Component | Reviewed PR / CI | Merge/release source | Publication run |
+|---|---|---|---|
+| HUD 0.8.5.2 | [#9](https://github.com/MarshalTitan/SentinelHUD/pull/9), [39002232807](https://github.com/MarshalTitan/SentinelHUD/actions/runs/39002232807) | `d8cf780f9617ed31604958b7881c9dc6d87b7fd1` | [39002351508](https://github.com/MarshalTitan/SentinelHUD/actions/runs/39002351508) |
+| Hub 0.4.0.1 | [#11](https://github.com/MarshalTitan/SentinelHub/pull/11), [39002076076](https://github.com/MarshalTitan/SentinelHub/actions/runs/39002076076) | `c721cd218b1b599a6b16264a996465d2c8c49d83` | [39002185524](https://github.com/MarshalTitan/SentinelHub/actions/runs/39002185524) |
+| Profiles 0.2.1.7 | [#8](https://github.com/MarshalTitan/SentinelProfiles/pull/8), [39002152017](https://github.com/MarshalTitan/SentinelProfiles/actions/runs/39002152017) | `5f6f2f6fce5cb41bd9ec67cb5e616fcfa52da92b` | [39002258261](https://github.com/MarshalTitan/SentinelProfiles/actions/runs/39002258261) |
+
+All reviewed product builds completed with zero warnings/errors and required package checks.
+Publication repeats required suites and public ZIP validation. GitHub release metadata
+SHA256 (read, not independently recomputed by the architect):
+
+- HUD SentinelHUD.zip: `053d82d7d32d0d79fd6be19b1695fce64d9c4ea6ff21891637a2585bbc5ae522`
+- Hub SentinelHub.zip: `2679b328886347838a599fcfa5532adc7cc46cedb0554f2afee490b3827befb2`
+- Profiles SentinelProfiles.zip: `508d16b4ec7e70000739849fc95bafb0a3524e749899dd3fff67de64eb3a297b`
+
+Exact public child/central objects match all three versions at central source
+`71b5db9da10eaaaa4c03c3d1561b94a4650a6e34`; eight entries remain, with all five
+unrelated entries unchanged, including SentinelHunts. This proves delivery, not native
+server-info visibility or a new all-utilities gameplay PASS.

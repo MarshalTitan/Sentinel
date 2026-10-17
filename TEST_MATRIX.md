@@ -612,3 +612,18 @@ Shortest [in-game gate](https://github.com/MarshalTitan/SentinelHub/blob/main/do
 4. Enable player context lookup, open a nearby mounted player's mount; check unmounted/Off and reload Hub once. Expect correct details, no duplicate entry/crash or utility regression.
 
 Return PASS/FAIL, version/theme, bad mount/item ID and untested steps. No native result is fabricated by CI/publication. Rollback: context lookup OFF, disable Hub or prior immutable 0.4.0.1; retain config. Existing utility/hunt/PvP/navigation gates keep their earlier scope.
+
+## Mount acquisition enrichment — Hub 0.5.1.0, 2026-10-17 UTC
+
+**Reported defect, not a mount PASS:** the user showed Chrysomallos (#317), Chrysomallos Horn (#39484), displaying Unknown acquisition while Edelina's shop offered it for 50,000,000 gil. The fix adds the missing local gil-shop path and an original official vendor/location record, plus broader acquisition/patch coverage.
+
+[Hub #13](https://github.com/MarshalTitan/SentinelHub/pull/13), tested head `7851d24e282b3338d1a278871fcc55a457900c61`, [PR validation 39006872306](https://github.com/MarshalTitan/SentinelHub/actions/runs/39006872306) PASS: **75 policy groups, 1364 native UI cases and installable ZIP validation**. Release source `34ca50bebeed0c2367b2c79929505f33f8ec3a27` has the exact tested tree `eaa07764eb834c25a94784a16676d7c5467adfba`. [Hub v0.5.1.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.5.1.0), [normal release workflow 39006972086](https://github.com/MarshalTitan/SentinelHub/actions/runs/39006972086).
+
+Eight new policy groups validate all 356 embedded acquisition records and 45 official store mappings, identity drift rejection, patch/expansion mapping including 3.55a/b, store versus collector/promotion/event categories, source URL guards, Chrysomallos/Edelina/50-million-gil regression, unresolved/HQ price behavior, safe exchange cost labels and source search/filtering without availability inference. The existing 80 mount UI cases now render long community/vendor/cost text, source-page controls and snapshot/mismatch labels across themes/widths/scales; the total remains 1364. No utility/native source or Core change is hidden in this update.
+
+**Supervised acceptance PENDING.** Update normally and:
+1. Search Chrysomallos; compare Edelina, Mor Dhona (X:22.1, Y:4.8), 50,000,000 gil with the shop's horn, without purchasing. Both source details and local gil-shop evidence should appear.
+2. Inspect one known trial mount's duty/exchange source. Filter Online Store and open Sleipnir's official product page. Collector/promotion rewards must retain their separate category; a seasonal mount must retain its event/date text without an active-event claim.
+3. Read snapshot/local coverage and expansion counts, compare owned/missing state with Mount Guide, then perform any untested main-bag token/context/reload checks in [Hub's checklist](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION.md). No duplicate menu entry or utility regression.
+
+Source records may be stale or conditional; current availability remains Not checked. CI does not prove vendor accessibility, current regional store stock, exact live Mount Guide denominator, native inventory layout or context behavior. Keep prior independent acceptance gates open at their recorded scope.

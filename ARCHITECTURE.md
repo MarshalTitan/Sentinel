@@ -220,3 +220,13 @@ Navigation PR #25 stays at `5e23d52bd750ecbef74d9b0f9ba80c879aee135e` and is not
 Any later movement integration must preserve the current published main, including
 the 0.7.56 routing fixes and new remote contract, rather than overwriting it with an
 older proving branch. No Core upgrade or movement policy changes accompany this release.
+
+## Relay territory presentation — 2026-10-17 UTC
+
+Relay 0.5.0.7 owns map-name presentation for the existing SRank remote-status snapshot.
+On the framework thread, resolve the snapshot's numeric Territory using Dalamud's
+localized TerritoryType.PlaceName data. Retain the numeric ID and fall back to it if
+the row, name or sheet is unavailable. Bound/sanitize the label for Discord.
+This adds no IPC fields, domain policy, extra action dispatch, configuration migration,
+Core changes or plugin-to-plugin dependency. Lookup exceptions are isolated from the
+already accepted action and its result delivery. SRank remains 0.7.62.0/v1.

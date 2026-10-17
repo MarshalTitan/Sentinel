@@ -246,3 +246,30 @@ The final pre-merge checks also passed at
 [SRank 38997935074](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997935074)
 and [Relay 38997938930](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38997938930).
 This is delivery/automated evidence, not a new native PASS.
+
+## Relay territory-label patch — 2026-10-17 UTC
+
+The user returned successful remote-control evidence and requested map names in replies.
+Relay-only 0.5.0.7 uses the existing normal `[publish-live]` path after CI and diff review.
+SRank stays 0.7.62.0; no Core release, IPC migration, new permission or catalog entry.
+Immutable public ZIP validation precedes child promotion; optional notification is
+followed by exact public child/central verification. Preserve the seven other catalog
+objects. The user-reported status/reset PASS applies to the prior live pair; publication
+of the label patch is not independent native validation of localized name lookup.
+
+Delivery: [Relay PR #12](https://github.com/MarshalTitan/SentinelRelay/pull/12),
+merge/release source `2cd747b815de6b4f2d30ac354c0a317c71c946fa`;
+[final PR CI 38999806224](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38999806224)
+passed 57/57 existing tests and 12/12 remote groups, product build with zero warnings/errors,
+exact Core 0.3.1 and installable package validation. Release repeats those checks:
+[38999883616](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38999883616).
+Published [v0.5.0.7](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.7)
+asset `SentinelRelay.zip` metadata SHA256:
+`ed7e6946feb6a52aade2b5085d0c80fb9e9e16ce3d054932b1a74d8ba11503af`.
+The digest is from GitHub metadata, not independently rehashed by the architect.
+Public ZIP/version validation precedes child promotion; exact child/central equality
+and all seven unchanged unrelated catalog objects are verified before closing delivery.
+
+Catalog reconciliation [39000020828](https://github.com/MarshalTitan/Sentinel/actions/runs/39000020828)
+succeeded at `29246d11657ffadcf658aa4ef18b5bdbe5190f8b`. Exact public child/central
+Relay 0.5.0.7 objects match; eight entries remain and the other seven are unchanged.

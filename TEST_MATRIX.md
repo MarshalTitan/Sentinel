@@ -476,3 +476,54 @@ The final pre-merge checks also passed at
 [SRank 38997935074](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997935074)
 and [Relay 38997938930](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38997938930).
 This is delivery/automated evidence, not a new native PASS.
+
+## Remote controls live result and territory labels — 2026-10-17 UTC
+
+At 2026-10-16 23:39 America/Toronto, the user reported “Everything is working great.”
+The supplied screenshot shows SRank 0.7.62.0 status (enabled, Idle, queue 0, territory 250),
+a reset request requiring confirmation, then an accepted confirmed reset in ResetToUldah
+with queue 0. Record scoped user functional PASS for the live SRank 0.7.62.0 / Relay
+0.5.0.6 pair; this does not independently prove active-hunt skip/queue retention, completed
+return travel, expiry, cross-character isolation or permission-OFF negative cases.
+The earlier silent-command report is superseded by this successful result; its cause
+was not independently established.
+
+Relay **0.5.0.7** adds the requested localized map name alongside the territory ID in
+status/recovery replies. Resolve the SRank snapshot's territory through local game
+TerritoryType/PlaceName data; unknown/missing data retains the numeric ID.
+SRank remains **0.7.62.0**, v1 IPC is unchanged, and lookup failure cannot suppress
+accepted recovery results or retry an action. Permissions/configuration/Core pins,
+hunt policy and navigation are unchanged. Navigation PR #25 stays unpublished and
+PvP shared-navigation migration stays blocked.
+
+Update Relay through the normal Sentinel updater, then send one new `/srank status`.
+Expect `Territory: <localized map name> (<ID>)`; only wrong/missing names need version,
+territory ID and client language. Do not repeat unrelated recovery tests for this
+presentation change. Immediate remote-control rollback is permission OFF/save;
+the prior Relay 0.5.0.6 immutable release remains available.
+
+### Relay 0.5.0.7 automated and native scope
+
+Existing Relay core/security/replay/reset tests remain required. Added isolated formatter
+coverage verifies non-English names plus IDs, null/empty/whitespace numeric fallback,
+sanitized mention text and bounded labels without changing the IPC result.
+Product build and exact Core 0.3.1/package checks verify the Dalamud data adapter.
+Native localized name lookup remains unconfirmed until the one-message observation above.
+No full hunt/reset/skip retest is required for this presentation-only patch.
+
+Delivery: [Relay PR #12](https://github.com/MarshalTitan/SentinelRelay/pull/12),
+merge/release source `2cd747b815de6b4f2d30ac354c0a317c71c946fa`;
+[final PR CI 38999806224](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38999806224)
+passed 57/57 existing tests and 12/12 remote groups, product build with zero warnings/errors,
+exact Core 0.3.1 and installable package validation. Release repeats those checks:
+[38999883616](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38999883616).
+Published [v0.5.0.7](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.7)
+asset `SentinelRelay.zip` metadata SHA256:
+`ed7e6946feb6a52aade2b5085d0c80fb9e9e16ce3d054932b1a74d8ba11503af`.
+The digest is from GitHub metadata, not independently rehashed by the architect.
+Public ZIP/version validation precedes child promotion; exact child/central equality
+and all seven unchanged unrelated catalog objects are verified before closing delivery.
+
+Catalog reconciliation [39000020828](https://github.com/MarshalTitan/Sentinel/actions/runs/39000020828)
+succeeded at `29246d11657ffadcf658aa4ef18b5bdbe5190f8b`. Exact public child/central
+Relay 0.5.0.7 objects match; eight entries remain and the other seven are unchanged.

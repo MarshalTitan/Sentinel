@@ -206,3 +206,15 @@ OFF. The earlier dev-artifact installation steps are historical.
 
 Immediate feature rollback is permission OFF/save; normal hunting and Relay remain.
 Prior SRank 0.7.56.0 / Relay 0.5.0.5 releases remain binary rollback points without config deletion.
+
+## Active remote-control queue — 2026-10-17 UTC
+
+- Live SRank 0.7.62.0 / Relay 0.5.0.6: user reports working; screenshot confirms status
+  and reset request/confirmation. Earlier silence is no longer reported; cause unproven.
+  Separate active-hunt skip/queue and negative authorization scenarios remain individually
+  unconfirmed; retain automated coverage and check only at an appropriate supervised opportunity.
+- Relay 0.5.0.7: requested localized map-name + numeric-ID presentation, numeric fallback,
+  and normal-updater delivery. Next human check is one new Discord `/srank status`;
+  report failures only with ID/language/version. No new reset or hunt run is needed.
+- Preserve independent navigation PR #25's actual-hunt proving gate, blocked PvP migration,
+  UI/restart/facing queues and unrelated ecosystem gates.

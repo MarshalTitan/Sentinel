@@ -207,3 +207,16 @@ This IPC is a trusted installed-plugin interface, not authentication against mal
 in-process plugins. Local SRank operation never depends on Relay; Relay remains usable
 without SRank. The contract is domain-specific and stays in its owning repositories;
 published Core/UI pins and navigation proving remain untouched.
+
+## Remote-control live distribution boundary — 2026-10-17 UTC
+
+The user superseded the earlier remote-feature publication hold and selected normal
+live updates for SRank 0.7.62.0 / Relay 0.5.0.6. Shipping does not enable controls:
+existing/new profiles retain the false default until explicitly saved. Character,
+source, reader-generation, replay and confirmation guards remain exactly as tested.
+Native acceptance is still pending; publication does not advance movement/PvP gates.
+
+Navigation PR #25 stays at `5e23d52bd750ecbef74d9b0f9ba80c879aee135e` and is not merged.
+Any later movement integration must preserve the current published main, including
+the 0.7.56 routing fixes and new remote contract, rather than overwriting it with an
+older proving branch. No Core upgrade or movement policy changes accompany this release.

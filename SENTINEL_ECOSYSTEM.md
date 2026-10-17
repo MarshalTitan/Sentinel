@@ -22,12 +22,12 @@ The six pre-Hub plugin projects retain Core UI package **0.3.1**; Hub bundles **
 |---|---|---|
 | SentinelCore | [v0.4.1.0](https://github.com/MarshalTitan/SentinelCore/releases/tag/v0.4.1.0); NuGet 0.4.1 | Additive navigation, bounded opt-in physical landing and sanitized diagnostics; UI APIs unchanged. Existing consumers retain 0.3.1. No installed Core plugin/catalog entry. |
 | Central Sentinel | [current catalog](https://github.com/MarshalTitan/Sentinel/blob/main/repo.json) | Approved registry, deterministic aggregation, validation, last-known-good fallback and automated reconciliation. |
-| SRankSentinel | [v0.7.56.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.56.0) (prerelease) | S/SS report intake, same-DC queue/travel, safe parking, one gated tag, positive kill evidence and recovery; companion/history UI. |
+| SRankSentinel | [v0.7.62.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.62.0) (prerelease) | S/SS report intake, same-DC queue/travel, safe parking, one gated tag, positive kill evidence and recovery; companion/history UI. |
 | PvPSentinel | [v0.3.1.23](https://github.com/MarshalTitan/PvPSentinel/releases/tag/v0.3.1.23) | Experimental five-map Frontline navigation, diagnostics and combat-provider boundaries. Map recognition does not imply complete objective semantics or in-game acceptance. |
 | SentinelHUD | [v0.8.5.1](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.5.1) | Actor HUD/editor, self marker/highlight, awareness, targeting counter and camera. Utility engines moved to Hub; original import preferences retained. |
 | ClassySentinel | [v0.8.6.0](https://github.com/MarshalTitan/ClassySentinel/releases/tag/v0.8.6.0) (prerelease) | Exact gear-set launcher, dynamic job classification, multiple sets and scoped controller capture. |
 | SentinelProfiles | [v0.2.1.6](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.6) (prerelease) | Manual three-state profiles and drift reporting; separate responsive actions/editor repair published, visual/controller acceptance pending; restart semantics unchanged. |
-| SentinelRelay | [v0.5.0.5](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.5) | Per-character webhooks, authorized REST-polled replies, hunt rewards and opt-in game-window screenshots; no hosted backend. |
+| SentinelRelay | [v0.5.0.6](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.6) | Per-character webhooks, authorized REST-polled replies, hunt rewards and opt-in game-window screenshots; no hosted backend. |
 | SentinelHunts | Historical test, still cataloged as 0.1.1.0 | User retired it from Hub inventory. This Dashboard-scoped removal does not delete its historical catalog/release identity. It is not Sentinel Trains. |
 | Sentinel Hub | [v0.4.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.4.0.0) beta | Optional control center; accepted scoped utilities and default-OFF bounded Latency/Weaving proving. Latency has a scoped normal-play PASS; re-enable/reload also has a scoped PASS; live/dev version display also has a scoped PASS. Conflict/Measure/Off/zone checks remain unconfirmed. Profiles/Relay runtime state remains unavailable. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
@@ -173,3 +173,24 @@ isolation and permission OFF. Elektra remains OFF until separately supervised. N
 actions or private Discord requests were performed by engineering. See the
 [paired procedure](https://github.com/MarshalTitan/SentinelRelay/blob/feature/srank-remote-controls/docs/SRANK_REMOTE_CONTROLS.md).
 Navigation PR #25, PvP migration and their prior gates remain unchanged.
+
+## Remote controls: authorized normal-update delivery — 2026-10-17 UTC
+
+The user asked to update the live plugins instead of installing dev builds. This
+**supersedes the earlier remote-feature dev-only publication hold**, not the required
+native acceptance record. SRank **0.7.62.0** ([#28](https://github.com/MarshalTitan/SRankSentinel/pull/28))
+and Relay **0.5.0.6** ([#11](https://github.com/MarshalTitan/SentinelRelay/pull/11)) are delivered
+through the existing permanent Sentinel catalog. Relay's independent per-character
+**Allow SRankSentinel remote controls** permission defaults OFF on new and existing profiles.
+Existing UI recovery bodies, hunt policy, chat/screenshot behavior and exact Core/UI
+0.3.1 pins remain unchanged. Core 0.4.1 stays published without a new release.
+
+**In-game acceptance remains OPEN.** Update both live plugins normally, keep dev copies
+disabled, confirm versions, and enable the new permission for Wrothy only under
+Replies & Controls (Classic: Discord Replies), then save. Send ordinary text status,
+safe skip, and reset/confirm within 30 seconds; verify UI agreement, retained skip
+queue, reset queue clearing, isolation and permission OFF. Elektra remains OFF until
+separate acceptance. No game test is fabricated by live distribution.
+[Current procedure](https://github.com/MarshalTitan/SentinelRelay/blob/main/docs/SRANK_REMOTE_CONTROLS.md).
+Earlier dated candidate/rollback entries above remain historical; the normal-update
+instruction here supersedes their dev installation steps.

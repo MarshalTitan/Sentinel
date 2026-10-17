@@ -199,3 +199,50 @@ is published, but this feature retains the consumers' compatible exact 0.3.1 pin
 Only Wrothy is the initial proving profile; prepare Elektra acceptance separately.
 
 Exact source/artifact/CI evidence is pinned in [the remote-control test record](TEST_MATRIX.md#exact-candidate-source-ci-and-downloads). New SRank contract/UI-equivalence checks are required in both build and future release workflows. Existing publication triggers and immutable-asset/distribution behavior are unchanged.
+
+## Remote controls: authorized normal-update delivery — 2026-10-17 UTC
+
+The user asked to update the live plugins instead of installing dev builds. This
+**supersedes the earlier remote-feature dev-only publication hold**, not the required
+native acceptance record. SRank **0.7.62.0** ([#28](https://github.com/MarshalTitan/SRankSentinel/pull/28))
+and Relay **0.5.0.6** ([#11](https://github.com/MarshalTitan/SentinelRelay/pull/11)) are delivered
+through the existing permanent Sentinel catalog. Relay's independent per-character
+**Allow SRankSentinel remote controls** permission defaults OFF on new and existing profiles.
+Existing UI recovery bodies, hunt policy, chat/screenshot behavior and exact Core/UI
+0.3.1 pins remain unchanged. Core 0.4.1 stays published without a new release.
+
+Both feature PRs were marked ready after the user's new instruction. Release source:
+SRank `8abf63ede74eab3b794da06a1a5e6870506e4c2b`;
+Relay `228996970a2b61d9e16578be8fbe8d3a9efe158c` (existing `[publish-live]` trigger).
+Final pre-merge CI passed at SRank `a3a939362ddb1b67d8fa72d04a60bf6ca5b50d9d`
+and Relay `ab0fc3cf79710ee54ddb1c5cf5d33abf10db4874`; these subsequent changes were
+delivery documentation/release notes only. Publication repeats automated tests and
+validates public ZIPs before child promotion; child repos never write the central catalog.
+
+Native proof remains pending and must not be relabeled PASS. The initial held versions/
+artifact hashes above describe the earlier candidate snapshot. Immediate rollback is
+the new permission OFF/save; prior immutable SRank 0.7.56.0 / Relay 0.5.0.5 releases remain.
+
+### Normal publication and integrity evidence
+
+[SRank 0.7.62.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.62.0),
+source `8abf63ede74eab3b794da06a1a5e6870506e4c2b`,
+[release run 38998030447](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38998030447).
+Public asset metadata SHA256:
+`fc80d34253e149a95401d183c58598853832336e9dff85b1ae53ac57e36e6707`.
+
+[Relay 0.5.0.6](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.6),
+source `228996970a2b61d9e16578be8fbe8d3a9efe158c`,
+[release run 38998043832](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38998043832).
+Public asset metadata SHA256:
+`41bec3ea51b4cf41414756036c642aaa9df1733ec90dca3dfd0bf0826d3d4619`.
+
+Release workflows repeat their automated suites and download/validate public ZIPs
+before authoritative child promotion. These digests were read from GitHub release
+metadata, not independently recomputed by the architect. Child and central objects
+for both new versions match exactly; six other central objects remain byte-value
+equivalent to the prior catalog, including SentinelHunts. Core/UI pins are unchanged.
+The final pre-merge checks also passed at
+[SRank 38997935074](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997935074)
+and [Relay 38997938930](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38997938930).
+This is delivery/automated evidence, not a new native PASS.

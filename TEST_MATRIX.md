@@ -428,3 +428,51 @@ diffs contain 13 SRank and 14 Relay files; no hunt algorithms, Core pins, stable
 manifests or navigation proving branch are edited.
 
 [SentinelHunts sibling build 38997500080](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997500080) also passed at the exact final SRank head. Its source, release and catalog entry remain unchanged.
+
+## Remote controls normal-updater gate — 2026-10-17 UTC
+
+The user requested live versions rather than dev installs. This supersedes the preceding
+dev-only publication hold/install procedure for **SRank 0.7.62.0 / Relay 0.5.0.6**.
+It supplies **no additional native PASS evidence**. The same source guards/default OFF
+and functional gate apply; existing navigation/PvP tests remain separate.
+
+1. Update both plugins through the normal Sentinel repository in Dalamud, keep all dev
+   copies disabled, and confirm SRank 0.7.62.0 / Relay 0.5.0.6.
+2. For Wrothy only, `/srelay` → Replies & Controls (Classic: Discord Replies) →
+   **Allow SRankSentinel remote controls**, then **Save Reply Permissions**.
+   Keep the existing webhook/bot/channel/user binding; wait for reader Connected.
+3. Ordinary Discord text in #relay-wrothy: `/srank status` must agree with UI.
+   With a safe enabled active hunt, `/srank skip` must preserve queued hunts and
+   perform the exact manual recovery.
+4. `/srank reset` must do nothing until `/srank reset confirm` within 30 seconds.
+   Expect exact manual reset/queue clearing; second/expired confirmations do nothing.
+   Elektra's permission remains OFF; Wrothy requests cannot operate her client.
+5. Permission OFF/save must stop remote state/results/actions. Return stage PASS/FAIL;
+   failures only need timestamp, versions and sanitized response/RemoteControl log lines.
+
+Immediate rollback: permission OFF/save. For a binary rollback, unload the new versions
+and use preserved prior SRank 0.7.56.0 / Relay 0.5.0.5 releases. Do not delete config.
+
+### Normal publication and integrity evidence
+
+[SRank 0.7.62.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.62.0),
+source `8abf63ede74eab3b794da06a1a5e6870506e4c2b`,
+[release run 38998030447](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38998030447).
+Public asset metadata SHA256:
+`fc80d34253e149a95401d183c58598853832336e9dff85b1ae53ac57e36e6707`.
+
+[Relay 0.5.0.6](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.6),
+source `228996970a2b61d9e16578be8fbe8d3a9efe158c`,
+[release run 38998043832](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38998043832).
+Public asset metadata SHA256:
+`41bec3ea51b4cf41414756036c642aaa9df1733ec90dca3dfd0bf0826d3d4619`.
+
+Release workflows repeat their automated suites and download/validate public ZIPs
+before authoritative child promotion. These digests were read from GitHub release
+metadata, not independently recomputed by the architect. Child and central objects
+for both new versions match exactly; six other central objects remain byte-value
+equivalent to the prior catalog, including SentinelHunts. Core/UI pins are unchanged.
+The final pre-merge checks also passed at
+[SRank 38997935074](https://github.com/MarshalTitan/SRankSentinel/actions/runs/38997935074)
+and [Relay 38997938930](https://github.com/MarshalTitan/SentinelRelay/actions/runs/38997938930).
+This is delivery/automated evidence, not a new native PASS.

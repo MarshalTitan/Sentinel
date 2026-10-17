@@ -189,3 +189,20 @@ replacing live builds before Wrothy's gate, change hunt semantics, or mix the na
 candidate into the remote pair. Current rollback is published SRank 0.7.56.0 and Relay
 0.5.0.5. Follow the exact paired artifact/procedure in TEST_MATRIX.md. No repeat UI,
 latency or movement probe is requested for this feature.
+
+## Remote live-delivery continuation — 2026-10-17 UTC
+
+The user selected normal live updating, superseding the preceding dev-only publication
+hold for remote controls. SRank 0.7.62.0 / Relay 0.5.0.6 publication uses the ordinary
+release pipeline and immutable assets; the independent per-character permission stays
+OFF. The earlier dev-artifact installation steps are historical.
+
+| Track | State | Next gate |
+|---|---|---|
+| Remote distribution | Normal live pair, user-authorized before game proof | Verify released ZIPs, child/central equality and routine updater versions |
+| Remote native acceptance | OPEN, Wrothy first | Status/UI agreement, safe skip/queue, 30s confirmed reset, isolation and permission OFF; return evidence resumes engineering |
+| Elektra | Controls OFF | Separate character acceptance later |
+| Navigation/PvP | Existing independent gates unchanged | Preserve published main and new contract in any later controlled migration |
+
+Immediate feature rollback is permission OFF/save; normal hunting and Relay remain.
+Prior SRank 0.7.56.0 / Relay 0.5.0.5 releases remain binary rollback points without config deletion.

@@ -596,3 +596,19 @@ Exact public child/central objects match all three versions at central source
 `71b5db9da10eaaaa4c03c3d1561b94a4650a6e34`; eight entries remain, with all five
 unrelated entries unchanged, including SentinelHunts. This proves delivery, not native
 server-info visibility or a new all-utilities gameplay PASS.
+
+## Mount Collection — 2026-10-17 UTC
+
+**Published Hub 0.5.0.0; native acceptance PENDING.** [Hub #12](https://github.com/MarshalTitan/SentinelHub/pull/12), tested head `0f2e0a225cdce0b678f13ee44062a4b3e4667e23`, [final PR CI 39004931436](https://github.com/MarshalTitan/SentinelHub/actions/runs/39004931436) PASS; exact-tree release source `3c2a5a50dd3bc937bb45ffc648a676eb825f2140`. Release [39005065871](https://github.com/MarshalTitan/SentinelHub/actions/runs/39005065871) repeats the suites/package/public-byte checks.
+
+**67 policy groups** = 50 prior + 17 Mount Collection groups: enum/default-Off context compatibility; candidate/item-action eligibility; tri-state filters; localized/English/item/source search; stable sorting; completion denominators; exact/missing/ambiguous track resolution; six original factual definitions/provenance; simple exchange modes/alias/collectability bounds; main-bag split stacks and partial/invalid/symbolic containers; own-character invalidation; stale/disabled/disposed context tickets. **1,364 native UI cases** = 756 page/state/width/theme/scale + 42 Anti-AFK + 288 Quest + 198 latency + 80 populated mount browser/details/character/loading cases. Existing keyboard/controller, minimize/restore, stack/scroll/no-settings-mutation and exact accepted Quest-source checks passed. Product compile: zero warnings/errors.
+
+The database comes from local game sheets; expansion mapping is a limited Sentinel-owned layer (47 authored track member/reward keys). Unknown sources/expansion/current obtainability remain unknown, market eligibility is not a listing, and BGM sharing is only among included mounts. No WhichMount code/data/resource import; no target-info hook/tooltip modification. [Audit/provenance](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION_METADATA.md).
+
+Shortest [in-game gate](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION.md):
+1. Search known owned/missing mounts; compare ownership/overall denominator with Mount Guide and try filters/sort. Observe logout/character switching if convenient; report untested.
+2. Check narrow-window details and expand a track; verify known seats/actions/BGM. Mapped-only expansion counts/Unknown are expected.
+3. If carrying a displayed trial totem, compare four-main-bag quantity and vendor cost; move a stack and refresh to rule out duplicate counts. Otherwise mark untested.
+4. Enable player context lookup, open a nearby mounted player's mount; check unmounted/Off and reload Hub once. Expect correct details, no duplicate entry/crash or utility regression.
+
+Return PASS/FAIL, version/theme, bad mount/item ID and untested steps. No native result is fabricated by CI/publication. Rollback: context lookup OFF, disable Hub or prior immutable 0.4.0.1; retain config. Existing utility/hunt/PvP/navigation gates keep their earlier scope.

@@ -246,3 +246,11 @@ it implying successful startup restoration. One stable entry updates at most twi
 second, honors user visibility/order, hides while logged out/Off and removes callback/entry
 on disposal. Click opens settings only. Default OFF is additive without schema migration.
 This single-consumer adapter belongs in Profiles, not Core or a mandatory Hub service.
+
+## Passive collection ownership — Hub 0.5.0.0, 2026-10-17 UTC
+
+Mount Collection belongs entirely to Hub and has no dependency on other utilities or consumer assemblies. An incremental framework-thread Lumina builder reads Mount/Item/Quest/Achievement/SpecialShop relationships. Sentinel owns six independently authored factual track definitions with official provenance; missing source/expansion/availability remains typed Unknown. Market eligibility is distinct from current market listings; BGM uniqueness is limited to the included mount database. See the [field-by-field audit](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION_METADATA.md).
+
+Public Dalamud unlock/player/current-mount/context/texture APIs provide observations. A separate synchronous adapter copies only four loaded 35-slot main bags; partial/unloaded/invalid/symbolic inventory is unknown. Trial-token costs require recognized currency modes, direct item keys, one ordinary untradable Totem cost, zero collectability and one non-HQ reward. No inferred 99/run count, retainer access or inventory action. Ephemeral own-character snapshots clear on logout/session/territory/readiness/failure. No collection/inventory/other-player IDs enter configuration or diagnostics.
+
+The opt-in context subscription revalidates object, own session, territory, player/mount, setting and lifetime on click, then opens Hub only. No native mount hooks or target-tooltip patching. Appended page ID preserves prior preferences; Core's existing layout option fits nine pages at the unchanged minimum. Utility algorithms/settings and exact Core/UI 0.4.1 remain unchanged.

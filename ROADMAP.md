@@ -218,3 +218,14 @@ Prior SRank 0.7.56.0 / Relay 0.5.0.5 releases remain binary rollback points with
   report failures only with ID/language/version. No new reset or hunt run is needed.
 - Preserve independent navigation PR #25's actual-hunt proving gate, blocked PvP migration,
   UI/restart/facing queues and unrelated ecosystem gates.
+
+## Utility handoff UI closed; optional Profiles bar shipped — 2026-10-17 UTC
+
+The user confirmed the second tester copied settings into Hub. Temporary HUD/Hub transfer
+UI can now retire: HUD 0.8.5.2 removes Convenience navigation; Hub 0.4.0.1 removes imports
+and transfer explanations. Preserve historical data/protocol compatibility and native behavior.
+
+Profiles 0.2.1.7 independently adds an optional last-applied/drift server-info display.
+Do not infer activation from editor selection or re-apply on startup. Focused native
+visibility/selection/Off/reload observation is pending; existing restart diagnosis and
+unrelated responsive-UI, navigation and Frontline gates remain unchanged.

@@ -259,3 +259,10 @@ Shared identification is delivered with one context subscription, independent op
 ### Scoped in-game Fashion acceptance — 2026-10-18 11:58 America/Toronto
 
 The user reported: "It works for a player I inspected" and "PASS" after Hub 0.6.0.0 delivery. Record **PASS for live accessory identification on that inspected player**. This is the first reported live recognition result for the new module. Accessory type/ID and separate name/icon, own unlock/source, no-accessory/stale actor, Mount regression, reload and narrow-layout checks were not individually reported; keep those items unconfirmed. No broader acceptance or failure is inferred, and no code/release/catalog change is required by this report.
+
+
+## Hub coordinated operations candidate — 2026-10-18 UTC (not published)
+
+[Hub PR #15](https://github.com/MarshalTitan/SentinelHub/pull/15), branch `codex/hub-operations-integration`, prepares **0.7.0.0 as one release train**. Public Hub and its child/central catalog remain **0.6.0.0**. The new work is held for [one consolidated supervised gate](https://github.com/MarshalTitan/SentinelHub/blob/codex/hub-operations-integration/docs/OPERATIONS_ACCEPTANCE.md); no native PASS or public release is inferred from software checks. The earlier user PASS for one Fashion-inspected player retains exactly that scope.
+
+Software implementation spans all nine requested areas; the next work item is the single combined native gate, not another public phase release. Verify dependency loss/recovery and catalog/dev distinction, sanitized export, reviewed overlap, Mount/Fashion regression, inspector open/stale/none behavior, mixed barding and supported emote start/stop, honest partial pause/resume/passive behavior, bounded activity, selective backup and supervised one-owner restore. Short one-shot/pose emotes, ambiguous barding, current availability, missing optional providers and unreviewed configuration builds remain fail-closed/unknown. Consumer pause participation, broader backup coverage and current availability evidence are explicit follow-ups rather than fabricated completed functionality.

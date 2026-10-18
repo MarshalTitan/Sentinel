@@ -296,3 +296,12 @@ The source proposal preceded import. Explicit API reuse permission and attributi
 ### Scoped in-game Fashion acceptance — 2026-10-18 11:58 America/Toronto
 
 The user reported: "It works for a player I inspected" and "PASS" after Hub 0.6.0.0 delivery. Record **PASS for live accessory identification on that inspected player**. This is the first reported live recognition result for the new module. Accessory type/ID and separate name/icon, own unlock/source, no-accessory/stale actor, Mount regression, reload and narrow-layout checks were not individually reported; keep those items unconfirmed. No broader acceptance or failure is inferred, and no code/release/catalog change is required by this report.
+
+
+## Hub coordinated operations candidate — 2026-10-18 UTC (not published)
+
+[Hub PR #15](https://github.com/MarshalTitan/SentinelHub/pull/15), branch `codex/hub-operations-integration`, prepares **0.7.0.0 as one release train**. Public Hub and its child/central catalog remain **0.6.0.0**. The new work is held for [one consolidated supervised gate](https://github.com/MarshalTitan/SentinelHub/blob/codex/hub-operations-integration/docs/OPERATIONS_ACCEPTANCE.md); no native PASS or public release is inferred from software checks. The earlier user PASS for one Fashion-inspected player retains exactly that scope.
+
+Candidate scope: Health/Dependency Doctor, allowlisted diagnostics ZIP, compatibility self-suspension, live Player Inspector, owned-chocobo/Company Chocobo barding model matching, explicit loop-emote identification, cooperative pause, bounded Recent Activity and selective settings backup/restore. Existing Mount/Fashion page/data/token source and exact Core/UI 0.4.1 pins remain intact. Dated acquisition metadata covers 107 bardings and 201 unlockable emotes, exact ID/English identity checked under previously audited explicit FFXIV Collect API reuse permission. Current availability is Unknown.
+
+Limits remain visible: current public SRank/PvP have no new pause endpoint and may still automate; Hub acknowledges its own writers and reports Unsupported/partial pause for them. Source-reported profile/Relay/hunt events require optional supported publishers. Backups are reviewed settings subsets, with Profiles/Classy/Relay presentation-only and all credentials/identity/history data excluded. [Audit, owner/schema table and source rights](https://github.com/MarshalTitan/SentinelHub/blob/codex/hub-operations-integration/docs/OPERATIONS_EXPANSION.md).

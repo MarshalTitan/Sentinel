@@ -655,7 +655,7 @@ The user reported: "It works for a player I inspected" and "PASS" after Hub 0.6.
 
 ## Hub operations candidate — revised after supervised feedback (not published)
 
-[Hub PR #15](https://github.com/MarshalTitan/SentinelHub/pull/15), branch `codex/hub-operations-integration`, prepares one **0.7.0.0** release. Public Hub and child/central catalogs remain **0.6.0.0**. The latest successful candidate and exact test evidence are linked in the PR; [supervised proving](https://github.com/MarshalTitan/SentinelHub/blob/codex/hub-operations-integration/docs/OPERATIONS_ACCEPTANCE.md) is still required before publication. The prior Fashion PASS applies only to the inspected player. The latest user report confirms Quest Convenience Off persisted across dev 0.7 → live 0.6; it does not establish full native acceptance.
+[Hub PR #15](https://github.com/MarshalTitan/SentinelHub/pull/15), branch `codex/hub-operations-integration`, prepares one **0.7.0.0** release. Public Hub and child/central catalogs remain **0.6.0.0**. The latest successful candidate and exact test evidence are linked in the PR; [supervised proving](https://github.com/MarshalTitan/SentinelHub/blob/codex/hub-operations-integration/docs/OPERATIONS_ACCEPTANCE.md) is still required before publication. The prior Fashion PASS applies only to the inspected player. An earlier user report confirms Quest Convenience Off persisted across dev 0.7 → live 0.6; it does not establish full native acceptance.
 
 Candidate scope is Health/Dependency Doctor, sanitized Diagnostics, Compatibility, Player Inspector for Mount/Fashion/supported loop emotes, bounded Recent Activity, and existing utilities/collections. Following user feedback, **chocobo barding inspection, settings backup/restore and global automation pause are removed completely**. The game provides chocobo equipment inspection. Each consumer and utility keeps its own controls; there is no new consumer/Core release.
 
@@ -664,3 +664,16 @@ Current automated evidence is maintained in [Hub PR #15](https://github.com/Mars
 Added checks exercise old-candidate preference migration, engine-free HUD without acknowledgment, legacy/unknown and mixed live/dev HUD selection, and real native Plugins narrow → wide → narrow resizing with clipping/height/preference assertions, alongside existing utility/collection/theme/scale regressions. Barding/pause/backup implementation and related tests are removed. Product/API binding remains FFXIVClientStructs 7.57.0.9386 and Core/UI 0.4.1.
 
 **Native gate pending on refreshed candidate.** The reported Quest Off persistence is recorded with that exact scope. Screenshots showed obsolete HUD waiting statuses and motivated the fix; they are not a PASS for active utility operation. Use the linked checklist, record untested scenarios, and do not infer full acceptance from automated checks or the earlier single-player Fashion result.
+
+### Refreshed Hub candidate — scoped in-game observations, 2026-10-18 15:29 America/Toronto
+
+Tested candidate supplied from Hub source `e046cde7e25bd4340253095bd71bbcf088a206ca`, artifact [12147656683](https://github.com/MarshalTitan/SentinelHub/actions/runs/39158069892/artifacts/12147656683). The user reported:
+
+| Check | Observed result |
+|---|---|
+| Global pause removal | PASS: gone from both Dashboard and Utilities. |
+| Plugin actions and responsive layout | PASS: buttons work, sit beside information when expanded and move underneath when narrowed. |
+| Health display | User reports health checks seem good. No separate dependency-loss/recovery or every provider state was reported. |
+| HUD utility ownership | User confirms Anti-AFK is absent from HUD 0.8.5.2 and exists only in Hub. This confirms the intended ownership/location, not Hub timer operation. |
+
+Keep the combined gate partial. Hub Anti-AFK Active/counter/Off behavior, the refreshed Quest no-HUD-wait/reload behavior and remaining collection/Inspector/export/activity checks have not been newly reported. Earlier Quest Off persistence and single-player Fashion identification retain their previous scope. No product change, new proving binary or public release is needed for this evidence update.

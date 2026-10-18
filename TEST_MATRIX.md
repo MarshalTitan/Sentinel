@@ -646,3 +646,8 @@ Supervised checklist:
 5. Expand filters and inspect details at minimum width in your theme. Controls remain reachable; minimize/restore keeps the layout.
 
 Return PASS/FAIL, Hub version/theme, accessory IDs/types and untested cases. These checks establish actual game recognition; policy/fixture/publication results cannot substitute for them. No equip/use/exchange action is available in Hub.
+
+
+### Scoped in-game Fashion acceptance — 2026-10-18 11:58 America/Toronto
+
+The user reported: "It works for a player I inspected" and "PASS" after Hub 0.6.0.0 delivery. Record **PASS for live accessory identification on that inspected player**. This is the first reported live recognition result for the new module. Accessory type/ID and separate name/icon, own unlock/source, no-accessory/stale actor, Mount regression, reload and narrow-layout checks were not individually reported; keep those items unconfirmed. No broader acceptance or failure is inferred, and no code/release/catalog change is required by this report.

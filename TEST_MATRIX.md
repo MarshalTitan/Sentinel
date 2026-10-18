@@ -627,3 +627,22 @@ Eight new policy groups validate all 356 embedded acquisition records and 45 off
 3. Read snapshot/local coverage and expansion counts, compare owned/missing state with Mount Guide, then perform any untested main-bag token/context/reload checks in [Hub's checklist](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/MOUNT_COLLECTION.md). No duplicate menu entry or utility regression.
 
 Source records may be stale or conditional; current availability remains Not checked. CI does not prove vendor accessibility, current regional store stock, exact live Mount Guide denominator, native inventory layout or context behavior. Keep prior independent acceptance gates open at their recorded scope.
+
+## Fashion Accessories and shared player identification — Hub 0.6.0.0, 2026-10-18 UTC
+
+The user described the already implemented Mounts module as successful; no new combined-flow result has been reported. **Fashion and the new shared context flow are native-acceptance PENDING.**
+
+[Hub #14](https://github.com/MarshalTitan/SentinelHub/pull/14), tested head `a5a26e86ec278c8d89c9d07e2fe7beb631dc7213`, [PR CI 39140216877](https://github.com/MarshalTitan/SentinelHub/actions/runs/39140216877) PASS: **87 policy groups, 1648 native UI cases, typed reader fixtures against FFXIVClientStructs 7.57.0.9386 and installable package validation**. Exact-tree release source `6dd61dc9926edd5e1205426ba94d67715085d87e` / tree `72610af673a9f126b0f2cbd70f545d8b1b95ce27`. [Hub v0.6.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.6.0.0), [normal release workflow 39140412825](https://github.com/MarshalTitan/SentinelHub/actions/runs/39140412825).
+
+Twelve new policy groups cover all 52 independently audited current IDs; invalid/duplicate/retired rows; action-20086 item links and market/trade unknowns; own unlock/missing-key/session/failure behavior; source identity/event/store/unknown data; dated official availability expiry; search/sort; market/category/cash/expansion filters; active/none/unknown/unloaded/transformed resolution; bounded numeric tickets, queue replacement/clear and option/identity/session/territory/age/disposal rejection; and Mount-only versus Fashion-enabled menu-offer rules.
+
+The actual typed field reader is tested using owned native fixture memory, including active ID versus saved auto-umbrella, transformation/loading state, wrong-thread rejection before dereference and entity mismatch. Current fixture binding is **7.57.0.9386**. UI totals: 840 generic cases across ten pages, 42 Anti-AFK, 288 Quest, 198 Latency, 80 Mount, 80 Fashion and 120 shared identification results = **1648**, plus keyboard/controller appearance and collapse/restore/stack checks. New UI tests retain the existing narrow minimum and default/saved opt-ins. No utility algorithm, Mount data/token code or Core pin changed.
+
+Supervised checklist:
+1. Enable Fashion identification, right-click another player with an active accessory, select Sentinel Hub: Identify player. Verify correct name/icon/ID; try a parasol and wings/pack if available.
+2. Compare your own unlocked/locked state with Fashion Accessories in-game. Inspect a familiar acquisition source/category, patch/expansion and unlock-item/market eligibility. Unknown is acceptable only where evidence is not verified.
+3. Identify again after the player removes it. Expect None active and no old accessory detail presented as current. Stale/loading/transformed actors should be unavailable.
+4. Keep Mount lookup enabled and identify a mounted player. Correct Mount information should still open, with only one Hub action when both options are enabled. Reload once; no duplicate entry or effect on other utilities.
+5. Expand filters and inspect details at minimum width in your theme. Controls remain reachable; minimize/restore keeps the layout.
+
+Return PASS/FAIL, Hub version/theme, accessory IDs/types and untested cases. These checks establish actual game recognition; policy/fixture/publication results cannot substitute for them. No equip/use/exchange action is available in Hub.

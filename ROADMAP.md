@@ -276,3 +276,9 @@ Authoritative child promotion commit: `d7549f53fe7b2c0e4104d7c07ad36bd2d4851208`
 The focused 0.7 release gate is complete; do not ask the user to repeat already reported gameplay checks. Remaining unreported scenarios remain explicit follow-ups: every emote/accessory name/icon/own-unlock/source and stale-target variant, optional provider recovery/compatibility and refreshed Quest behavior beyond the recorded preference persistence. None is represented as observed evidence. Short one-shot/pose inference, unsupported provider contracts and unverified current obtainability remain outside the supported claims.
 
 Barding, global pause and backup/restore are removed from this release's roadmap. Subsequent Hub work can proceed independently after final catalog/documentation verification; existing Mount/Fashion modules remain their own owners.
+
+## Hub/Profiles delivery — 2026-10-26
+
+Hub 0.7.1.0 performance scheduling and Profiles 0.2.1.8 overview integration are published through their normal immutable release pipelines. Software review, automated suites and public-package verification are complete; authoritative child objects are reconciled into the central catalog in this change. Original feature work is preserved. No SRank or unrelated plugin release is included.
+
+The remaining item is post-update observation of movement/camera, dialogue/cutscene/reward behavior, inspection/collections, saved settings and Profiles status/open/reload behavior. These remain pending rather than PASS. Record actual build-specific findings and address any reported regression in a higher-version release. See [focused observations](https://github.com/MarshalTitan/SentinelHub/blob/main/docs/PERFORMANCE_PROFILES.md#acceptance-and-release).

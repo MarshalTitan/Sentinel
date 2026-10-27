@@ -1,6 +1,6 @@
 # Sentinel Ecosystem
 
-Verified **2026-10-27 for Hub Treasure Maps publication and catalog reconciliation**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
+Verified **2026-10-27 for Hub Treasure Maps binding correction and catalog reconciliation**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
 
 ## Operating agreement and evidence
 
@@ -29,7 +29,7 @@ The six pre-Hub plugin projects retain Core UI package **0.3.1**; Hub bundles **
 | SentinelProfiles | [v0.2.1.8](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.8) (prerelease) | Manual three-state profiles, drift/server-info reporting and cached versioned Hub overview with guarded open-only action. Apply/restart semantics and Core UI 0.3.1 remain unchanged; combined live validation pending. |
 | SentinelRelay | [v0.5.0.7](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.7) | Per-character webhooks, authorized REST-polled replies, hunt rewards, opt-in game-window screenshots and SRank recovery controls; localized territory labels. No hosted backend. |
 | SentinelHunts | Historical test, still cataloged as 0.1.1.0 | User retired it from Hub inventory. This Dashboard-scoped removal does not delete its historical catalog/release identity. It is not Sentinel Trains. |
-| Sentinel Hub | [v0.8.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.0.0) beta | Optional control center with event-driven scheduling, Profiles overview, passive collections/inspection and Treasure Maps with a party queue/floating window. Settings, previous performance fixes and Core/UI 0.4.1 preserved; new module defaults Off. Native/map/chat and movement observations remain unverified by automated tests. |
+| Sentinel Hub | [v0.8.0.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.0.1) beta | Optional control center with event-driven scheduling, Profiles overview, passive collections/inspection and Treasure Maps with a party queue/floating window. Settings, previous performance fixes and Core/UI 0.4.1 preserved; new module defaults Off. Native/map/chat and movement observations remain unverified by automated tests. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
@@ -327,3 +327,9 @@ This reconciliation copies the authoritative Hub and Profiles child manifest obj
 Hub [0.8.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.0.0) adds default-Off Treasure Maps, structured Party/optional Alliance flag capture, a character-scoped unfinished queue, Open/Next, manual `/p <flag>` sharing preparation, Complete with 15-second Undo, Delete/reorder and a separate floating queue. It preserves the event-driven performance improvements and Core/UI 0.4.1. Other plugins and their catalog entries remain unchanged.
 
 Build/package and policy/UI/lifecycle/idle fixtures pass; actual native/map/chat and movement behavior remains unverified by automated tests. The release uses the existing live plugin repository; a separate test ZIP is not required. [Release PR](https://github.com/MarshalTitan/SentinelHub/pull/19), [technical audit and limitations](https://github.com/MarshalTitan/SentinelHub/blob/v0.8.0.0/docs/TREASURE_MAPS.md).
+
+## Hub decipher detection correction — 2026-10-27
+
+Hub [0.8.0.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.0.1) replaces the first Treasure Maps release's incorrect native anchor. It now identifies the treasure caller by its rank/spot/mode setup and validates the callee ABI before hooking; the binding was checked offline against game 2026.10.16.0000.0000. Normal live updates deliver the correction. Existing queues, preferences, Core/UI 0.4.1 and prior performance improvements are preserved.
+
+126 policy groups and existing UI/lifecycle/performance/package checks pass. Offline binding verification remains separate from actual map opening, location accuracy and movement observations. No other plugin version or unrelated catalog entry changes. [Release fix](https://github.com/MarshalTitan/SentinelHub/pull/20).

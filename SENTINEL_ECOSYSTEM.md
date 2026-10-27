@@ -1,6 +1,6 @@
 # Sentinel Ecosystem
 
-Verified **2026-10-26 UTC for Hub performance, Profiles overview publication and their catalog entries**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
+Verified **2026-10-27 for Hub Treasure Maps publication and catalog reconciliation**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
 
 ## Operating agreement and evidence
 
@@ -29,7 +29,7 @@ The six pre-Hub plugin projects retain Core UI package **0.3.1**; Hub bundles **
 | SentinelProfiles | [v0.2.1.8](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.8) (prerelease) | Manual three-state profiles, drift/server-info reporting and cached versioned Hub overview with guarded open-only action. Apply/restart semantics and Core UI 0.3.1 remain unchanged; combined live validation pending. |
 | SentinelRelay | [v0.5.0.7](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.7) | Per-character webhooks, authorized REST-polled replies, hunt rewards, opt-in game-window screenshots and SRank recovery controls; localized territory labels. No hosted backend. |
 | SentinelHunts | Historical test, still cataloged as 0.1.1.0 | User retired it from Hub inventory. This Dashboard-scoped removal does not delete its historical catalog/release identity. It is not Sentinel Trains. |
-| Sentinel Hub | [v0.7.1.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.7.1.0) beta | Optional control center with demand-driven scheduling, shared plugin inventory, cached conflict protection, authoritative Profiles overview and passive collections/inspection. Settings and Core/UI 0.4.1 preserved; movement/interaction validation pending. |
+| Sentinel Hub | [v0.8.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.0.0) beta | Optional control center with event-driven scheduling, Profiles overview, passive collections/inspection and Treasure Maps with a party queue/floating window. Settings, previous performance fixes and Core/UI 0.4.1 preserved; new module defaults Off. Native/map/chat and movement observations remain unverified by automated tests. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
@@ -321,3 +321,9 @@ Hub [0.7.1.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.7.1.0)
 Hub passes 114 policy groups, 2,116 UI cases and scheduling/lifecycle fixtures. Profiles passes 20 core tests. Builds and installable-package checks pass. Independently downloaded public ZIPs match GitHub SHA256 digests: Hub `8bb0120ca2826d6b9c09f9ab285742c497748a026e334b3920d51041ee5c4ce3`; Profiles `1796380571d20ed46526b56ad9953caf1fd5c069f220af4ce49750bf1e99cf92`. Every packaged file matches the corresponding main-build CI artifact, and Hub's entire public ZIP is byte-identical to its tested artifact. Core/UI pins remain Hub 0.4.1 and Profiles 0.3.1.
 
 This reconciliation copies the authoritative Hub and Profiles child manifest objects exactly, preserving all six unrelated entries and the permanent installation URL. Release assets are immutable. Live movement/camera, interaction and combined Profiles validation remains **pending**; publication and synthetic measurements do not establish that movement stutter is resolved.
+
+## Hub Treasure Maps — 2026-10-27
+
+Hub [0.8.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.0.0) adds default-Off Treasure Maps, structured Party/optional Alliance flag capture, a character-scoped unfinished queue, Open/Next, manual `/p <flag>` sharing preparation, Complete with 15-second Undo, Delete/reorder and a separate floating queue. It preserves the event-driven performance improvements and Core/UI 0.4.1. Other plugins and their catalog entries remain unchanged.
+
+Build/package and policy/UI/lifecycle/idle fixtures pass; actual native/map/chat and movement behavior remains unverified by automated tests. The release uses the existing live plugin repository; a separate test ZIP is not required. [Release PR](https://github.com/MarshalTitan/SentinelHub/pull/19), [technical audit and limitations](https://github.com/MarshalTitan/SentinelHub/blob/v0.8.0.0/docs/TREASURE_MAPS.md).

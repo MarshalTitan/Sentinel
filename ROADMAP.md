@@ -294,3 +294,7 @@ Automated policy, native UI, lifecycle/thread, event-order, package and dormant-
 Hub 0.8.0.1 corrects the missed decipher/reopen event: the former signature selected an unrelated UI helper. The new caller/callee binding is checked offline against game 2026.10.16.0000.0000 and has regression coverage for wrong calls and incompatible argument layouts. It is delivered through normal live plugin updates; already-deciphered maps can be viewed again to trigger detection without discarding them.
 
 Queues, settings, manual Share, other Hub features and previous performance fixes remain unchanged. No additional polling, peer plugin or external service is added. Map opening, actual location accuracy and movement remain subject to real in-game observation; no in-game PASS is inferred from this engineering fix.
+
+## Floating Treasure Queue controls — 2026-10-27
+
+Hub 0.8.0.2 completes X close and Hub Show/Hide synchronization through normal live updates. X persists the closed state and returns Hub to Show Floating Queue; Show reopens the same window. Native UI flows cover both themes and three scales, including the delayed callback and repeated reopen/hide. The 0.8.0.1 decipher correction, unfinished queue and prior performance behavior are retained.

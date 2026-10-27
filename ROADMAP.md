@@ -288,3 +288,9 @@ The remaining item is post-update observation of movement/camera, dialogue/cutsc
 Hub 0.8.0.0 delivers the integrated Treasure Maps page, decipher/view observer, structured Party/optional Alliance capture, owner-aware queue, Open/Next, manual clickable-flag preparation, Complete/Undo/Delete/reorder, independent floating window and local character-scoped persistence. It follows the normal live plugin update channel with the module Off until enabled. No separate development installation is required. Previous Hub performance fixes and existing settings are preserved; no other plugin is released by this work.
 
 Automated policy, native UI, lifecycle/thread, event-order, package and dormant-allocation checks pass. Actual native-hook compatibility, decipher coordinates, clickable party sharing and movement/camera behavior remain unverified in game; publication is not recorded as an in-game PASS. Future reported regressions belong in a higher-version release without replacing immutable assets. [Technical limitations and optional verification procedure](https://github.com/MarshalTitan/SentinelHub/blob/v0.8.0.0/docs/TREASURE_MAPS.md).
+
+## Treasure Maps detection hotfix — 2026-10-27
+
+Hub 0.8.0.1 corrects the missed decipher/reopen event: the former signature selected an unrelated UI helper. The new caller/callee binding is checked offline against game 2026.10.16.0000.0000 and has regression coverage for wrong calls and incompatible argument layouts. It is delivered through normal live plugin updates; already-deciphered maps can be viewed again to trigger detection without discarding them.
+
+Queues, settings, manual Share, other Hub features and previous performance fixes remain unchanged. No additional polling, peer plugin or external service is added. Map opening, actual location accuracy and movement remain subject to real in-game observation; no in-game PASS is inferred from this engineering fix.

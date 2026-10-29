@@ -329,3 +329,10 @@ MoveRelative removes/inserts once and rebuilds only after a real change. Self, a
 The shared queue renderer draws dark rounded cards, teal accents, blue underlined locations and outlined icon buttons. Wide cards place metadata beside actions; narrow cards stack and wrap controls inside the card inset. Card backgrounds are ordinary draw-list geometry, not per-row child windows. More retains its independent intrinsic native popup and viewport placement. The floating native window uses the matching palette without replacing close/collapse or saved geometry.
 
 Card presentation arrays reuse formatted IDs, labels, timestamps and measured geometry by queue snapshot, width, font/scale and relevant style metrics. Caption and glyph strings are cached. Work occurs only in visible UI; the controller, native/game/chat adapters, dependencies and background scheduling are unchanged. Existing link/drag actions, order persistence, Next, Complete/Undo and X/Show/Hide remain intact. Core/UI stay 0.4.1.
+
+
+## Treasure queue Core shell — Hub 0.8.2.1, 2026-10-28 America/Toronto
+
+The floating queue adopts the existing pinned Core/UI 0.4.1 Modern 2 AppShell, custom-header chrome and full-bleed style scope, matching Hub's main shell. Core owns the compact header, map rail, unified navy canvas, ambient background and scrollable content child. Retained delegates/state prevent per-frame callback creation; Hub and system reduced-motion preferences flow into Core. Classic remains an opt-in-preserving native-title renderer.
+
+The existing dark card renderer and its teal accents, blue links, outlined controls, responsive geometry, caches and actions are unchanged. Core minimize/expand persists FloatingCollapsed and preserves expanded native-pixel geometry. Window dimensions/constraints are passed in logical units so Dalamud scales once. Transition frames cannot replace saved expanded height with header height. Idempotent close saves the shared Show/Hide preference. Closed/minimized views do not read/draw the queue; shell state is disposed on unload. No controller, native adapter, hook, dependency pin or background scheduling changes are introduced.

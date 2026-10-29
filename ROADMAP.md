@@ -312,3 +312,8 @@ Hub 0.8.1.1 adds icon-labeled More options and draggable owner/location links to
 ## Treasure queue card design delivery — 2026-10-28 America/Toronto
 
 Hub 0.8.2.0 delivers matching dark card queues, teal accents, blue location links and outlined icon buttons in Hub and the floating window. Wide cards align details/actions horizontally; narrow cards stack and wrap within the inset. Presentation caches avoid rebuilding unchanged card metadata/layout. Existing queue actions, drag ordering, persistence, X/Show/Hide, detection and event-driven scheduling are preserved. Delivery uses normal live plugin updates.
+
+
+## Treasure queue ecosystem shell — 2026-10-28 America/Toronto
+
+Hub 0.8.2.1 aligns the floating queue with Hub's existing Core Modern 2 window layout/background, while retaining the dark rounded map cards, teal accents, blue links, outlined icon buttons and responsive layouts. Core header minimize/expand and X preserve queue visibility and expanded geometry, including reload and UI scaling. Classic choice and Core/UI 0.4.1 pins remain unchanged. Queue/controller behavior and dormant processing are preserved; normal live updates deliver the change.

@@ -307,3 +307,8 @@ Hub 0.8.1.0 delivers identical queue controls in Hub and the floating window, re
 ## Treasure queue visual controls — 2026-10-28 America/Toronto
 
 Hub 0.8.1.1 adds icon-labeled More options and draggable owner/location links to both queue windows. Drop above/below another link, including across the two views, to change the persisted route. Up/Down remains available; Next Map follows the first entry. Complete/Undo, saved locations/settings, X/Show/Hide and previous event-driven performance fixes are retained. Normal live updates deliver the change.
+
+
+## Treasure queue card design delivery — 2026-10-28 America/Toronto
+
+Hub 0.8.2.0 delivers matching dark card queues, teal accents, blue location links and outlined icon buttons in Hub and the floating window. Wide cards align details/actions horizontally; narrow cards stack and wrap within the inset. Presentation caches avoid rebuilding unchanged card metadata/layout. Existing queue actions, drag ordering, persistence, X/Show/Hide, detection and event-driven scheduling are preserved. Delivery uses normal live plugin updates.

@@ -709,3 +709,10 @@ Additional controller checks verify shared views, exact reordered Next Map data,
 127 policy groups and all existing UI fixtures pass, including the prior 2,434 UI cases plus 12 new native mouse link/drag flows across both themes and 1/1.5/2x scales. Checks cover actual icon glyph availability, reserved popup icon/label width and native menu clicks, link opening, before/after placement, cross-window dragging, cancellation, self-drops and disabled guards. The existing 96 popup placement cases and X/Show/Hide cycles still pass with balanced font/style stacks.
 
 Queue policy tests cover a single atomic move across 200 entries, stable untouched order, adjacent/self/missing-ID no-ops and Complete/Undo after reordering. Controller fixtures verify both views share the reordered snapshot, exact Next Map payload, JSON recovery and no view rebuild on no-op/stale drops. Existing dormant 10,000-tick checks retain zero allocations and zero service reads. This is automated fixture evidence; actual in-game rendering, map/chat interaction and movement feel are not certified by these tests.
+
+
+## Treasure queue card regression — Hub 0.8.2.0, 2026-10-28 America/Toronto
+
+127 policy groups and 2,554 UI cases pass. Expanded coverage includes 144 popup viewport/width/theme/scale placements and 36 full/floating action flows. Twelve native link/drag flows remain passing. Forty-eight card cases cover narrow/wide, long owner/location text, compact/main metadata and 1/1.2/1.5/2x font scales. Native geometry checks enforce metadata separation, card/button bounds, wrapped inset alignment and single-row inline actions, with actual ellipsis mouse clicks, glyph/card/link draw data and balanced styles/fonts. Cache checks verify stable reuse and invalidation for resized or changed snapshots.
+
+Existing X/Show/Hide, collapse, structured flag/Next, Complete/Undo, persistence, detection-event order and lifecycle fixtures remain green. Dormant 10,000-tick checks retain zero allocations and zero service reads. An offline software render of native draw data was inspected for card/popup layout; it is fixture evidence, not a screenshot or performance measurement from FFXIV.

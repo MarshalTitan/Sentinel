@@ -302,3 +302,8 @@ Hub 0.8.0.2 completes X close and Hub Show/Hide synchronization through normal l
 ## Treasure queue interface delivery — 2026-10-28 America/Toronto
 
 Hub 0.8.1.0 delivers identical queue controls in Hub and the floating window, readable native More menus, visible Up/Down arrows and the complete scrollable floating queue. Existing per-character order persistence and Next Map behavior are reused. Complete/Undo, map detection, sharing, remembered geometry and X/Show/Hide remain intact. Normal live updates deliver this UI-only change.
+
+
+## Treasure queue visual controls — 2026-10-28 America/Toronto
+
+Hub 0.8.1.1 adds icon-labeled More options and draggable owner/location links to both queue windows. Drop above/below another link, including across the two views, to change the persisted route. Up/Down remains available; Next Map follows the first entry. Complete/Undo, saved locations/settings, X/Show/Hide and previous event-driven performance fixes are retained. Normal live updates deliver the change.

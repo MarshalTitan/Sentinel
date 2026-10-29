@@ -29,7 +29,7 @@ The six pre-Hub plugin projects retain Core UI package **0.3.1**; Hub bundles **
 | SentinelProfiles | [v0.2.1.8](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.8) (prerelease) | Manual three-state profiles, drift/server-info reporting and cached versioned Hub overview with guarded open-only action. Apply/restart semantics and Core UI 0.3.1 remain unchanged; combined live validation pending. |
 | SentinelRelay | [v0.5.0.7](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.7) | Per-character webhooks, authorized REST-polled replies, hunt rewards, opt-in game-window screenshots and SRank recovery controls; localized territory labels. No hosted backend. |
 | SentinelHunts | Historical test, still cataloged as 0.1.1.0 | User retired it from Hub inventory. This Dashboard-scoped removal does not delete its historical catalog/release identity. It is not Sentinel Trains. |
-| Sentinel Hub | [v0.8.1.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.1.0) beta | Optional control center with event-driven scheduling, Profiles overview, passive collections/inspection and Treasure Maps with a party queue/floating window. Settings, previous performance fixes and Core/UI 0.4.1 preserved; new module defaults Off. Native/map/chat and movement observations remain unverified by automated tests. |
+| Sentinel Hub | [v0.8.1.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.1.1) beta | Optional control center with event-driven scheduling, Profiles overview, passive collections/inspection and Treasure Maps with a party queue/floating window. Settings, previous performance fixes and Core/UI 0.4.1 preserved; new module defaults Off. Native/map/chat and movement observations remain unverified by automated tests. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
@@ -341,3 +341,8 @@ Hub [0.8.0.2](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.0.2)
 ## Treasure queue UI parity — 2026-10-28 America/Toronto
 
 Hub [0.8.1.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.1.0) gives both queue views every action, visible Up/Down arrows, readable viewport-contained More menus and the full scrollable floating queue. Existing queue persistence, Next Map, Complete/Undo, sharing, decipher detection and X/Show/Hide are retained. Build/package, 126 policy groups and 2,434 UI cases pass; no native, dependency or background-processing changes accompany the UI update.
+
+
+## Treasure queue icons and draggable links — 2026-10-28 America/Toronto
+
+Hub [0.8.1.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.1.1) adds icons beside More actions and draggable owner/location links in both queue views, including cross-window reorder and a placement preview. Order changes are atomic, shared and persisted; existing arrows, exact flags, Next Map, Complete/Undo, manual Share, X/Show/Hide, detection and dormant processing remain intact. 127 policy groups, existing UI regressions and 12 new native drag flows pass. No new dependency or game hook is introduced.

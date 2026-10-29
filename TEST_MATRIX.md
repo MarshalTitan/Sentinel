@@ -702,3 +702,10 @@ Independent offline audit using the maintained binding against game build 2026.1
 2,434 UI cases include 96 new popup placements across viewport corners, widths, themes and three scales, plus 24 main/floating action flows. Native tests verify intrinsic menu width, independent popup/clip bounds, real menu clicks, scroll-to-later-entry controls, primary actions and boundary-aware arrows. The old renderer fails the new menu-width regression; the maintained renderer passes. Existing 126 policy groups and X/Show/Hide/lifecycle/idle fixtures remain passing.
 
 Additional controller checks verify shared views, exact reordered Next Map data, JSON order recovery, stable snapshots for no-op moves, immediate Complete, index-restoring Undo and Delete. The enabled idle fixture remains zero allocations and zero service reads across 10,000 guarded ticks. These synthetic checks are not a new live movement/camera claim; detection and game adapters are unchanged.
+
+
+## Treasure queue icons and drag regression — Hub 0.8.1.1, 2026-10-28 America/Toronto
+
+127 policy groups and all existing UI fixtures pass, including the prior 2,434 UI cases plus 12 new native mouse link/drag flows across both themes and 1/1.5/2x scales. Checks cover actual icon glyph availability, reserved popup icon/label width and native menu clicks, link opening, before/after placement, cross-window dragging, cancellation, self-drops and disabled guards. The existing 96 popup placement cases and X/Show/Hide cycles still pass with balanced font/style stacks.
+
+Queue policy tests cover a single atomic move across 200 entries, stable untouched order, adjacent/self/missing-ID no-ops and Complete/Undo after reordering. Controller fixtures verify both views share the reordered snapshot, exact Next Map payload, JSON recovery and no view rebuild on no-op/stale drops. Existing dormant 10,000-tick checks retain zero allocations and zero service reads. This is automated fixture evidence; actual in-game rendering, map/chat interaction and movement feel are not certified by these tests.

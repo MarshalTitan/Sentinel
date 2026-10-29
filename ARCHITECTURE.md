@@ -315,3 +315,10 @@ The floating queue persists native close state in PostDraw, after Dalamud applie
 One shared row renderer provides Open Flag, Share, Complete, visible boundary-aware Up/Down arrows and More in both views. Compact mode omits receipt timestamps; it no longer truncates the floating queue or hides actions on later entries. Natural-width buttons wrap within the content edge. Native MenuItem content replaces negative-width popup buttons, allowing independent auto-sized popup windows, viewport repositioning and correct clipping/input isolation.
 
 The existing controller owns queue order, coalesced persistence, Next Map and Complete/Undo. Detection, chat, sharing, native hooks, window X behavior, settings and Core/UI 0.4.1 are unchanged. UI request guards suppress invalid boundary moves; no background work or polling is added.
+
+
+## Treasure queue icons and drag ordering — Hub 0.8.1.1, 2026-10-28 America/Toronto
+
+The shared owner/location renderer uses the existing icon font for a grip and icon-labeled More actions. Native ImGui owns drag capture and popup sizing/clipping/viewport placement. Links open the exact saved flag on click; a delivered drop emits one source/target identity request with before/after placement. Native payloads hold only a 16-byte entry identifier, not game pointers or borrowed data. Queue windows accept the same local payload for cross-window rearrangement.
+
+MoveRelative removes/inserts once and rebuilds only after a real change. Self, already-adjacent and missing/stale identities retain the snapshot and schedule no save. Existing epoch/thread guards and coalesced persistence apply. No decipher hook, game/chat adapter, dependency or idle framework scheduling change accompanies this update; Core/UI remain 0.4.1. Complete/Undo, Next Map and floating close behavior are retained.

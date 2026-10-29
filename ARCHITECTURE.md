@@ -309,3 +309,9 @@ Offline inspection of game 2026.10.16.0000.0000 finds one call at RVA 8E2F94 tar
 ## Floating Treasure Queue close state — Hub 0.8.0.2, 2026-10-27
 
 The floating queue persists native close state in PostDraw, after Dalamud applies the title-bar X and before the following PreOpenCheck can restore the saved open preference. OnClose is idempotent, preventing a second save when the host sends its deferred callback. Hub's Show/Hide control and the independent window share the same preference; queue data and remembered geometry are unchanged. No framework scheduling, game-hook or decipher-binding changes accompany this UI correction.
+
+## Treasure queue UI parity — Hub 0.8.1.0, 2026-10-28 America/Toronto
+
+One shared row renderer provides Open Flag, Share, Complete, visible boundary-aware Up/Down arrows and More in both views. Compact mode omits receipt timestamps; it no longer truncates the floating queue or hides actions on later entries. Natural-width buttons wrap within the content edge. Native MenuItem content replaces negative-width popup buttons, allowing independent auto-sized popup windows, viewport repositioning and correct clipping/input isolation.
+
+The existing controller owns queue order, coalesced persistence, Next Map and Complete/Undo. Detection, chat, sharing, native hooks, window X behavior, settings and Core/UI 0.4.1 are unchanged. UI request guards suppress invalid boundary moves; no background work or polling is added.

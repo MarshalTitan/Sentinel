@@ -696,3 +696,9 @@ Independent offline audit using the maintained binding against game build 2026.1
 ## Floating Treasure Queue native close regression — Hub 0.8.0.2, 2026-10-27
 
 2,314 UI cases include six new native X close and actual Show/Hide button flows across both themes and three UI scales. They verify persisted closed state, one save, the delayed close callback without reopening, successful repeated Show/Hide, balanced styles and no queue actions. The new assertion fails against the former PostDraw behavior and passes with close synchronization. Existing 126 policy groups, decipher-binding/lifecycle/event-order and dormant-allocation checks remain required. This is native ImGui/host-order fixture evidence, not new in-game decipher acceptance.
+
+## Treasure queue UI parity — Hub 0.8.1.0, 2026-10-28 America/Toronto
+
+2,434 UI cases include 96 new popup placements across viewport corners, widths, themes and three scales, plus 24 main/floating action flows. Native tests verify intrinsic menu width, independent popup/clip bounds, real menu clicks, scroll-to-later-entry controls, primary actions and boundary-aware arrows. The old renderer fails the new menu-width regression; the maintained renderer passes. Existing 126 policy groups and X/Show/Hide/lifecycle/idle fixtures remain passing.
+
+Additional controller checks verify shared views, exact reordered Next Map data, JSON order recovery, stable snapshots for no-op moves, immediate Complete, index-restoring Undo and Delete. The enabled idle fixture remains zero allocations and zero service reads across 10,000 guarded ticks. These synthetic checks are not a new live movement/camera claim; detection and game adapters are unchanged.

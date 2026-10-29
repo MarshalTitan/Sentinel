@@ -298,3 +298,7 @@ Queues, settings, manual Share, other Hub features and previous performance fixe
 ## Floating Treasure Queue controls — 2026-10-27
 
 Hub 0.8.0.2 completes X close and Hub Show/Hide synchronization through normal live updates. X persists the closed state and returns Hub to Show Floating Queue; Show reopens the same window. Native UI flows cover both themes and three scales, including the delayed callback and repeated reopen/hide. The 0.8.0.1 decipher correction, unfinished queue and prior performance behavior are retained.
+
+## Treasure queue interface delivery — 2026-10-28 America/Toronto
+
+Hub 0.8.1.0 delivers identical queue controls in Hub and the floating window, readable native More menus, visible Up/Down arrows and the complete scrollable floating queue. Existing per-character order persistence and Next Map behavior are reused. Complete/Undo, map detection, sharing, remembered geometry and X/Show/Hide remain intact. Normal live updates deliver this UI-only change.

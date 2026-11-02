@@ -317,3 +317,9 @@ Hub 0.8.2.0 delivers matching dark card queues, teal accents, blue location link
 ## Treasure queue ecosystem shell — 2026-10-28 America/Toronto
 
 Hub 0.8.2.1 aligns the floating queue with Hub's existing Core Modern 2 window layout/background, while retaining the dark rounded map cards, teal accents, blue links, outlined icon buttons and responsive layouts. Core header minimize/expand and X preserve queue visibility and expanded geometry, including reload and UI scaling. Classic choice and Core/UI 0.4.1 pins remain unchanged. Queue/controller behavior and dormant processing are preserved; normal live updates deliver the change.
+
+## Death Recaps delivery — 2026-11-01 America/Toronto
+
+Delivered through normal live updates: Hub 0.9.0.0 Death Recaps with bounded local history, privacy, contextual timelines, optional popup/synthetic previews and HUD 0.8.9.0 Frontline targeter-job history. Preserve existing Treasure Maps and dormant performance behaviour. Targeter evidence is separate from damage contributors; no live combat advice or automation is added.
+
+Remaining evidence: actual PvE/PvP observation, optional native action details, restart/privacy and gameplay performance as documented in Hub's acceptance procedure. Exact fatal-source correlation/EffectResult support and periodic damage/healing attribution are not implemented or presented as certain. Keep experimental direct capture off by default until supported by game evidence; future native changes require a new version. No development-build download is required for this delivery.

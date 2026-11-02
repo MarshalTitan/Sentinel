@@ -1,6 +1,6 @@
 # Sentinel Ecosystem
 
-Verified **2026-10-27 for Hub Treasure Maps binding correction and catalog reconciliation**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
+Verified **2026-11-01 America/Toronto for coordinated Death Recaps delivery**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
 
 ## Operating agreement and evidence
 
@@ -24,12 +24,12 @@ The six pre-Hub plugin projects retain Core UI package **0.3.1**; Hub bundles **
 | Central Sentinel | [current catalog](https://github.com/MarshalTitan/Sentinel/blob/main/repo.json) | Approved registry, deterministic aggregation, validation, last-known-good fallback and automated reconciliation. |
 | SRankSentinel | [v0.7.62.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.62.0) (prerelease) | S/SS report intake, same-DC queue/travel, safe parking, one gated tag, positive kill evidence and recovery; companion/history UI. |
 | PvPSentinel | [v0.3.1.23](https://github.com/MarshalTitan/PvPSentinel/releases/tag/v0.3.1.23) | Experimental five-map Frontline navigation, diagnostics and combat-provider boundaries. Map recognition does not imply complete objective semantics or in-game acceptance. |
-| SentinelHUD | [v0.8.5.2](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.5.2) | Actor HUD/editor, self marker/highlight, awareness, targeting counter and camera. Utility engines live in Hub; retired Convenience page removed. Compatibility data retained. |
+| SentinelHUD | [v0.8.9.0](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.9.0) | Visual HUD, existing encounter features and live Targeting Me Counter; bounded deaths-only v1 history for Hub reuses its scan. Utility engines remain in Hub. |
 | ClassySentinel | [v0.8.6.0](https://github.com/MarshalTitan/ClassySentinel/releases/tag/v0.8.6.0) (prerelease) | Exact gear-set launcher, dynamic job classification, multiple sets and scoped controller capture. |
 | SentinelProfiles | [v0.2.1.8](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.8) (prerelease) | Manual three-state profiles, drift/server-info reporting and cached versioned Hub overview with guarded open-only action. Apply/restart semantics and Core UI 0.3.1 remain unchanged; combined live validation pending. |
 | SentinelRelay | [v0.5.0.7](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.7) | Per-character webhooks, authorized REST-polled replies, hunt rewards, opt-in game-window screenshots and SRank recovery controls; localized territory labels. No hosted backend. |
 | SentinelHunts | Historical test, still cataloged as 0.1.1.0 | User retired it from Hub inventory. This Dashboard-scoped removal does not delete its historical catalog/release identity. It is not Sentinel Trains. |
-| Sentinel Hub | [v0.8.2.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.2.1) beta | Optional control center with event-driven scheduling, Profiles overview, passive collections/inspection and Treasure Maps with a party queue/floating window. Settings, previous performance fixes and Core/UI 0.4.1 preserved; new module defaults Off. Native/map/chat and movement observations remain unverified by automated tests. |
+| Sentinel Hub | [v0.9.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.9.0.0) beta | Optional control center with Profiles, utilities, collections/inspection, Treasure Maps and local Death Recaps. Duty snapshots are enabled; experimental direct action capture stays Off. Targeter evidence is separate from damage. Previous performance behaviour and Core/UI 0.4.1 are preserved; actual game validation remains pending. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel or SentinelHunts. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
@@ -356,3 +356,9 @@ Hub [0.8.2.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.2.0)
 ## Treasure queue Core window layout — 2026-10-28 America/Toronto
 
 Hub [0.8.2.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.8.2.1) uses the shared Core Modern 2 shell around the floating queue, matching Hub's navy canvas, ambient background, custom header and navigation. The existing dark cards, teal accents, blue links, icon controls and responsive layouts remain. Native minimize/expand/X, saved geometry, Show/Hide, reduced motion and card/popup/drag regressions pass with 127 policy groups and 2,562 UI cases. No dependency, native adapter or controller change is included.
+
+## Death Recaps delivery — 2026-11-01 America/Toronto
+
+Hub [0.9.0.0](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.9.0.0) adds Death Recaps from `f9871a86029015e89dc880d6fa7e6408b3efbbeb` ([PR #26](https://github.com/MarshalTitan/SentinelHub/pull/26)). HUD [0.8.9.0](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.9.0), source `eb6073214df5e8fcb7e19f36c262d1f994896c45` ([PR #17](https://github.com/MarshalTitan/SentinelHUD/pull/17)), publishes the narrow deaths-only contract first. Hub remains independent when HUD is absent. Local history, privacy, 10/30/60-second review, Frontline targeter jobs/maxima/freshness and synthetic popup previews are included. Exact fatal blow and pre-hit HP/shield HP remain unavailable; optional direct action capture is experimental and off by default.
+
+Publication uses normal live custom-repository updates. Automated tests do not establish actual native attribution, Frontline observations or game frame-time impact; those remain pending. No separate development installation, unrelated plugin release, telemetry or automatic action is introduced. [Implementation and acceptance](https://github.com/MarshalTitan/SentinelHub/blob/v0.9.0.0/docs/DEATH_RECAPS.md).

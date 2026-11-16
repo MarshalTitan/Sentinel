@@ -323,3 +323,8 @@ Hub 0.8.2.1 aligns the floating queue with Hub's existing Core Modern 2 window l
 Delivered through normal live updates: Hub 0.9.0.0 Death Recaps with bounded local history, privacy, contextual timelines, optional popup/synthetic previews and HUD 0.8.9.0 Frontline targeter-job history. Preserve existing Treasure Maps and dormant performance behaviour. Targeter evidence is separate from damage contributors; no live combat advice or automation is added.
 
 Remaining evidence: actual PvE/PvP observation, optional native action details, restart/privacy and gameplay performance as documented in Hub's acceptance procedure. Exact fatal-source correlation/EffectResult support and periodic damage/healing attribution are not implemented or presented as certain. Keep experimental direct capture off by default until supported by game evidence; future native changes require a new version. No development-build download is required for this delivery.
+
+
+## Focused HUD and Relay follow-up — 2026-11-16 America/Toronto
+
+HUD 0.8.9.3 currency persistence and Relay 0.5.0.8 incoming tell alerts delivered separately. Obtain a full game restart observation for HUD and one benign unkeyworded incoming tell for Relay when convenient. Do not treat the scoped checks as evidence for native window occlusion or Sentinel Remote. The tell fix has a separate [main forward-port PR](https://github.com/MarshalTitan/SentinelRelay/pull/21).

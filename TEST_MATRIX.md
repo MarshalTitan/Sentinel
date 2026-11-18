@@ -380,19 +380,19 @@ See [SRank #28](https://github.com/MarshalTitan/SRankSentinel/pull/28) and
 **Supervised gate OPEN; no native recovery or Discord access claimed tested.** Use the exact
 paired artifacts pinned below; unload old candidates, extract inner latest.zip into the
 separate dev directories, keep public/other-dev copies disabled and confirm versions.
-In Wrothy's Relay profile retain its existing webhook/bot/channel/user, enable **Allow
+In Primary Tester's Relay profile retain its existing webhook/bot/channel/user, enable **Allow
 SRankSentinel remote controls** under Replies & Controls and save; chat replies need not
 be enabled. Wait for reader Connected.
 
-1. Ordinary text `/srank status` in #relay-wrothy: version/enabled/state/status/hunt/queue
+1. Ordinary text `/srank status` in the configured Relay test channel: version/enabled/state/status/hunt/queue
    agree with SRank UI. Missing/old provider returns unavailable, not invented status.
 2. In a safe active hunt with SRank enabled, `/srank skip`: exact manual skip behavior
    through Ul'dah, remaining queue preserved.
 3. In a safe situation, `/srank reset`: no game action; `/srank reset confirm` within
    30s: exact manual reset (queue cleared, normal enabled state retained). A second/late
    confirmation does nothing.
-4. Elektra permission remains OFF; Wrothy channel cannot operate her client. Turn Wrothy
-   permission OFF/save: no private status or recovery. Test Elektra separately later.
+4. Secondary Tester permission remains OFF; Primary Tester channel cannot operate the Secondary Tester client. Turn Primary Tester
+   permission OFF/save: no private status or recovery. Test Secondary Tester separately later.
 
 Return PASS/FAIL for status, skip/queue, reset/confirmation, isolation and permission OFF.
 Only failures need timestamp, versions, concise response and sanitized RemoteControl log
@@ -438,15 +438,15 @@ and functional gate apply; existing navigation/PvP tests remain separate.
 
 1. Update both plugins through the normal Sentinel repository in Dalamud, keep all dev
    copies disabled, and confirm SRank 0.7.62.0 / Relay 0.5.0.6.
-2. For Wrothy only, `/srelay` → Replies & Controls (Classic: Discord Replies) →
+2. For Primary Tester only, `/srelay` → Replies & Controls (Classic: Discord Replies) →
    **Allow SRankSentinel remote controls**, then **Save Reply Permissions**.
    Keep the existing webhook/bot/channel/user binding; wait for reader Connected.
-3. Ordinary Discord text in #relay-wrothy: `/srank status` must agree with UI.
+3. Ordinary Discord text in the configured Relay test channel: `/srank status` must agree with UI.
    With a safe enabled active hunt, `/srank skip` must preserve queued hunts and
    perform the exact manual recovery.
 4. `/srank reset` must do nothing until `/srank reset confirm` within 30 seconds.
    Expect exact manual reset/queue clearing; second/expired confirmations do nothing.
-   Elektra's permission remains OFF; Wrothy requests cannot operate her client.
+   Secondary Tester's permission remains OFF; Primary Tester requests cannot operate the Secondary Tester client.
 5. Permission OFF/save must stop remote state/results/actions. Return stage PASS/FAIL;
    failures only need timestamp, versions and sanitized response/RemoteControl log lines.
 

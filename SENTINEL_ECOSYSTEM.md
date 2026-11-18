@@ -166,10 +166,10 @@ chat replies or outbound chat destinations. Three fixed versioned IPC functions 
 same extracted SRank UI operations. There is no UI simulation, arbitrary command/IPC,
 remote desktop, backend, companion application or mandatory plugin coupling.
 
-**In-game acceptance OPEN:** Wrothy first, with the exact successful experimental pair:
+**In-game acceptance OPEN:** Primary Tester first, with the exact successful experimental pair:
 status/UI agreement; safe skip with queue preservation; reset request does nothing until
 same-user/channel/character confirmation within 30 seconds; UI-equivalent Ul'dah recovery;
-isolation and permission OFF. Elektra remains OFF until separately supervised. No game
+isolation and permission OFF. Secondary Tester remains OFF until separately supervised. No game
 actions or private Discord requests were performed by engineering. See the
 [paired procedure](https://github.com/MarshalTitan/SentinelRelay/blob/feature/srank-remote-controls/docs/SRANK_REMOTE_CONTROLS.md).
 Navigation PR #25, PvP migration and their prior gates remain unchanged.
@@ -186,10 +186,10 @@ Existing UI recovery bodies, hunt policy, chat/screenshot behavior and exact Cor
 0.3.1 pins remain unchanged. Core 0.4.1 stays published without a new release.
 
 **In-game acceptance remains OPEN.** Update both live plugins normally, keep dev copies
-disabled, confirm versions, and enable the new permission for Wrothy only under
+disabled, confirm versions, and enable the new permission for Primary Tester only under
 Replies & Controls (Classic: Discord Replies), then save. Send ordinary text status,
 safe skip, and reset/confirm within 30 seconds; verify UI agreement, retained skip
-queue, reset queue clearing, isolation and permission OFF. Elektra remains OFF until
+queue, reset queue clearing, isolation and permission OFF. Secondary Tester remains OFF until
 separate acceptance. No game test is fabricated by live distribution.
 [Current procedure](https://github.com/MarshalTitan/SentinelRelay/blob/main/docs/SRANK_REMOTE_CONTROLS.md).
 Earlier dated candidate/rollback entries above remain historical; the normal-update

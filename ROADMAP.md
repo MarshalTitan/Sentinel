@@ -180,13 +180,13 @@ The user also clarified at 22:28 that “everything” meant Hub's own features 
 
 | Track | Current state | Required next gate |
 |---|---|---|
-| Remote SRank recovery | SRank #28 0.7.62.0 + Relay #11 0.5.0.6; experimental pair only | Wrothy supervised status, queue-preserving skip, confirmed reset, isolation and permission OFF |
+| Remote SRank recovery | SRank #28 0.7.62.0 + Relay #11 0.5.0.6; experimental pair only | Primary Tester supervised status, queue-preserving skip, confirmed reset, isolation and permission OFF |
 | Remote release | Blocked solely on the above FFXIV acceptance | Resume automatically on evidence; merge/release only reviewed compatible pair, verify each child and public central catalog |
-| Elektra | New permission remains OFF | Separate character/profile acceptance after Wrothy, no hard-coded identity mapping |
+| Secondary Tester | New permission remains OFF | Separate character/profile acceptance after Primary Tester, no hard-coded identity mapping |
 | Navigation PR #25 / PvP | Existing independent gates retained; branch unchanged | Do not interpret remote recovery acceptance as shared movement acceptance |
 
 The remote brief explicitly prioritizes this access-layer feature. It does not authorize
-replacing live builds before Wrothy's gate, change hunt semantics, or mix the navigation
+replacing live builds before Primary Tester's gate, change hunt semantics, or mix the navigation
 candidate into the remote pair. Current rollback is published SRank 0.7.56.0 and Relay
 0.5.0.5. Follow the exact paired artifact/procedure in TEST_MATRIX.md. No repeat UI,
 latency or movement probe is requested for this feature.
@@ -201,8 +201,8 @@ OFF. The earlier dev-artifact installation steps are historical.
 | Track | State | Next gate |
 |---|---|---|
 | Remote distribution | Normal live pair, user-authorized before game proof | Verify released ZIPs, child/central equality and routine updater versions |
-| Remote native acceptance | OPEN, Wrothy first | Status/UI agreement, safe skip/queue, 30s confirmed reset, isolation and permission OFF; return evidence resumes engineering |
-| Elektra | Controls OFF | Separate character acceptance later |
+| Remote native acceptance | OPEN, Primary Tester first | Status/UI agreement, safe skip/queue, 30s confirmed reset, isolation and permission OFF; return evidence resumes engineering |
+| Secondary Tester | Controls OFF | Separate character acceptance later |
 | Navigation/PvP | Existing independent gates unchanged | Preserve published main and new contract in any later controlled migration |
 
 Immediate feature rollback is permission OFF/save; normal hunting and Relay remain.

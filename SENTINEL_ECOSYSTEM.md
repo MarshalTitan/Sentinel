@@ -171,7 +171,7 @@ status/UI agreement; safe skip with queue preservation; reset request does nothi
 same-user/channel/character confirmation within 30 seconds; UI-equivalent Ul'dah recovery;
 isolation and permission OFF. Secondary Tester remains OFF until separately supervised. No game
 actions or private Discord requests were performed by engineering. See the
-[paired procedure](https://github.com/MarshalTitan/SentinelRelay/blob/feature/srank-remote-controls/docs/SRANK_REMOTE_CONTROLS.md).
+[paired procedure](https://github.com/MarshalTitan/SentinelRelay/blob/main/docs/SRANK_REMOTE_CONTROLS.md).
 Navigation PR #25, PvP migration and their prior gates remain unchanged.
 
 ## Remote controls: authorized normal-update delivery — 2026-10-17 UTC

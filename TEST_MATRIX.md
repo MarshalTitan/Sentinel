@@ -399,7 +399,7 @@ Only failures need timestamp, versions, concise response and sanitized RemoteCon
 lines; never send credentials/config. Screenshot is optional and independent.
 Rollback: permission OFF/save, unload both dev copies, re-enable public SRank 0.7.56.0 /
 Relay 0.5.0.5. No config deletion. Full
-[procedure](https://github.com/MarshalTitan/SentinelRelay/blob/feature/srank-remote-controls/docs/SRANK_REMOTE_CONTROLS.md).
+[procedure](https://github.com/MarshalTitan/SentinelRelay/blob/main/docs/SRANK_REMOTE_CONTROLS.md).
 Keep both PRs draft/unreleased and navigation/PvP gates separate until required evidence.
 
 ### Exact candidate source, CI and downloads

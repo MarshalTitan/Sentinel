@@ -81,6 +81,29 @@ procedure links now use the sanitized Relay default-branch procedure.
   Current default branches, open candidate heads, current vendored packages, and
   current distributed packages contain zero personal tester-identity matches.
 
+## Validation detail
+
+The final scan covered 215 issue/PR records and 240 release descriptions, with no
+remaining metadata matches. Thirty-one expanded current archives (209 entries),
+all ten default branches, and all five open candidate heads passed the identity scan.
+The eight central entries exactly match their authoritative child objects.
+
+Both Core build/test/package/public-hash workflows and all seven plugin release
+workflows passed. Sentinel catalog tests passed 33 cases; token-free public
+distribution checks passed. The Remote Android candidate passed analysis, protocol
+and widget tests, and APK build.
+
+Existing **unpublished** Relay gamepad proofs remain separate failures: PR 19
+([baseline run](https://github.com/MarshalTitan/SentinelRelay/actions/runs/39354566538))
+and PR 20
+([baseline run](https://github.com/MarshalTitan/SentinelRelay/actions/runs/39369734313))
+already failed their input-backend proof before this audit. Current proving runs
+still expose a strict packet round-trip failure on Linux and native driver/reboot
+availability on Windows. The backend and its proof source were not changed. Local
+candidate plugin builds, policy tests, remote foundation tests and input unit tests
+passed; their feature release gates remain open. This audit does not certify
+physical gamepad input or change those release decisions.
+
 ## Historical content retained
 
 Historical references remaining: **YES**. Old commits, historical tag/source

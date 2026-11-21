@@ -328,3 +328,7 @@ Remaining evidence: actual PvE/PvP observation, optional native action details, 
 ## Focused HUD and Relay follow-up — 2026-11-16 America/Toronto
 
 HUD 0.8.9.3 currency persistence and Relay 0.5.0.8 incoming tell alerts delivered separately. Obtain a full game restart observation for HUD and one benign unkeyworded incoming tell for Relay when convenient. Do not treat the scoped checks as evidence for native window occlusion or Sentinel Remote. The tell fix has a separate [main forward-port PR](https://github.com/MarshalTitan/SentinelRelay/pull/21).
+
+## Relay keyword follow-up - 2026-11-21 America/Toronto
+
+Relay 0.5.0.10 delivers independent keyword-only monitoring and saved-channel inspection. Remaining scoped live checks: disable normal Free Company forwarding, retain a saved keyword watching FC with its configured-user ping, confirm ordinary FC text stays local and matching text arrives once with an alert/ping; enable normal FC and confirm the same matching text still arrives only once. Expand/collapse a saved rule and confirm only its saved friendly channel names appear. Pause must block keyword-only messages. This pending user test does not block the requested normal-update delivery or establish acceptance for unrelated Sentinel Remote work.

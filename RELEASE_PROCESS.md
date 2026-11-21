@@ -26,7 +26,7 @@ Permanent installation URL: https://raw.githubusercontent.com/MarshalTitan/Senti
 | HUD | Main commit containing [publish-live] | Existing same-source release can be revalidated; public ZIP then shared action. Manual catalog-sync is read-only recovery with optional notification. |
 | Classy | Manual main dispatch or main change under .github/releases | No PR publication; same-source prerelease revalidation only; local/public ZIP checks then shared action. |
 | Profiles | Manual main dispatch or main commit containing [publish-live] | Existing release is refused (immutable). New ZIP is verified before shared child promotion. |
-| Relay | Manual main dispatch or main [publish-live] / [verify-live] commit | Existing asset can be explicitly revalidated without replacement; public ZIP then shared action. |
+| Relay | Stable 0.5 maintenance: `release-0.5` push containing [publish-live]. Main publisher remains separate for future development releases. | Immutable public ZIP validation, then default-branch child promotion and exact central reconciliation; exclude unreleased mobile work from stable maintenance. |
 
 Each child has Release Infrastructure Checks: actionlint, PowerShell script parsing, asset/token policy checks and read-only token-free verification of published entries. Existing plugin build/test/package checks remain. Read the actual workflow before publication; triggers are intentionally not identical.
 
@@ -419,3 +419,9 @@ Death Recaps is delivered through the normal live custom-repository channel with
 ## Independent HUD and stable Relay patches — 2026-11-16 America/Toronto
 
 HUD #20 used the existing marked main publisher. Relay #22 used `release-0.5`, based on the published 0.5.0.7 source plus its manifest-only commit; the branch publisher requires an explicit `[publish-live]` push and a 0.5.x.x version. The default branch remains the authoritative child manifest source and the 0.6 development code was not packaged. Both release jobs repeat tests and validate immutable public ZIPs before child promotion and exact central verification. Revalidation can only reuse the identical release source and existing asset.
+
+## Relay keyword maintenance release - 2026-11-21 America/Toronto
+
+[Relay #24](https://github.com/MarshalTitan/SentinelRelay/pull/24) publishes **0.5.0.10** from stable source `22f4ed1a9b9e9d5b418fcc50503460d89759421e`. [Final PR CI](https://github.com/MarshalTitan/SentinelRelay/actions/runs/44958124477) and release-policy checks passed before the explicit stable `[publish-live]` merge. The stable baseline manifest was aligned with the already available 0.5.0.9 entry; the new version was not pre-advertised. [Publisher](https://github.com/MarshalTitan/SentinelRelay/actions/runs/44958239052) repeats tests/build/package checks, publishes the immutable ZIP, validates the public download, then invokes the existing pinned shared distribution action. Public ZIP independently downloaded and verified: SHA-256 `069d35061b5e5f04ccbb029b2f664feb30163ea4904141c00b6d96e8fef8bd26`; manifest version/API/required files and both bundled Core/UI DLLs match the exact vendored packages. Child manifest blob `b3e7283df5a8dca2e58bc98cf63a3613686ca6b3` and central catalog blob `7327d55c3e567148fa0dbd3c08b2b80ebcb47c12` advertise identical Relay 0.5.0.10 entries and all three release URLs. All seven other central entries are unchanged.
+
+[Main #23](https://github.com/MarshalTitan/SentinelRelay/pull/23) separately merged the focused fix without a version bump or publication marker. Core/UI pins, matching/formatter code and all unrelated plugins remain unchanged. Installed-game acceptance is separately pending in TEST_MATRIX.md.

@@ -347,3 +347,9 @@ Hub has bounded duty-only HP/shield/status observations, optional PvE party acto
 ## HUD selection persistence and Relay alert routing — 2026-11-16 America/Toronto
 
 HUD stores the same JSON array of currency IDs, but the fixed-size property makes the typed reader replace defaults rather than append to the default Gil selection. Empty selections stay empty; missing data still defaults to Gil. The existing configuration coordinator saves each edit. Relay uses the existing incoming/outgoing distinction after per-character channel and pause checks. For incoming tells, the first webhook payload carries one alert and only the configured valid mention recipient. Other channels keep their keyword rules; there is no new route, credential or authorization requirement.
+
+## Relay keyword admission - 2026-11-21 America/Toronto
+
+Relay 0.5.0.10 uses one `InboundChatRelay` admission/batching path: an enabled normal chat filter or a matching rule watching that channel admits the message. Global pause and a configured protected webhook remain mandatory; Plugin retains validated endpoint and active-character checks before capture and queueing. Existing `KeywordMatcher` and formatter semantics are unchanged. One formatted payload sequence combines all relevant matches; it is not a second send route. Keyword-only rewards admit matching lines before the existing quiet-period/size batching, while normally enabled rewards retain all recognized lines.
+
+Saved-rule arrows show only the rule's assigned channels through `ChannelPolicy.GetLabel()`. Expansion is transient window state, defaults collapsed and resets on character change. Keyword IDs, modes, pings, channel lists and configuration schema remain unchanged. Published source is the stable 0.5 line; the separate unreleased mobile foundation remains excluded.

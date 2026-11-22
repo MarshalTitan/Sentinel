@@ -140,3 +140,7 @@ Contents API.
 The older SRankSentinel-specific URL may remain enabled during migration, but the central URL above
 is the permanent catalog. Users should not uninstall a plugin when changing repository URLs because
 configuration continuity is tied to its unchanged `InternalName`.
+
+## Supported projects and retirements
+
+The supported installable plugins are SRankSentinel, ClassySentinel, SentinelProfiles, SentinelRelay, SentinelHUD and SentinelHub. SentinelCore remains a development library. See [project retirements](docs/RETIREMENTS.md) for withdrawn projects, direct-feed status, historical artifacts and repository archiving.

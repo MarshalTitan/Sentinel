@@ -1,5 +1,7 @@
 # Release Process
 
+> CURRENT SUPPORT OVERRIDE - 21 November 2026: PvPSentinel, SentinelHunts, SentinelRemote and MinionFrontline are retired and unsupported. Older dated versions, procedures and acceptance records below are historical evidence, not installation or future-publication instructions. See [retirement status](docs/RETIREMENTS.md). Existing supported plugin behavior and Relay remote capabilities are preserved.
+
 Applies to independent Sentinel repositories. [Inventory](SENTINEL_ECOSYSTEM.md) records published versions; [Phase 1 audit](docs/RELEASE_INFRASTRUCTURE_AUDIT.md) records infrastructure commits, checks and limits.
 
 ## Normal release contract
@@ -21,7 +23,6 @@ Permanent installation URL: https://raw.githubusercontent.com/MarshalTitan/Senti
 |---|---|---|
 | Core | Tag push or main Directory.Build.props version change; three NuGet libraries | Build/tests before publication; immutable exact-source assets, package-hashes.json (SHA256/SHA512), then public download/hash verification. No plugin ZIP/catalog entry. |
 | SRank | Main change to SRankSentinel.csproj or manual main dispatch | Event source is checked out; same-source prerelease revalidation only; public ZIP then shared action. |
-| SentinelHunts (SRank repo) | Matching v*-sentinelhunts tag or manual main dispatch | Separate immutable ZIP; shared action promotes only SentinelHunts and preserves SRank. |
 | PvP | Main/tag push; PRs build/test only | Existing release is revalidated, never overwritten; public ZIP then shared action. Main workflow-only merges do not create a new version. |
 | HUD | Main commit containing [publish-live] | Existing same-source release can be revalidated; public ZIP then shared action. Manual catalog-sync is read-only recovery with optional notification. |
 | Classy | Manual main dispatch or main change under .github/releases | No PR publication; same-source prerelease revalidation only; local/public ZIP checks then shared action. |
@@ -49,7 +50,7 @@ The central workflow runs hourly at minute 17, manually, or on plugin-released. 
 - If interrupted before child promotion, rerun the same-source release where supported; otherwise make a reviewed child-manifest recovery after validating the public ZIP. Profiles' existing-release refusal remains explicit.
 - Retired legacy **Update Plugin Entry** workflow/script and unused child upsert/duplicate waiter paths must not be restored as normal distribution.
 - Automatic downgrade protection blocks a simple version rollback. Prefer a higher version containing reverted behavior; deliberate downgrade or retirement requires coordinated review.
-- Add a registry identity only after its valid child release exists; retire registry and central entry together deliberately. Preserve SentinelHunts.
+- Add a registry identity only after its valid child release exists; retire registry and central entry together deliberately. Never restore retired identities.
 - For documentation/workflow-only work, run applicable CI and inspect the diff. Do not bump plugin versions or manufacture releases to test infrastructure.
 
 The next genuine changed-version release must demonstrate upload → child promotion → reconciliation → exact public verification. Read-only smoke and policy tests alone do not prove that future run.
@@ -425,3 +426,4 @@ HUD #20 used the existing marked main publisher. Relay #22 used `release-0.5`, b
 [Relay #24](https://github.com/MarshalTitan/SentinelRelay/pull/24) publishes **0.5.0.10** from stable source `22f4ed1a9b9e9d5b418fcc50503460d89759421e`. [Final PR CI](https://github.com/MarshalTitan/SentinelRelay/actions/runs/44958124477) and release-policy checks passed before the explicit stable `[publish-live]` merge. The stable baseline manifest was aligned with the already available 0.5.0.9 entry; the new version was not pre-advertised. [Publisher](https://github.com/MarshalTitan/SentinelRelay/actions/runs/44958239052) repeats tests/build/package checks, publishes the immutable ZIP, validates the public download, then invokes the existing pinned shared distribution action. Public ZIP independently downloaded and verified: SHA-256 `069d35061b5e5f04ccbb029b2f664feb30163ea4904141c00b6d96e8fef8bd26`; manifest version/API/required files and both bundled Core/UI DLLs match the exact vendored packages. Child manifest blob `b3e7283df5a8dca2e58bc98cf63a3613686ca6b3` and central catalog blob `7327d55c3e567148fa0dbd3c08b2b80ebcb47c12` advertise identical Relay 0.5.0.10 entries and all three release URLs. All seven other central entries are unchanged.
 
 [Main #23](https://github.com/MarshalTitan/SentinelRelay/pull/23) separately merged the focused fix without a version bump or publication marker. Core/UI pins, matching/formatter code and all unrelated plugins remain unchanged. Installed-game acceptance is separately pending in TEST_MATRIX.md.
+

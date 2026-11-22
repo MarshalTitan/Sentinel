@@ -1,5 +1,10 @@
 import { inflateRawSync } from "node:zlib";
 
+const retiredIdentities = new Set(["pvpsentinel","sentinelhunts","sentinelremote","minionfrontline"]);
+function rejectRetired(name) {
+  if (retiredIdentities.has(String(name).toLowerCase())) throw new Error('Retired plugin cannot be registered or advertised: ' + name);
+}
+
 const fourPartVersion = /^\d+\.\d+\.\d+\.\d+$/;
 const requiredTextFields = [
   "Author",
@@ -39,6 +44,7 @@ export function validateRegistry(registry) {
         throw new Error(`Registry record is missing '${field}'.`);
     }
 
+    rejectRetired(record.internalName);
     const identity = record.internalName.toLowerCase();
     if (identities.has(identity))
       throw new Error(`Duplicate registry InternalName: ${record.internalName}`);
@@ -55,6 +61,7 @@ export function validateEntry(entry, record = null) {
       throw new Error(`${entry.InternalName ?? "Catalog entry"} is missing '${field}'.`);
   }
 
+  rejectRetired(entry.InternalName);
   assertFourPartVersion(entry.AssemblyVersion, `${entry.InternalName} AssemblyVersion`);
   assertFourPartVersion(entry.TestingAssemblyVersion, `${entry.InternalName} TestingAssemblyVersion`);
   assertPositiveInteger(entry.DalamudApiLevel, `${entry.InternalName} DalamudApiLevel`);

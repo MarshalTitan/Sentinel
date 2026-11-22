@@ -1,7 +1,7 @@
 import { isDeepStrictEqual } from 'node:util';
 export const owners = Object.freeze({
-  SRankSentinel: 'MarshalTitan/SRankSentinel', SentinelHunts: 'MarshalTitan/SRankSentinel',
-  PvPSentinel: 'MarshalTitan/PvPSentinel', SentinelHUD: 'MarshalTitan/SentinelHUD',
+  SRankSentinel: 'MarshalTitan/SRankSentinel',
+  SentinelHUD: 'MarshalTitan/SentinelHUD',
   ClassySentinel: 'MarshalTitan/ClassySentinel', SentinelProfiles: 'MarshalTitan/SentinelProfiles',
   SentinelRelay: 'MarshalTitan/SentinelRelay', SentinelHub: 'MarshalTitan/SentinelHub',
 });
@@ -17,7 +17,7 @@ export function compareVersions(a, b) {
 export function contract(repository, name, version, tag) {
   if (owners[name] !== repository) throw new Error('Unapproved repository/InternalName ownership');
   versionParts(version);
-  const expectedTag = 'v' + version + (name === 'SentinelHunts' ? '-sentinelhunts' : '');
+  const expectedTag = 'v' + version;
   if (tag !== expectedTag) throw new Error('Release tag does not match version/identity');
   return { repository, name, version, tag,
     asset: 'https://github.com/' + repository + '/releases/download/' + tag + '/' + name + '.zip' };

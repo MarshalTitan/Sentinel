@@ -1,5 +1,7 @@
 # Public tester-identity cleanup
 
+> HISTORICAL RECORD: inventory, artifacts and procedures describe the audit date only. Retired projects are no longer supported or offered; [current retirement status](RETIREMENTS.md) supersedes their former publication instructions.
+
 Completed 18 November 2026. This record intentionally uses generic tester labels.
 
 ## Scope and previous work

@@ -5,7 +5,7 @@ const repository = env.SENTINEL_REPOSITORY || env.GITHUB_REPOSITORY;
 const name = env.SENTINEL_INTERNAL_NAME;
 const source = JSON.parse(await readFile(env.SENTINEL_MANIFEST || 'repo.json', 'utf8'));
 const version = env.SENTINEL_VERSION || entry(source, name).AssemblyVersion;
-const tag = env.SENTINEL_TAG || 'v' + version + (name === 'SentinelHunts' ? '-sentinelhunts' : '');
+const tag = env.SENTINEL_TAG || 'v' + version;
 const c = contract(repository, name, version, tag);
 const publish = env.SENTINEL_PUBLISH_CHILD !== 'false';
 const sourceToken = env.SENTINEL_SOURCE_TOKEN;

@@ -1,5 +1,7 @@
 # Roadmap
 
+> CURRENT SUPPORT OVERRIDE - 21 November 2026: PvPSentinel, SentinelHunts, SentinelRemote and MinionFrontline are retired and unsupported. Older dated versions, procedures and acceptance records below are historical evidence, not installation or future-publication instructions. See [retirement status](docs/RETIREMENTS.md). Existing supported plugin behavior and Relay remote capabilities are preserved.
+
 Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this execution order on 2026-10-06 America/Toronto:
 
 1. Sentinel Modern 2 / Core 0.3: published; released consumers retain package 0.3.1.
@@ -7,7 +9,6 @@ Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this e
 3. Current-build acceptance baseline: initial live results recorded; partial acceptance is sufficient for Phase 3 design/tests, with specific UI/restart/facing and untested gameplay gates retained.
 4. Shared navigation and diagnostics foundations: Core 0.4.1.0 published with passing isolated tests; supervised consumer proof pending.
 5. SRankSentinel incremental reliability migration: PR #25 prepares session-only opt-in ordinary approach; do not merge/publish before live proof.
-6. PvPSentinel Frontline Brain improvements: only after automated and supervised SRank navigation proof.
 7. Sentinel Hub: explicitly reprioritized by the 2026-10-16 MVP brief; see current Hub section.
 8. Sentinel Trains: consumes proven shared navigation.
 
@@ -20,7 +21,7 @@ Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains def
 | HUD cutscene safety | User's submarine skipping retest PASS on 2026-10-06; other choice/reward behavior not tested. | Preserve the working skip path; check unrelated choice isolation at the next normal opportunity. No blanket all-cutscene acceptance. |
 | Frontline travel | Published dynamic follow, ordinary-combat travel and mount retention supersede older behavior; collision, respawn and entry-crash reports need current-build confirmation. | Supervised map-specific logs/video; classify genuine regression versus older build. STOP, death/results cancellation and no repeated failed corridor are mandatory. |
 | Configuration/UI | HUD/Classy/Profiles minimize/restore and Classy controller PASS by user report; Profiles actions clipping and full-game-restart limitation remain. | Isolated UI work: narrower responsive widths, Profiles action layout and SRank history height; preserve saved layouts and input behavior. Distinguish selected profile from active plugin states after full restart. |
-| Catalog health | Eight child/central entries match; successful reconciliation observed. | Continue checking release-to-catalog completion and warnings; preserve every approved entry, including SentinelHunts. |
+| Catalog health | Eight child/central entries match; successful reconciliation observed. | Continue checking release-to-catalog completion and warnings; preserve the six supported entries; do not restore retired identities. |
 
 ## P1 — Close verified gaps
 
@@ -36,7 +37,7 @@ Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains def
 
 **Hub** is an ecosystem control center, not a replacement for individual plugins. Show installed Sentinel plugins, versions, dependency health, readiness/connection status, quick-open actions, Profiles status and shared diagnostics. Eventually reduce duplicated ecosystem/dependency pages where appropriate. Hub 0.1 consumes ecosystem state and performs no gameplay actions. Future opt-in nonvisual utilities follow separate migration gates.
 
-**Trains** is an A-rank hunt-train automation plugin. Intended flow: train/conductor report → world/instance travel → nearest usable aetheryte → conductor/map flag → continuous flight → safe arrival → single tag → next flag. Consume shared Sentinel navigation; do not create another independent movement stack. Preserve SRankSentinel and the existing SentinelHunts identity/catalog entry.
+**Trains** is an A-rank hunt-train automation plugin. Intended flow: train/conductor report → world/instance travel → nearest usable aetheryte → conductor/map flag → continuous flight → safe arrival → single tag → next flag. Consume shared Sentinel navigation; do not create another independent movement stack. Preserve SRankSentinel. The retired experiment must not be republished.
 
 ## Current execution gate
 
@@ -332,3 +333,4 @@ HUD 0.8.9.3 currency persistence and Relay 0.5.0.8 incoming tell alerts delivere
 ## Relay keyword follow-up - 2026-11-21 America/Toronto
 
 Relay 0.5.0.10 delivers independent keyword-only monitoring and saved-channel inspection. Remaining scoped live checks: disable normal Free Company forwarding, retain a saved keyword watching FC with its configured-user ping, confirm ordinary FC text stays local and matching text arrives once with an alert/ping; enable normal FC and confirm the same matching text still arrives only once. Expand/collapse a saved rule and confirm only its saved friendly channel names appear. Pause must block keyword-only messages. This pending user test does not block the requested normal-update delivery or establish acceptance for unrelated Sentinel Remote work.
+

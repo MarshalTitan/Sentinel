@@ -5,6 +5,7 @@ import {
   generateCatalog,
   validateCatalog,
   validateEntry,
+  validateRegistry,
 } from "./catalog.mjs";
 
 test("aggregates normal multi-plugin manifests", async () => {
@@ -170,12 +171,12 @@ test("keeps deterministic explicit registry ordering", async () => {
 });
 
 test("accepts a repository-specific release tag suffix", () => {
-  const hunts = makeEntry("SentinelHunts", "0.1.1.0", "SharedRepo");
-  const url = "https://github.com/MarshalTitan/SharedRepo/releases/download/v0.1.1.0-sentinelhunts/SentinelHunts.zip";
+  const hunts = makeEntry("ExamplePlugin", "0.1.1.0", "SharedRepo");
+  const url = "https://github.com/MarshalTitan/SharedRepo/releases/download/v0.1.1.0-example/ExamplePlugin.zip";
   hunts.DownloadLinkInstall = url;
   hunts.DownloadLinkUpdate = url;
   hunts.DownloadLinkTesting = url;
-  validateEntry(hunts, record("SentinelHunts", "SharedRepo"));
+  validateEntry(hunts, record("ExamplePlugin", "SharedRepo"));
 });
 
 test("compares four-part versions numerically", () => {
@@ -238,3 +239,15 @@ function makeEntry(internalName, version, repository) {
     Tags: ["sentinel"],
   };
 }
+
+test("retired identities cannot return through registry, catalog, or fallback", async () => {
+  for (const id of ["PvPSentinel","SentinelHunts","SentinelRemote","MinionFrontline"]) {
+    for (const name of [id, id.toLowerCase()]) {
+      assert.throws(() => validateRegistry([record(name, "OldRepo")]), /Retired plugin/);
+      assert.throws(() => validateCatalog([makeEntry(name, "1.0.0.0", "OldRepo")]), /Retired plugin/);
+    }
+    let fetched = false;
+    await assert.rejects(() => generateCatalog({ registry: [record(id, "OldRepo")], currentCatalog: [makeEntry("Alpha", "1.0.0.0", "AlphaRepo")], fetchManifest: async () => { fetched = true; return []; } }), /Retired plugin/);
+    assert.equal(fetched, false);
+  }
+});

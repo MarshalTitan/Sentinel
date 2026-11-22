@@ -1,5 +1,7 @@
 # Architecture
 
+> CURRENT SUPPORT OVERRIDE - 21 November 2026: PvPSentinel, SentinelHunts, SentinelRemote and MinionFrontline are retired and unsupported. Older dated versions, procedures and acceptance records below are historical evidence, not installation or future-publication instructions. See [retirement status](docs/RETIREMENTS.md). Existing supported plugin behavior and Relay remote capabilities are preserved.
+
 Status and version snapshot: [Sentinel Ecosystem](SENTINEL_ECOSYSTEM.md). “Required” below describes the coordination contract; explicitly identified gaps are not implemented capabilities.
 
 ## Ownership and dependencies
@@ -10,7 +12,7 @@ Status and version snapshot: [Sentinel Ecosystem](SENTINEL_ECOSYSTEM.md). “Req
 | SentinelCore | Versioned shared configuration, lifecycle, diagnostics, job metadata, safe IPC and UI primitives | Required installed plugin, live service, or implicit upgrade of every consumer |
 | Each plugin | Domain policy, runtime adapters, configuration migration, window lifetime, release and evidence | Private fork of Core palettes, shells or shared widgets |
 | Sentinel Hub | Optional inventory/dependency/readiness, quick-open actions, Profiles status foundation, diagnostics; future opt-in shared utility engines | Mandatory runtime service or replacement for hunt, Frontline, gear, Profiles, Relay or visual HUD domains |
-| Future Trains | A-rank train domain policy consuming shared navigation | Replacement for SRankSentinel/SentinelHunts or another independent movement stack |
+| Future Trains | A-rank train domain policy consuming shared navigation | Replacement for SRankSentinel or another independent movement stack |
 
 Core generic code targets .NET 10 without Dalamud. Core.Dalamud and Core.UI target Windows/Dalamud API 15 and depend toward the generic library. Each consumer pins and bundles its required packages. See [Core architecture](https://github.com/MarshalTitan/SentinelCore/blob/300703b360a58fb4b73bf7675d31fe8cab4614cd/docs/ARCHITECTURE.md) and [adoption contract](https://github.com/MarshalTitan/SentinelCore/blob/300703b360a58fb4b73bf7675d31fe8cab4614cd/ADOPTION.md). Core 0.4 adds an opt-in, platform-neutral movement coordinator and diagnostics; it does not own world travel or a runtime service.
 
@@ -24,7 +26,7 @@ Confirmed responsive-UI requirements from the 2026-10-06 acceptance report (part
 
 ## Navigation and combat
 
-**Implemented:** SRank owns hunt queue/travel/tag/recovery with its local vnavmesh and travel adapters. PvP separately owns generated-route validation, bounded recovery, objective adapters, group following and provider coordination. Their released travel implementations remain independent. Core 0.4 now contains tested common movement mechanics; SRank's opt-in PR is the first proving adapter.
+**Implemented:** SRank owns hunt queue/travel/tag/recovery with its local vnavmesh and travel adapters. The former Frontline implementation is retained only as historical design evidence; it is not a supported consumer. Core 0.4 now contains tested common movement mechanics; SRank's opt-in PR is the first proving adapter.
 
 **Shared contract now implemented, consumer proof pending:** preserve one movement owner per operation, cancellation on STOP/disposal/context loss, stale-result rejection, bounded retry budgets, physical arrival evidence, and diagnostic reasons. Do not introduce a second controller that competes for the same path. Common mechanics were identified from both current implementations; keep hunt parking/SS staging and Frontline tactics separate. Cross-plugin arbitration remains planned, not guaranteed. An old operation must never stop or replace its successor's route. SRank is the first proving consumer; PvP migration is blocked until automated tests and a supervised SRank live test of the new shared implementation pass. The user's pass of existing SRank 0.7.54.0 is the comparison baseline, not fulfillment of this future gate. Core's isolated tests pass; SRank PR #25 preserves the existing path as default and restricts shared movement to an explicit session-only ordinary-approach test.
 
@@ -353,3 +355,4 @@ HUD stores the same JSON array of currency IDs, but the fixed-size property make
 Relay 0.5.0.10 uses one `InboundChatRelay` admission/batching path: an enabled normal chat filter or a matching rule watching that channel admits the message. Global pause and a configured protected webhook remain mandatory; Plugin retains validated endpoint and active-character checks before capture and queueing. Existing `KeywordMatcher` and formatter semantics are unchanged. One formatted payload sequence combines all relevant matches; it is not a second send route. Keyword-only rewards admit matching lines before the existing quiet-period/size batching, while normally enabled rewards retain all recognized lines.
 
 Saved-rule arrows show only the rule's assigned channels through `ChannelPolicy.GetLabel()`. Expansion is transient window state, defaults collapsed and resets on character change. Keyword IDs, modes, pings, channel lists and configuration schema remain unchanged. Published source is the stable 0.5 line; the separate unreleased mobile foundation remains excluded.
+

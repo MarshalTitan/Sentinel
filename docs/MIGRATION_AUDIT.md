@@ -1,5 +1,7 @@
 # Self-Healing Catalog Migration Audit
 
+> HISTORICAL RECORD: inventory, artifacts and procedures describe the audit date only. Retired projects are no longer supported or offered; [current retirement status](RETIREMENTS.md) supersedes their former publication instructions.
+
 Audit date: 2026-10-05
 
 The current public `MarshalTitan/Sentinel/repo.json`, each registered child manifest, and each

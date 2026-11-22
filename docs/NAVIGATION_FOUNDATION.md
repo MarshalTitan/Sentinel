@@ -1,5 +1,7 @@
 # Phase 3 — shared navigation and diagnostics evidence
 
+> HISTORICAL RECORD: inventory, artifacts and procedures describe the audit date only. Retired projects are no longer supported or offered; [current retirement status](RETIREMENTS.md) supersedes their former publication instructions.
+
 Verified 2026-10-07 UTC. Engineering foundations are complete enough for a controlled SRank proving run. **Live validation is the next gate; broader adoption is not approved.**
 
 ## Changes and publication

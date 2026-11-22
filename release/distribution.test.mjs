@@ -4,7 +4,7 @@ import { verificationTargets, requireCandidateChild, publishedOwners, registered
 const c = contract('MarshalTitan/SRankSentinel', 'SRankSentinel', '0.7.55.0', 'v0.7.55.0');
 const old = { InternalName: c.name, AssemblyVersion: '0.7.54.0', TestingAssemblyVersion: '0.7.54.0',
   Name: 'S Rank Sentinel', LastUpdate: 1, DownloadLinkInstall: 'old', DownloadLinkUpdate: 'old', DownloadLinkTesting: 'old' };
-const sibling = { InternalName: 'SentinelHunts', AssemblyVersion: '0.1.1.0', Extra: ['preserve'] };
+const sibling = { InternalName: 'ClassySentinel', AssemblyVersion: '0.8.6.1', Extra: ['preserve'] };
 test('ownership prevents writing central or unrelated repositories', () => {
   assert.throws(() => contract('MarshalTitan/Sentinel', c.name, c.version, c.tag));
   assert.throws(() => contract('MarshalTitan/PvPSentinel', c.name, c.version, c.tag));
@@ -12,7 +12,7 @@ test('ownership prevents writing central or unrelated repositories', () => {
 test('tags and four-part versions are identity scoped', () => {
   assert.throws(() => contract(c.repository, c.name, '1.2', 'v1.2'));
   assert.throws(() => contract(c.repository, 'SentinelHunts', '0.1.2.0', 'v0.1.2.0'));
-  assert.equal(contract(c.repository, 'SentinelHunts', '0.1.2.0', 'v0.1.2.0-sentinelhunts').name, 'SentinelHunts');
+  for (const name of ['SentinelHunts','PvPSentinel','SentinelRemote','MinionFrontline']) assert.throws(() => contract('MarshalTitan/' + name, name, '1.0.0.0', 'v1.0.0.0'));
 });
 test('missing and duplicate identities fail closed', () => {
   assert.throws(() => entry([], c.name)); assert.throws(() => entry([old, old], c.name)); assert.throws(() => entry(old, c.name));

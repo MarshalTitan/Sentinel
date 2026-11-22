@@ -13,18 +13,6 @@
   },
   {
     "owner": "MarshalTitan",
-    "repository": "PvPSentinel",
-    "branch": "main",
-    "internalName": "PvPSentinel"
-  },
-  {
-    "owner": "MarshalTitan",
-    "repository": "SRankSentinel",
-    "branch": "main",
-    "internalName": "SentinelHunts"
-  },
-  {
-    "owner": "MarshalTitan",
     "repository": "SentinelProfiles",
     "branch": "main",
     "internalName": "SentinelProfiles"

@@ -1,5 +1,7 @@
 # Phase 1 release infrastructure audit
 
+> HISTORICAL RECORD: inventory, artifacts and procedures describe the audit date only. Retired projects are no longer supported or offered; [current retirement status](RETIREMENTS.md) supersedes their former publication instructions.
+
 Verified 2026-10-07 UTC / 2026-10-06 America/Toronto. PR #2 was already merged before the confirmed Hub/Trains instruction; PR #3 records that follow-up. All plugin work was performed through GitHub and hosted Actions.
 
 ## Merged changes

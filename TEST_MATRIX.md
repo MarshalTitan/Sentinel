@@ -11,7 +11,6 @@ Automation validates deterministic behavior and packaging; it cannot certify gam
 | Catalog | Node generator tests; schema, registry, version/URL validation; candidate generation with asset verification; PowerShell Test-Catalog; diff against checked-in catalog | Install/update through the permanent URL; installed version matches intended artifact. No game needed for aggregation itself. |
 | Core/UI | Core.Tests (including navigation ownership/readiness/cancellation/stale-path/budget/progress/flight/export scenarios) and Core.UI.Tests; generic Linux tests; Windows API 15 build/pack | Consumer rendering at actual scale, theme choice, motion, keyboard/controller, minimize/drag/restore and restart. Renderer tests do not replace this. |
 | SRank | StateTests, UiTests; Faloop catalog, travel restore, field recovery and Modern integration audits; package checks | Same-DC intake/dedup, disabled expansions, zoning/mesh wait, two bounded 10-second takeoff cycles, parking/facing, one tag, SS staging, live-entity exit veto, death/raise/Return and reward-credit correlation. |
-| PvP | Tests/PvPSentinel.LogicTests.csproj; relationship/lifecycle, route/recovery, provider/native policies and package validation | Five-map cases below; entry/reconnect/respawn, ordinary-combat travel, provider loss, stale path results, STOP, mount retention and obstacle recovery. Native Shadow must cause no target/action writes. |
 | HUD | Core.Tests, UI.Tests, Core UI checks, catalog-policy and package tests | Click/context-menu layering, resize/persistence, native target anchor, elevated marker, highlight colors, zoom after death; dialogue/choice boundaries. Submarine skipping passed the user's 2026-10-06 retest; unrelated choice/reward behavior remains untested. |
 | Classy | tests/ClassySentinel.PositionTests plus Core hash/build checks | R3 open/cancel, D-pad/Cross/Circle capture only during selection, no target interference, exact alternate gear set, missing/renamed/reused references, settings/minimize and restart position. |
 | Profiles | SentinelProfiles.Core.Tests and package checks | Disable-before-enable, Leave Alone, missing/unsupported plugins, self-unload protection, failures/drift, selected/last-applied persistence. Separately demonstrate actual loaded states after restart. |
@@ -19,7 +18,9 @@ Automation validates deterministic behavior and packaging; it cannot certify gam
 
 Do not claim all scenario rows are already automated: harness names identify existing entry points; new failure-specific cases must be added where absent. Published binaries and passing policy tests are not live acceptance.
 
-## Frontline map gates
+## Historical Frontline map gates - retired project
+
+These former PvPSentinel acceptance procedures are retained as engineering history. They are not current support requirements or planned Sentinel work; its feeds and publishers are retired.
 
 | Map | Current source capability | Outstanding supervised gate |
 |---|---|---|

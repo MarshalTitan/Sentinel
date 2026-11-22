@@ -15,9 +15,9 @@ reconciled.
 ## Source-of-truth architecture
 
 Each installable plugin repository owns its authoritative `repo.json`, release ZIP, icon, version,
-Dalamud API level, description, tags, and other plugin-specific metadata. A source repository may
-own more than one installable plugin; for example, `SRankSentinel` owns both `SRankSentinel` and
-`SentinelHunts` entries.
+Dalamud API level, description, tags, and other plugin-specific metadata. The current catalog
+contains only SRankSentinel, ClassySentinel, SentinelProfiles, SentinelRelay, SentinelHUD and
+SentinelHub. See [retired projects and installation safeguards](docs/RETIREMENTS.md).
 
 This central repository owns:
 

@@ -2,7 +2,7 @@
 
 > CURRENT SUPPORT OVERRIDE - 21 November 2026: PvPSentinel, SentinelHunts, SentinelRemote and MinionFrontline are retired and unsupported. Older dated versions, procedures and acceptance records below are historical evidence, not installation or future-publication instructions. See [retirement status](docs/RETIREMENTS.md). Existing supported plugin behavior and Relay remote capabilities are preserved.
 
-Verified **2026-11-01 America/Toronto for coordinated Death Recaps delivery**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
+Retirement inventory verified **2026-11-21 America/Toronto**; prior coordinated Death Recaps evidence is dated **2026-11-01 America/Toronto**; earlier dated gameplay evidence retains its original scope. This is the coordination index; [Architecture](ARCHITECTURE.md), [Roadmap](ROADMAP.md), [Release process](RELEASE_PROCESS.md), and [Test matrix](TEST_MATRIX.md) own their respective detail.
 
 ## Operating agreement and evidence
 
@@ -25,11 +25,11 @@ Supported pre-Hub consumers bundle Core UI **0.3.1.1**; Hub bundles **0.4.1.1**.
 | SentinelCore | [v0.4.1.0](https://github.com/MarshalTitan/SentinelCore/releases/tag/v0.4.1.0); NuGet 0.4.1 | Additive navigation, bounded opt-in physical landing and sanitized diagnostics; UI APIs unchanged. Existing consumers retain 0.3.1. No installed Core plugin/catalog entry. |
 | Central Sentinel | [current catalog](https://github.com/MarshalTitan/Sentinel/blob/main/repo.json) | Approved registry, deterministic aggregation, validation, last-known-good fallback and automated reconciliation. |
 | SRankSentinel | [v0.7.73.0](https://github.com/MarshalTitan/SRankSentinel/releases/tag/v0.7.73.0) (prerelease) | S/SS report intake, same-DC queue/travel, safe parking, one gated tag, positive kill evidence and recovery; companion/history UI. |
-| SentinelHUD | [v0.8.9.4](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.9.4) | Visual HUD, existing encounter features and live Targeting Me Counter; bounded deaths-only v1 history for Hub reuses its scan. Currency Tracker preserves saved selections on reload. Utility engines remain in Hub. |
+| SentinelHUD | [v0.8.9.5](https://github.com/MarshalTitan/SentinelHUD/releases/tag/v0.8.9.5) | Visual HUD, existing encounter features and live Targeting Me Counter; bounded deaths-only v1 history for Hub reuses its scan. Currency Tracker preserves saved selections on reload. Utility engines remain in Hub. |
 | ClassySentinel | [v0.8.6.1](https://github.com/MarshalTitan/ClassySentinel/releases/tag/v0.8.6.1) (prerelease) | Exact gear-set launcher, dynamic job classification, multiple sets and scoped controller capture. |
 | SentinelProfiles | [v0.2.1.15](https://github.com/MarshalTitan/SentinelProfiles/releases/tag/v0.2.1.15) (prerelease) | Manual three-state profiles, drift/server-info reporting and cached versioned Hub overview with guarded open-only action. Apply/restart semantics and Core UI 0.3.1 remain unchanged; combined live validation pending. |
 | SentinelRelay | [v0.5.0.10](https://github.com/MarshalTitan/SentinelRelay/releases/tag/v0.5.0.10) | Per-character webhooks, authorized replies, hunt rewards, opt-in game-window screenshots and SRank recovery controls. Keyword rules independently monitor their saved channels, with one delivery/ping and expandable saved-channel summaries. Stable 0.5 source; unreleased mobile work is excluded. |
-| Sentinel Hub | [v0.9.0.1](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.9.0.1) beta | Optional control center with Profiles, utilities, collections/inspection, Treasure Maps and local Death Recaps. Duty snapshots are enabled; experimental direct action capture stays Off. Targeter evidence is separate from damage. Previous performance behaviour and Core/UI 0.4.1 are preserved; actual game validation remains pending. |
+| Sentinel Hub | [v0.9.0.2](https://github.com/MarshalTitan/SentinelHub/releases/tag/v0.9.0.2) beta | Optional control center with Profiles, utilities, collections/inspection, Treasure Maps and local Death Recaps. Duty snapshots are enabled; experimental direct action capture stays Off. Targeter evidence is separate from damage. Previous performance behaviour and Core/UI 0.4.1 are preserved; actual game validation remains pending. |
 | Sentinel Trains | Planned; scope confirmed | Independent A-rank train automation consuming future shared navigation; does not replace SRankSentinel. |
 
 GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and Profiles; release lists and exact catalog tags verified their prereleases instead. Never interpret that 404 as “unpublished.”
@@ -38,7 +38,7 @@ GitHub's stable-only latest-release endpoint returned 404 for SRank, Classy and 
 
 - The unchanged released-consumer UI baseline is **0.3.1**, tag **v0.3.1.0**, commit `300703b360a58fb4b73bf7675d31fe8cab4614cd`. UI package release-metadata SHA-256: `e1a9ce4e1ce36042c0fcd53f4c23874d918640be10eef16c21f1cd436c6ba747`. This audit read GitHub's digest; it did not independently download/hash the package.
 - SRank source includes direct Faloop integration as well as HuntAlerts/Sonar despite older introductory descriptions. Personal reward credit is distinct from report/tag/kill evidence; [Plugin.History.cs](https://github.com/MarshalTitan/SRankSentinel/blob/0731a00e9186ec916718e6c031d4f0b163a6a3e6/Plugin.History.cs) gates receipt matching and enabled-expansion recording.
-- PvP [readiness code](https://github.com/MarshalTitan/PvPSentinel/blob/d47e8b7429c135fec2976c1e980175f33787c4f3/Strategy/FrontlinePilotReadiness.cs) permits travel with responsive, loaded RSR even when its mode reports Off. Generic external/native modes do not satisfy the current automatic-pilot connection gate. Queue/requeue remains disabled.
+- Historical, retired PvPSentinel [readiness code](https://github.com/MarshalTitan/PvPSentinel/blob/d47e8b7429c135fec2976c1e980175f33787c4f3/Strategy/FrontlinePilotReadiness.cs) permits travel with responsive, loaded RSR even when its mode reports Off. Generic external/native modes do not satisfy the current automatic-pilot connection gate. Queue/requeue remains disabled.
 - Relay's earlier hosted-service/slash-command architecture is superseded. Its prefixes are ordinary Discord messages polled by the plugin, not registered application commands.
 - HUD/Classy/Profiles Modern minimize/restore and Classy controller behavior passed the user's 2026-10-06 report. Do not extend that acceptance to untested consumers or all full-game restart semantics.
 
@@ -55,7 +55,7 @@ These are source snapshots, not a claim that every head is a release tag target;
 - [SentinelProfiles `23610575f0a9`](https://github.com/MarshalTitan/SentinelProfiles/commit/23610575f0a9f20a31f003866cfcb60ea1b4caf8)
 - [SentinelRelay `d2401031bd20`](https://github.com/MarshalTitan/SentinelRelay/commit/d2401031bd20430c37d2bc0d64a98aa17c157954)
 
-## Release-infrastructure phase completed
+## Historical release-infrastructure phase completed
 
 Phase 1 merged in all six child repositories; see [release process](RELEASE_PROCESS.md) and [audit/evidence](docs/RELEASE_INFRASTRUCTURE_AUDIT.md). One pinned CI action in Sentinel maintains child manifests and verifies exact public distribution with optional notification. This introduces no runtime plugin coupling. Classy PR publication and asset replacement were removed; SentinelHunts now has a complete child-manifest path. Published plugin versions and all seven catalog entries were unchanged by Phase 1. Core subsequently advanced to 0.4.0 for isolated Phase 3 foundations.
 

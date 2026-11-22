@@ -9,8 +9,8 @@ Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this e
 3. Current-build acceptance baseline: initial live results recorded; partial acceptance is sufficient for Phase 3 design/tests, with specific UI/restart/facing and untested gameplay gates retained.
 4. Shared navigation and diagnostics foundations: Core 0.4.1.0 published with passing isolated tests; supervised consumer proof pending.
 5. SRankSentinel incremental reliability migration: PR #25 prepares session-only opt-in ordinary approach; do not merge/publish before live proof.
-7. Sentinel Hub: explicitly reprioritized by the 2026-10-16 MVP brief; see current Hub section.
-8. Sentinel Trains: consumes proven shared navigation.
+6. Sentinel Hub: explicitly reprioritized by the 2026-10-16 MVP brief; see current Hub section.
+7. Sentinel Trains: consumes proven shared navigation.
 
 Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains deferred until its shared-navigation prerequisites are proven.
 
@@ -19,9 +19,8 @@ Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains def
 | Track | Evidence/status | Next deliverable and exit gate |
 |---|---|---|
 | HUD cutscene safety | User's submarine skipping retest PASS on 2026-10-06; other choice/reward behavior not tested. | Preserve the working skip path; check unrelated choice isolation at the next normal opportunity. No blanket all-cutscene acceptance. |
-| Frontline travel | Published dynamic follow, ordinary-combat travel and mount retention supersede older behavior; collision, respawn and entry-crash reports need current-build confirmation. | Supervised map-specific logs/video; classify genuine regression versus older build. STOP, death/results cancellation and no repeated failed corridor are mandatory. |
 | Configuration/UI | HUD/Classy/Profiles minimize/restore and Classy controller PASS by user report; Profiles actions clipping and full-game-restart limitation remain. | Isolated UI work: narrower responsive widths, Profiles action layout and SRank history height; preserve saved layouts and input behavior. Distinguish selected profile from active plugin states after full restart. |
-| Catalog health | Eight child/central entries match; successful reconciliation observed. | Continue checking release-to-catalog completion and warnings; preserve the six supported entries; do not restore retired identities. |
+| Catalog health | Six supported child/central entries; retired feeds and publishers withdrawn. | Continue checking release-to-catalog completion and warnings; preserve supported entries; do not restore retired identities. |
 
 ## P1 — Close verified gaps
 
@@ -30,8 +29,6 @@ Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains def
 - **Responsive UI — Profiles 0.2.1.3 shipped independently; visual/controller proof pending, other consumers still backlog:** fix Profiles PROFILE ACTIONS clipping; allow smaller supported widths across consumers with wrapping/reflow and reachable controls; preserve stored sizes/positions, Classic and controller/keyboard behavior. Audit Core shell and consumer limits before lowering minima. In SRank, bottom-anchor Clear History controls and allocate remaining panel height to scrollable SPAWN REPORTS so taller windows expose more than two rows. Keep UI fixes separate from navigation.
 - **SRank facing — current reported defect:** ordinary travel, fluid flight, configured-% Tomahawk and reward-wait/return passed, but arrival still faces away or sideways. Investigate the bounded parking/facing policy independently; preserve the accepted tag and movement-after-tag behavior.
 - **SRank history/credit:** enabled-expansion recording, reward matching, one report list, clear control and tagged activity presentation are in source. Verify positive receipt correlation in-game; capped currency, missing reward lines and localization can leave a valid tag credit-unconfirmed. Do not equate a kill report with personal credit.
-- **Five-map evidence:** prioritize Onsal discovery per the available user request, then resolve remaining Secure semantics and regressions on Worqor/Seal Rock/Shatter. Recognition, destination discovery, objective meaning and tactical acceptance are separate gates.
-- **Native MCH:** preserve Shadow-first diagnostics and independent implementation; prove action IDs, defensive preemption and target safety with supervised evidence before expanding automation. Queue/requeue remains disabled pending an explicit tested milestone.
 
 ## Sentinel Hub and Sentinel Trains — confirmed future scope
 
@@ -41,9 +38,9 @@ Hub was explicitly reprioritized by the 2026-10-16 MVP brief. Trains remains def
 
 ## Current execution gate
 
-The [2026-10-06 live acceptance record](TEST_MATRIX.md#current-build-supervised-acceptance) justified Phase 3. Core 0.4 is now published and tested; [SRank PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25) awaits a **supervised opt-in proving run** before merge or catalog release. This does not close all Phase 2 gates. UI fixes, Profiles full-restart diagnosis, HUD unrelated choices and PvP's untested baseline remain separate work. No blanket migration/release readiness is implied.
+The [2026-10-06 live acceptance record](TEST_MATRIX.md#current-build-supervised-acceptance) justified Phase 3. Core 0.4 is now published and tested; [SRank PR #25](https://github.com/MarshalTitan/SRankSentinel/pull/25) awaits a **supervised opt-in proving run** before merge or catalog release. This does not close all Phase 2 gates. UI fixes, Profiles full-restart diagnosis and HUD unrelated choices remain separate work. No blanket migration/release readiness is implied.
 
-Preserve the working SRank travel flow as the reference and rollback path. A new supervised SRank test of the prepared shared implementation is required before broader rollout or PvP migration; today's old-implementation pass cannot satisfy that gate. Obtain the current PvP baseline before modifying its movement. The historical Hub deferral is superseded by the 2026-10-16 MVP brief; Trains remains deferred.
+Preserve the working SRank travel flow as the reference and rollback path. A new supervised SRank test of the prepared shared implementation is required before broader rollout; an old-implementation pass cannot satisfy that gate. The historical Hub deferral is superseded by the 2026-10-16 MVP brief; Trains remains deferred. PvPSentinel migration, map acceptance and native combat expansion are withdrawn from the active roadmap.
 
 ## P2 — Shared foundations after evidence
 
@@ -51,7 +48,7 @@ Implemented in Core 0.4: operation ownership/cancellation, stale-result rejectio
 
 SRank migration must preserve hunt parking, S/SS staging, one tag per real pull, positive reset/death evidence and recovery. Prove zone-mesh readiness, mount/takeoff, continuous flight and usable-aetheryte selection before broad rollout.
 
-Future Frontline Brain work includes allied proximity clustering, meaningful field groups, switch hysteresis, smoothed centroids/velocity and short lead, mounted-group and enemy awareness, formation/role positioning, destination commitment/repath cooldown, bounded perpendicular recovery and target scoring. Preserve map safety policies; recognition does not prove objective semantics. All Frontline changes require supervised acceptance.
+Former Frontline Brain plans and map/combat acceptance records below are historical engineering context only. They do not authorize development or publication of the retired project.
 
 Close roadmap items only with a source/release link plus automated evidence and, where required, the user's in-game result. Record outstanding testing even when code is already published. The separate MINION project is not a dependency or proof of Dalamud readiness.
 

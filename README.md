@@ -2,6 +2,8 @@
 
 This repository is the permanent public catalog for independently versioned Sentinel plugins.
 
+[Navigation polish: current versions, shared design and validation](docs/NAVIGATION_POLISH.md).
+
 Add this URL under **Dalamud Settings → Experimental → Custom Plugin Repositories**:
 
 ```text

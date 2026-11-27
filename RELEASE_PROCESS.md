@@ -1,5 +1,7 @@
 # Release Process
 
+> NAVIGATION DELIVERY - 27 November 2026: shared Modern presentation and the focused SRank panel polish are published in Core 0.4.1.3, SRank 0.7.79.0, HUD 0.8.9.7, Hub 0.9.0.5, Profiles 0.2.1.17, Classy 0.8.6.3 and Relay stable 0.5.0.12. Gameplay/services remain unchanged; native automated UI validation is distinct from in-game acceptance. See [versions, scope and validation](docs/NAVIGATION_POLISH.md).
+
 > CURRENT SUPPORT OVERRIDE - 21 November 2026: PvPSentinel, SentinelHunts, SentinelRemote and MinionFrontline are retired and unsupported. Older dated versions, procedures and acceptance records below are historical evidence, not installation or future-publication instructions. See [retirement status](docs/RETIREMENTS.md). Existing supported plugin behavior and Relay remote capabilities are preserved.
 
 Applies to independent Sentinel repositories. [Inventory](SENTINEL_ECOSYSTEM.md) records published versions; [Phase 1 audit](docs/RELEASE_INFRASTRUCTURE_AUDIT.md) records infrastructure commits, checks and limits.
@@ -7,7 +9,7 @@ Applies to independent Sentinel repositories. [Inventory](SENTINEL_ECOSYSTEM.md)
 ## Normal release contract
 
 1. Inspect current source/instructions on a branch. Preserve InternalName, configuration, positions, themes and input behavior. Keep workflow/UI changes separate from gameplay.
-2. Pin approved Core packages, locks and bundled assemblies exactly; verify hashes. The six prior plugin projects retain Core 0.3.1; Hub bundles exact 0.4.1; the SRank proving branch pins published Core 0.4.1 and its verified hashes. Do not upgrade unrelated consumers implicitly.
+2. Pin approved Core packages, locks and bundled assemblies exactly; verify hashes. The six supported plugins now pin compatible Core 0.4.1.3 and verified immutable package hashes for navigation polish. The separate SRank proving branch keeps its own navigation gate. Do not upgrade unrelated consumers implicitly.
 3. Build, run relevant tests and validate the package on cloud runners. Obtain required in-game evidence before treating gameplay changes as complete. Acceptance is scoped to the tested build/scenario: the Phase 2 pass of existing SRank is a regression reference, not approval of a future shared-navigation build. UI/Profiles/facing work and unrelated choice/PvP gates remain separately recorded in the test matrix.
 4. Increment the four-part version for changed plugin content. Publish the source/tag-linked ZIP, then download and validate its public contents. Never replace an existing asset.
 5. Invoke the full-commit-pinned [shared action](.github/actions/distribute/action.yml) to promote the owning entry in the child's root repo.json. Do not pre-advertise an unavailable ZIP. The action preserves other entries, refuses downgrade/concurrent metadata overwrite and uses conditional blob-SHA writes with bounded retries.

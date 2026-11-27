@@ -1,5 +1,7 @@
 # Architecture
 
+> NAVIGATION DELIVERY - 27 November 2026: shared Modern presentation and the focused SRank panel polish are published in Core 0.4.1.3, SRank 0.7.79.0, HUD 0.8.9.7, Hub 0.9.0.5, Profiles 0.2.1.17, Classy 0.8.6.3 and Relay stable 0.5.0.12. Gameplay/services remain unchanged; native automated UI validation is distinct from in-game acceptance. See [versions, scope and validation](docs/NAVIGATION_POLISH.md).
+
 > CURRENT SUPPORT OVERRIDE - 21 November 2026: PvPSentinel, SentinelHunts, SentinelRemote and MinionFrontline are retired and unsupported. Older dated versions, procedures and acceptance records below are historical evidence, not installation or future-publication instructions. See [retirement status](docs/RETIREMENTS.md). Existing supported plugin behavior and Relay remote capabilities are preserved.
 
 Status and version snapshot: [Sentinel Ecosystem](SENTINEL_ECOSYSTEM.md). “Required” below describes the coordination contract; explicitly identified gaps are not implemented capabilities.
@@ -18,7 +20,7 @@ Core generic code targets .NET 10 without Dalamud. Core.Dalamud and Core.UI targ
 
 ## Shared UI
 
-Core 0.3.1 owns Classic and released Modern 2 primitives: compact custom header, fixed left icon rail, optional left secondary navigation, right content, responsive rows, cards/switches/status pills, ambient motion and reduced-motion behavior. Keep a single visible header in Modern, preserve Classic, and retain role/status colors that carry meaning.
+Core UI 0.4.1.3 retains Classic and Modern 2 primitives, with shared borderless navigation, tooltip bubbles and header controls: compact custom header, fixed left icon rail, optional left secondary navigation, right content, responsive rows, cards/switches/status pills, ambient motion and reduced-motion behavior. Keep a single visible header in Modern, preserve Classic, and retain role/status colors that carry meaning.
 
 Consumers own page definitions, icons, commands, window state, persistence and interactions. Minimize keeps the themed header and expand/close controls, retains expanded dimensions separately, and restores at the current position. A package update alone does not prove correct consumer integration. Verify scale, narrow widths, controller operation and reload in each consumer; no automation behavior changes should be hidden in a UI migration.
 

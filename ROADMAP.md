@@ -1,5 +1,7 @@
 # Roadmap
 
+> NAVIGATION DELIVERY - 27 November 2026: shared Modern presentation and the focused SRank panel polish are published in Core 0.4.1.3, SRank 0.7.79.0, HUD 0.8.9.7, Hub 0.9.0.5, Profiles 0.2.1.17, Classy 0.8.6.3 and Relay stable 0.5.0.12. Gameplay/services remain unchanged; native automated UI validation is distinct from in-game acceptance. See [versions, scope and validation](docs/NAVIGATION_POLISH.md).
+
 > CURRENT SUPPORT OVERRIDE - 21 November 2026: PvPSentinel, SentinelHunts, SentinelRemote and MinionFrontline are retired and unsupported. Older dated versions, procedures and acceptance records below are historical evidence, not installation or future-publication instructions. See [retirement status](docs/RETIREMENTS.md). Existing supported plugin behavior and Relay remote capabilities are preserved.
 
 Baseline: [verified inventory](SENTINEL_ECOSYSTEM.md). The user confirmed this execution order on 2026-10-06 America/Toronto:
